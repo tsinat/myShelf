@@ -1,0 +1,65 @@
+body {
+ // background-color: #4D5764;
+}
+.btn-group-lg > .btn,
+.btn-lg {
+    border-radius: 0;
+    background-color: inherit;
+    color: silver;
+}
+.navbar {
+    border-radius: 0;
+    background-color: #454C58;
+    margin-bottom: 0;
+}
+.btn-home {
+    padding: 10px 80px;
+    border-radius: 5px;
+}
+.jumbotron{
+    background-color: transparent;
+}
+.glyphicon-folder-open {
+    font-size: 4em;
+}
+.album-container {
+    width: 33%;
+    float: left;
+    /*color: skyblue;*/
+}
+.btn-add {
+    margin-top: 40px;
+}
+.img-detail {
+    width: 200px;
+    height: 200px;
+}
+.img-large {
+    width: 400px;
+    height: 500px;
+}
+.signup {
+    border-radius: 5px;
+    padding: 10px 80px;
+
+}
+.register, .login {
+    background-color: #454C58;
+}
+.currentUser {
+    float: right;
+    color: white;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+.btn, input {
+    border-radius: 0 !important;
+
+}
+.register_container{
+    background-color: #EAE4DB;
+    padding:20px 40px;
+    // box-shadow: 10px 10px 10px grey;
+    margin-bottom: 100px;
+    margin-top: 40px;
+}

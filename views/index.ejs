@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> MyShelf</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.0/angular-ui-router.js"></script>
+    <script src="/js/bundle.js" charset="utf-8"></script>
+</head>
+
+<body ng-app='myApp' ng-controller='mainCtrl'>
+    <nav class="navbar navbar-inverse">
+        <button class="btn btn-lg " ui-sref='home'>MyShelf</button>
+        <button class="btn btn-lg " ui-sref='profile'>Profile</button>
+        <!-- <button class="btn btn-lg" ui-sref='albums'>Albums</button> -->
+        <!-- <button class="btn btn-lg  " ui-sref='images'>Images</button> -->
+        <span ng-hide='currentUser'>
+            <button class="btn btn-lg" ui-sref='register'>Register</button>
+            <button class="btn btn-lg" ui-sref='login'>Login</button>
+        </span>
+        <span ng-show='currentUser'>
+            <button class="btn btn-lg" ng-click='logout()'>Logout</button>
+            <span class='currentUser'>Hello {{currentUser.email}}!</span>
+        </span>
+        </div>
+    </nav>
+    
+    <ui-view></ui-view>
+</body>
+
+</html>

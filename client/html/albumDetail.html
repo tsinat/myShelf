@@ -1,0 +1,32 @@
+<div class='container '>
+    <div class="row">
+      <div class="col-xs-4">
+          <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+          <h3>{{album.name}}</h3>
+          <button class="btn btn-primary btn-add" ng-click='showAdd()'>Add Image</button>
+      </div>
+      <div class="col-xs-8">
+          <form ng-if='showadd' ng-submit='addImage(image)'>
+              <div class="form-group">
+                  <label >Image Url:</label>
+                  <input type="text" class="form-control" ng-model='image.url' placeholder="Image url">
+              </div>
+              <div class="form-group">
+                  <label>Description:</label>
+                  <input type="text" class="form-control" ng-model='image.description' placeholder="description">
+              </div>
+              <button type="submit" class="btn btn-default" ng-click='hideAdd()'>Cancel</button>
+              <button type="submit" class="btn btn-primary"><span class='glyphicon glyphicon-plus-sign'></span></button>
+          </form>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+          <div ng-repeat='image in images' class="col-xs-3">
+              <img class='img-detail' ng-src={{image.url}} alt="" />
+              <p class="">
+                  {{image.description}}
+              </p>
+          </div>
+    </div>
+</div>
