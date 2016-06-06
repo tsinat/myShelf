@@ -1,6 +1,31 @@
-<div class='container '>
-    <h1>Profile</h1>
-    <h1>{{logedUser.email}}</h1>
+<div class=' profile'>
+    <div class="row">
+        <div class="col-xs-2 profile_left">
+            <div class="profileholder">
+                <div class="image_container">
+                    <img class='profile_picture' ng-src={{currentUser.image}} alt="" />
+                    <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile" ><span class='glyphicon glyphicon-edit'></span></span>
+                </div>
+                <h5>{{currentUser.firstName}}  {{currentUser.lastName}}</h5>
 
+            </div>
+            <div class="profile_navigator">
+                <ul>
+                    <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
+                    <li><a ui-sref="profile.listBooks">Books that I read</a></li>
+                    <li><a href="">Following</a></li>
+                    <li><a href="">Add new book</a></li>
+                    <li role="presentation" class="active"><a href="#">Notifications <span class="badge"> 42</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-8 profile_right">
 
+            <ui-view></ui-view>
+        </div>
+        <div class="col-xs-2">
+
+        </div>
+
+    </div>
 </div>

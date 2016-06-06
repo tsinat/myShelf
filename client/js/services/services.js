@@ -24,13 +24,21 @@ app.service('Auth', function($http, $q) {
     this.getProfile = () => {
         return $http.get('/users/profile')
             .then(res => {
-                console.log(res.data)
                 this.currentUser = res.data
                 return $q.resolve(res.data);
             })
             .catch(res => {
                 this.currentUser = null;
                 return $q.reject(res.data);
+            });
+    };
+    this.editPro = (id, user) => {
+        return $http.put(`/users/${id}`, user)
+            .then(res => {
+                return this.getProfile();
+            })
+            .catch(err => {
+                return $q.reject(err)
             });
     };
 });

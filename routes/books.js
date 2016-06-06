@@ -8,7 +8,6 @@ var User = require('../models/user');
 router.get('/', (req, res) => {
     Book.find({}, (err, auctions) => {
         if (err) return res.status(400).send(err);
-
         else res.send(auctions);
     });
 });
@@ -58,7 +57,6 @@ router.delete('/:id', User.isLoggedIn, (req, res) => {
 router.put('/:auctionId/addBid/:userId', User.isLoggedIn, (req, res) => {
     Book.highBid(req.params.auctionId, req.params.userId, req.body, (err, hightestBid) => {
         if (err) res.status(400).send(err);
-
         res.send(hightestBid);
     });
 });

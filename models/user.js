@@ -4,13 +4,23 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var moment = require('moment');
 var jwt = require('jsonwebtoken');
+var uuid = require('uuid');
+
+var AWS = require('aws-sdk');
+
 
 const JWT_SECRET = process.env.JWT_SECRET;
+
+var s3 = new AWS.S3();
+
+var bucketName = process.env.AWS_BUCKET;
+var urlBase = process.env.AWS_URL_BASE;
 
 var userSchema = new mongoose.Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     email: {type: String, required: true, unique: true},
+    image: { type: String},
     admin: {type: Boolean, default: false },
     password: {type: String, required: true},
     followers: [{
@@ -51,7 +61,6 @@ userSchema.statics.auth = roleRequired => {
 };
 
 userSchema.statics.isLoggedIn = (req, res, next) => {
-    // console.log('isLoggedIn:');
     var token = req.cookies.accessToken;
 
     jwt.verify(token, JWT_SECRET, (err, payload) => {
@@ -64,7 +73,6 @@ userSchema.statics.isLoggedIn = (req, res, next) => {
                 error: 'User not found'
             });
             req.user = user;
-            // console.log(req.user);
 
             next();
         }).select('-password');
@@ -128,7 +136,7 @@ userSchema.methods.generateToken = function() {
     return jwt.sign(payload, JWT_SECRET);
 };
 
-userSchema.statics.edit = (id, passedObj) => {
+userSchema.statics.edit = (id, passedObj, cb) => {
     User.findByIdAndUpdate(id, {
         $set: passedObj
     }, (err, updatedUser) => {
@@ -136,7 +144,6 @@ userSchema.statics.edit = (id, passedObj) => {
 
         updatedUser.save((err, savedUser) => {
             if (err) cb(err);
-
             cb(null, savedUser);
         });
     });
@@ -146,10 +153,56 @@ userSchema.statics.addAuction = (user, auction, cb) => {
     user.auctions.push(auction._id);
     user.save((err, addedAuction) => {
         if (err) cb(err)
-
         cb(null, addedAuction)
-    })
+    });
 }
+//add image url to the database and upload the image file to aws s3
+userSchema.statics.upload = (file, id, cb) => {
+    console.log('upload routing')
+  if(!file.mimetype.match(/image/)) {
+    return cb({error: 'File must be image.'});
+  }
+
+  var filenameParts = file.originalname.split('.');
+  console.log(filenameParts);
+  var ext;
+  if(filenameParts.length > 1) {
+    ext = '.' + filenameParts.pop();
+  } else {
+    ext = '';
+  }
+
+  var key = uuid() + `${ext}`;
+  console.log('key:', key);
+  var params = {
+    Bucket: bucketName,
+    Key: key,
+    ACL: 'public-read',
+    Body: file.buffer
+  };
+
+  console.log('id:', this);
+  s3.putObject(params, (err, result) => {
+     console.log('I think it will work');
+    if(err) return cb(err);
+
+    var imgUrl = `${urlBase}${bucketName}/${key}`;
+    var passedObj = {
+        image: imgUrl
+    }
+    User.findByIdAndUpdate(id, {$set: passedObj}, (err, updatedUser) => {
+        if (err) cb(err);
+        updatedUser.save((err, savedUser) => {
+            if (err) cb(err);
+            cb(null, savedUser);
+        });
+    });
+    // Image.create({
+    //   url: imgUrl,
+    //   name: file.originalname
+    // }, cb);
+  });
+};
 
 var User = mongoose.model('User', userSchema);
 

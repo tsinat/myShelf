@@ -2,9 +2,11 @@
 
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+
+var upload = multer({storage: multer.memoryStorage()});
 
 var User = require('../models/user');
-
 
 router.post('/register', (req, res) => {
     console.log(req.body);
@@ -20,6 +22,14 @@ router.post('/authenticate', (req, res) => {
         } else {
             res.cookie('accessToken', token).send();
         }
+    });
+});
+router.put('/image/:id', upload.single('newFile'), (req, res) => {
+    console.log('id:', id);
+    User.upload(req.file, (err, image) => {
+        console.log('image:', image);
+
+        res.status(err? 400: 200).send(err || image);
     });
 });
 router.get('/profile', User.isLoggedIn, (req, res) => {
@@ -62,8 +72,7 @@ router.delete('/:id', User.auth(), (req, res) => {
         if(err) return res.status(400).send(err);
 
         res.send();
-    })
-})
-
+    });
+});
 
 module.exports = router;

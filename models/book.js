@@ -41,10 +41,8 @@ bookSchema.statics.update = (id, currentBook, cb) => {
     var obj = currentBook;
     Book.findByIdAndUpdate(id, { $set: obj}, (err, updatedBook) => {
         if(err) cb(err);
-
         updatedBook.save((err, savedBook) => {
             if(err) cb(err);
-
             cb(null, savedBook);
         });
     });
@@ -65,16 +63,11 @@ bookSchema.statics.highBid = (bookId, userId, bid, cb) => {
     Book.findById(bookId, (err, book) => {
         console.log("book:", book);
         if(err) cb(err);
-
         var obj = {
             value: Number(bid.value),
             bider: bid.bider
         };
-        console.log('bid:', obj);
-        console.log('hightestBid:', typeof book.highestBid);
-
         book.highestBid.push(obj);
-
         book.save((err, savedBid) => {
             if(err) cb(err);
 
@@ -82,7 +75,6 @@ bookSchema.statics.highBid = (bookId, userId, bid, cb) => {
         });
     });
 }
-
 var Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;

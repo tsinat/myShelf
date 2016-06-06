@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router']);
+var app = angular.module('myApp', ['ui.router', 'ngFileUpload']);
 
 app.run(function(Auth) {
     Auth.getProfile();
@@ -36,6 +36,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
                         });
                 }
             }
+        })
+        .state('profile.listBooks', {
+            url: '/listBooks',
+            templateUrl: '/html/listBooks.html',
+            controller: 'mainCtrl'
+        })
+        .state('profile.profileEditor', {
+            url: '/profileEditor',
+            templateUrl: '/html/profileEditor.html',
+            controller: 'mainCtrl'
+        })
+        .state('profile.profileImageUpload', {
+            url: '/profileImageUpload',
+            templateUrl: '/html/profileImageUpload.html',
+            controller: 'mainCtrl'
         })
 
     $urlRouterProvider.otherwise('/');

@@ -1,0 +1,17 @@
+<div class='container upload_container'>
+    <h5>Please Select and image to set as your profile picture</h5>
+    <br>
+    <div ng-app='uploadApp' ng-controller='mainCtrl'>
+      <form name="uploadForm" ng-submit='submit()'>
+        <button class="button image_upload"
+          ng-model="file"
+          name="newFile"
+          ngf-select
+          ngf-pattern="'image/*'"
+          ngf-accept="'image/*'"
+          ngf-max-size="20MB"
+          ngf-min-height="100"><span class='glyphicon glyphicon-plus'></span></button>
+        <button class='image_upload'>Upload</button>
+      </form>
+     </div>
+</div>

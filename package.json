@@ -10,7 +10,7 @@
     "node": "5.10.1"
   },
   "dependencies": {
-    "aws-sdk": "^2.3.14",
+    "aws-sdk": "^2.3.17",
     "babel-preset-es2015": "^6.9.0",
     "bcryptjs": "^2.3.0",
     "body-parser": "~1.13.2",
@@ -43,7 +43,8 @@
     "morgan": "~1.6.1",
     "multer": "^1.1.0",
     "serve-favicon": "~2.3.0",
-    "tar": "^2.2.1"
+    "tar": "^2.2.1",
+    "uuid": "^2.0.2"
   },
   "devDependencies": {
     "gulp-plumber": "^1.1.0"

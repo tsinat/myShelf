@@ -1,5 +1,6 @@
 body {
- // background-color: #4D5764;
+    margin:0;
+    // background-color: #4D5764;
 }
 .btn-group-lg > .btn,
 .btn-lg {
@@ -16,7 +17,7 @@ body {
     padding: 10px 80px;
     border-radius: 5px;
 }
-.jumbotron{
+.jumbotron {
     background-color: transparent;
 }
 .glyphicon-folder-open {
@@ -41,10 +42,11 @@ body {
 .signup {
     border-radius: 5px;
     padding: 10px 80px;
-
 }
-.register, .login {
+.login, .register {
     background-color: #454C58;
+    padding: 5px;
+    font-size: 2em;
 }
 .currentUser {
     float: right;
@@ -54,12 +56,77 @@ body {
 }
 .btn, input {
     border-radius: 0 !important;
-
 }
-.register_container{
+.register_container {
     background-color: #EAE4DB;
-    padding:20px 40px;
+    padding: 20px 40px;
     // box-shadow: 10px 10px 10px grey;
     margin-bottom: 100px;
     margin-top: 40px;
 }
+/*Profile page*/
+.profile {
+    background-color: #E9EBEE;
+    padding-top:0;
+    padding-left:50px;
+    min-height: 1000px;
+}
+.profile_left {
+    width:20%;
+    padding-top:20px;
+}
+.profile_right {
+    background-color: white;
+    min-height: 1000px;
+    padding:40px;
+    padding-top: 10px;
+    width:60%;
+}
+.profile_picture {
+    width:150px;
+    height: 150px;
+    // border-radius: 50%;
+    border:5px solid white;
+}
+.editProfile {
+    padding:0 1px;
+    // background-color: transparent;
+    border:none;
+    position: relative;
+    bottom:60px;
+    right:25px;
+}
+.profile_navigator {
+    ul {
+        margin-top:20px;
+        list-style-type: none;
+        padding: 0!important;
+        width:100%;
+        height: 40px;
+
+        li{
+            list-style: none;
+            border-bottom: 1px solid white;
+             a {
+                text-decoration: none;
+                display: block;
+                padding: 8px 0 8px 0;
+                color: grey;
+                &:hover {
+                    color: black;
+                }
+
+            }
+        }
+    }
+}
+/*Profile page*/
+/*image upload*/
+.upload_container{
+    margin-top:40px;
+}
+.image_upload {
+    // width:100px;
+    padding: 20px 100px
+}
+/*image upload*/
