@@ -4,7 +4,7 @@
             <div class="profileholder">
                 <div class="image_container">
                     <img class='profile_picture' ng-src={{currentUser.image}} alt="" />
-                    <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile" ><span class='glyphicon glyphicon-edit'></span></span>
+                    <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
                 </div>
                 <h5>{{currentUser.firstName}}  {{currentUser.lastName}}</h5>
 
@@ -13,18 +13,32 @@
                 <ul>
                     <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
                     <li><a ui-sref="profile.listBooks">Books that I read</a></li>
-                    <li><a href="">Following</a></li>
-                    <li><a href="">Add new book</a></li>
-                    <li role="presentation" class="active"><a href="#">Notifications <span class="badge"> 42</span></a></li>
+                    <li><a ui-sref="profile.following">Following</a></li>
+                    <li><a ui-sref="profile.followers">Followers</a></li>
+                    <li><a ui-sref="profile.newBook">Add new book</a></li>
+                    <li role="presentation" class="active"><a href="">Notifications <span class="badge"> 42</span></a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-xs-8 profile_right">
+        <div class="col-xs-7 profile_right">
 
             <ui-view></ui-view>
         </div>
-        <div class="col-xs-2">
-
+        <div class="col-xs-3">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text"  ng-model='search' class="form-control text-center" id="exampleInputAmount" placeholder="Search friend">
+                        <!-- <div class="input-group-addon btn btn-block"></div> -->
+                    </div>
+                    <div ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index' class='user_list'>
+                        <img ng-src={{user.image}} class='user_list_image' alt="" />
+                        <span class='user_list_text'>
+                            {{user.firstName}} {{user.lastName}}
+                        </span>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>

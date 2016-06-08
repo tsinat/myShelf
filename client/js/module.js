@@ -52,6 +52,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/html/profileImageUpload.html',
             controller: 'mainCtrl'
         })
+        .state('profile.newBook', {
+            url: '/newBook',
+            templateUrl: '/html/newBook.html',
+            controller: 'mainCtrl'
+        })
+        .state('profile.followers', {
+            url: '/followers',
+            templateUrl: '/html/followers.html',
+            controller: 'mainCtrl'
+        })
+        .state('profile.following', {
+            url: '/following',
+            templateUrl: '/html/following.html',
+            controller: 'mainCtrl'
+        })
 
     $urlRouterProvider.otherwise('/');
 });
