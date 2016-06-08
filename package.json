@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower i && gulp build"
+    "postinstall": "gulp build"
   },
   "engines": {
     "node": "5.10.1"
