@@ -30,6 +30,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
             resolve: {
                 profile: function(Auth, $q, $state) {
                     return Auth.getProfile()
+                        .then(res => {
+                            return $q.resolve();
+                            $state.go('profile');
+                        })
                         .catch(() => {
                             $state.go('home');
                             return $q.reject();
@@ -55,7 +59,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('profile.newBook', {
             url: '/newBook',
             templateUrl: '/html/newBook.html',
-            controller: 'mainCtrl'
+            controller: 'newBookCtrl'
         })
         .state('profile.followers', {
             url: '/followers',

@@ -3,13 +3,16 @@
 var mongoose = require('mongoose');
 
 var bookSchema = new mongoose.Schema({
-    description: {type: String, required: true},
-    cover: {type: String, required: true, required:true},
+    title: {type: String, required: true},
+    author: {type: String},
+    cover: { type: String},
     category: {type: String, required: true},
+    review: { type: String, required: true},
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    highestBid: [{
-        value: {type: Number},
-        bider: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    likes: {type: Number, default: 0},
+    comments: [{
+        content: {type: String},
+        by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
     }]
 });
 
@@ -23,12 +26,11 @@ bookSchema.statics.getOne = (id, cb) => {
 bookSchema.statics.create = (bookObj, cb) => {
     console.log('book create:', bookObj);
     var book = new Book({
-        description: bookObj.description,
-        image: bookObj.image,
-        endTime: bookObj.endTime,
+        title: bookObj.title,
+        author: bookObj.author,
         category: bookObj.category,
-        owner: bookObj.owner,
-        initialBid: bookObj.initialBid,
+        review: bookObj.review,
+        owner: bookObj.owner
     });
     book.save((err, savedBook) => {
         if(err) return cb(err);

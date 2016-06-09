@@ -121,7 +121,6 @@ userSchema.statics.authenticate = (userObj, cb) => {
             });
 
             var token = dbUser.generateToken();
-
             cb(null, token, dbUser);
         });
     });
@@ -149,22 +148,22 @@ userSchema.statics.edit = (id, passedObj, cb) => {
     });
 };
 
-userSchema.statics.addAuction = (user, auction, cb) => {
-    user.auctions.push(auction._id);
-    user.save((err, addedAuction) => {
+userSchema.statics.addBook = (user, book, cb) => {
+    user.books.push(book._id);
+    user.save((err, addedBook) => {
         if (err) cb(err)
-        cb(null, addedAuction)
+        cb(null, addedBook)
     });
 }
 //add image url to the database and upload the image file to aws s3
 userSchema.statics.upload = (file, id, cb) => {
-    console.log('upload routing')
+
   if(!file.mimetype.match(/image/)) {
     return cb({error: 'File must be image.'});
   }
 
   var filenameParts = file.originalname.split('.');
-  console.log(filenameParts);
+
   var ext;
   if(filenameParts.length > 1) {
     ext = '.' + filenameParts.pop();
@@ -173,7 +172,6 @@ userSchema.statics.upload = (file, id, cb) => {
   }
 
   var key = uuid() + `${ext}`;
-  console.log('key:', key);
   var params = {
     Bucket: bucketName,
     Key: key,
@@ -181,9 +179,7 @@ userSchema.statics.upload = (file, id, cb) => {
     Body: file.buffer
   };
 
-  console.log('id:', this);
   s3.putObject(params, (err, result) => {
-     console.log('I think it will work');
     if(err) return cb(err);
 
     var imgUrl = `${urlBase}${bucketName}/${key}`;

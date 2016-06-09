@@ -9,7 +9,6 @@ var upload = multer({storage: multer.memoryStorage()});
 var User = require('../models/user');
 
 router.post('/register', (req, res) => {
-    console.log(req.body);
     User.register(req.body, (err, savedUser) => {
         res.status(err ? 400 : 200).send(err || savedUser);
     });
@@ -25,15 +24,11 @@ router.post('/authenticate', (req, res) => {
     });
 });
 router.put('/image/:id', upload.single('newFile'), (req, res) => {
-    console.log('id:', id);
     User.upload(req.file, (err, image) => {
-        console.log('image:', image);
-
         res.status(err? 400: 200).send(err || image);
     });
 });
 router.get('/profile', User.isLoggedIn, (req, res) => {
-    console.log('routing2', req.user);
     res.send(req.user);
 });
 
@@ -48,12 +43,10 @@ router.put('/:id', User.auth(), (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-    console.log('logout routing:');
     res.clearCookie('accessToken').send();
 });
 
 router.get('/', User.auth(), (req, res) => {
-    console.log('req.queries:', req.queries);
     User.find({}, (err, users) => {
         res.status(err ? 400 : 200).send(err || users);
     }).select('-password');

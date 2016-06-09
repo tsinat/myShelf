@@ -29,7 +29,6 @@
                 <div class="form-group">
                     <div class="input-group">
                         <input type="text"  ng-model='search' class="form-control text-center" id="exampleInputAmount" placeholder="Search friend">
-                        <!-- <div class="input-group-addon btn btn-block"></div> -->
                     </div>
                     <div ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index' class='user_list'>
                         <img ng-src={{user.image}} class='user_list_image' alt="" />
@@ -40,6 +39,5 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
