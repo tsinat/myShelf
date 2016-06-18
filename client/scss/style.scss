@@ -43,10 +43,14 @@ body {
     border-radius: 5px;
     padding: 10px 80px;
 }
-.login, .register {
+.login, .signup .register {
     background-color: #454C58;
     padding: 5px;
     font-size: 2em;
+}
+.signup {
+    background-color:#7f8c8d;
+    margin-bottom: 40px;
 }
 .currentUser {
     float: right;
@@ -156,10 +160,10 @@ body {
 
 }
 .homesplash {
-    background-image: url('http://i.imgur.com/KP1erIz.jpg');
+    background-image: url('http://i.imgur.com/XqmPd4X.jpg');
     width:100%;
     min-height: 600px;
     background-size: cover;
-    color:#c0392b;
+    // color:#c0392b;
 
 }
