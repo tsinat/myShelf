@@ -11,7 +11,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/',
             templateUrl: '/html/home.html',
-            controller: 'homeCtrl'
+            controller: 'loginCtrl'
         })
         .state('register', {
             url: '/register',
@@ -72,5 +72,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'mainCtrl'
         })
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/profile');
 });

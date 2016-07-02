@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp');
 
-app.controller('registerCtrl', function($scope, Auth, $state) {
+app.controller('registerCtrl', function($scope, Auth, $state, $location) {
     console.log('registerCtrl');
 
     $scope.registerForm = user => {

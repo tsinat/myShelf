@@ -6,6 +6,7 @@ var concat = require('gulp-concat');
 var nodemon = require('gulp-nodemon');
 var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
+var rimraf = require('gulp-rimraf');
 var annotate = require('gulp-ng-annotate');
 var sourcemaps = require('gulp-sourcemaps');
 var eslint = require('gulp-eslint');
@@ -46,11 +47,8 @@ gulp.task('lint', function() {
 });
 ///////////JAVASCRIPT //////////
 
-gulp.task('watch.js', function() {
-    return gulp.watch('./client/js/**/*.js', ['js'])
-});
 
-gulp.task('js', function() {
+gulp.task('js', ['clean:js'],function() {
 
     return gulp.src('./client/js/**/*.js')
         .pipe(plumber())
@@ -62,6 +60,17 @@ gulp.task('js', function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/js'));
 
+});
+
+gulp.task('watch.js', function() {
+    return gulp.watch('client/js/**/*.js', ['js'])
+});
+
+gulp.task('clean:js', function() {
+    return gulp.src('public/js', {
+            read: false
+        })
+        .pipe(rimraf());
 });
 //////// html /////////////
 gulp.task('watch.html', function() {

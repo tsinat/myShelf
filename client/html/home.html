@@ -4,28 +4,46 @@
         <div class="row">
           <div class="col-xs-6 col-xs-offset-1">
               <h1 class='text-center'>MyShelf!</h1>
+              <p>
+                  The private social network for books exchange.
+              </p>
           </div>
           <div class="col-xs-4">
               <div class='container '>
                   <div class="col-xs-4 register_container">
-                      <h1 class='text-center'>Login</h1>
-                      <form ng-submit='loginForm(user)'>
+                      <form class="form-horizontal" ng-submit='loginForm(user)'>
+                        <fieldset>
+                          <legend class='text-center'>Login</legend>
                           <div class="form-group">
-                              <label>Email:</label>
-                              <input type="email" class="form-control" ng-model='user.email' required>
+                            <label for="inputEmail" class="col-md-2 control-label">Email</label>
+
+                            <div class="col-md-10">
+                              <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model='user.email' required>
+                            </div>
                           </div>
                           <div class="form-group">
-                              <label>Password</label>
-                              <input type="password" class="form-control" ng-model='user.password' required>
+                            <label for="inputPassword" class="col-md-2 control-label">Password</label>
+
+                            <div class="col-md-10">
+                              <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model='user.password' required>
+                            </div>
                           </div>
-                          <button class="btn btn-primary btn-block login" color='white'>Login</button>
-                          <button class="btn btn-success btn-block login signup" color='white'>Sign Up</button>
+
+                          <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                              <button type="submit" class="btn btn-lg btn-block btn-raised btn-primary">Login</button>
+                              <button type="button" class="btn  btn-lg btn-block btn-raised btn-success" ui-sref='register'>Register</button>
+                            </div>
+                          </div>
+                        </fieldset>
                       </form>
                   </div>
               </div>
 
           </div>
         </div>
+
+    <!-- </div> -->
 
     <!-- </div> -->
 </div>

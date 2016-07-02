@@ -14,7 +14,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
         Auth.logout()
             .then(res => {
                 $scope.currentUser = null;
-                $state.go('login');
+                $state.go('home');
             });
     };
     $scope.showadd = false;
@@ -48,6 +48,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
             })
             .then(res => {
                 console.log('res:', res);
+                $state.reload();
             })
             .catch(err => {
                 console.log('err:', err);
