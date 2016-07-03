@@ -1,67 +1,13 @@
+@import 'home';
+@import 'main';
+
 body {
     margin:0;
-    background-color: silver;
+    // background-color: silver;
     overflow-x: hidden;
 }
-.btn-group-lg > .btn,
-.btn-lg {
-    border-radius: 0;
-    background-color: inherit;
-    color: silver;
-}
-.navbar {
-    border-radius: 0;
-    background-color: #454C58;
-    margin-bottom: 0;
-}
-.btn-home {
-    padding: 10px 80px;
-    border-radius: 5px;
-}
-.jumbotron {
-    background-color: transparent;
-}
-.glyphicon-folder-open {
-    font-size: 4em;
-}
-.album-container {
-    width: 33%;
-    float: left;
-    /*color: skyblue;*/
-}
-.btn-add {
-    margin-top: 40px;
-}
-.img-detail {
-    width: 200px;
-    height: 200px;
-}
-.img-large {
-    width: 400px;
-    height: 500px;
-}
-.signup {
-    border-radius: 5px;
-    padding: 10px 80px;
-}
-.login, .signup .register {
-    background-color: transparent !important;
-    padding: 5px;
-    font-size: 2em;
-}
-.signup {
-    background-color: transparent !important;
-    margin-bottom: 40px;
-}
-.currentUser {
-    float: right;
-    color: white;
-    margin-right: 30px;
-    margin-top: 10px;
-}
-.btn, input {
-    border-radius: 0 !important;
-}
+
+
 .register_container {
     background-color: white;
     padding: 20px 40px;
@@ -69,80 +15,8 @@ body {
     margin-bottom: 100px;
     margin-top: 40px;
 }
-/*Profile page*/
-.profile {
-    background-color: #ecf0f1;
-    padding-top:0;
-    padding-left:50px;
-    min-height: 700px;
-    height: auto;
-}
-.profile_left {
-    width:15%;
-    padding-top:20px;
-    padding-left:0;
-}
-.profile_right {
-    background-color: white;
-    min-height: 1000px;
-    height: auto;
-    padding:40px;
-    padding-top: 10px;
-    width:60%;
-}
-.profile_picture {
-    width:150px;
-    height: 150px;
-    // border-radius: 50%;
-    border:5px solid white;
-}
-.editProfile {
-    padding:0 1px;
-    // background-color: transparent;
-    border:none;
-    position: relative;
-    bottom:60px;
-    right:25px;
-}
-.profile_navigator {
-    ul {
-        margin-top:20px;
-        list-style-type: none;
-        padding: 0!important;
-        width:100%;
-        height: 40px;
 
-        li{
-            list-style: none;
-            border-bottom: 1px solid white;
-             a {
-                text-decoration: none;
-                display: block;
-                padding: 8px 0 8px 0;
-                color: grey;
-                &:hover {
-                    color: black;
-                }
 
-            }
-        }
-    }
-}
-.user_list {
-    margin-top: 30px;
-    margin-left: 20px;
-}
-.user_list_image {
-    width:30px;
-    height: 30px;
-    // border-radius: 50%;
-    border: 1px solid grey;
-}
-.user_list_text {
-    // margin-left:10px;
-}
-
-/*Profile page*/
 /*image upload*/
 .upload_container{
     margin-top:40px;
@@ -164,8 +38,8 @@ body {
 
 }
 .homesplash {
-    background-image: url('http://i.imgur.com/XqmPd4X.jpg');
-    width:100%;
+    // background-image: url('http://i.imgur.com/XqmPd4X.jpg');
+    // width:100%;
     min-height: 600px;
     height: auto;
     background-size: cover;
