@@ -16,19 +16,21 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book) {
         Book.create(newBook)
             .then(res => {
                 console.log(res.data);
+                upload($scope.file, res.data._id);
+
             })
             .catch(err => {
                 console.log(err);
             })
     }
-    $scope.bookCover = () => {
-        upload($scope.file, $scope.currentUser._id);
-    };
+    // $scope.bookCover = () => {
+    //     upload($scope.file, $scope.currentUser._id);
+    // };
 
     function upload(file, id) {
         console.log(file, id);
         Upload.upload({
-                url: `/api/images/b/${id}`,
+                url: `/api/images/books/${id}`,
                 data: {
                     newFile: file
                 },
@@ -36,6 +38,7 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book) {
             })
             .then(res => {
                 console.log('res:', res);
+                $state.go('profile');
             })
             .catch(err => {
                 console.log('err:', err);

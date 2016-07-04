@@ -1,6 +1,6 @@
 <div class=' profile'>
     <div class="row">
-        <div class="col-xs-4 col-lg-2 profile_left">
+        <div class="col-xs-4 col-lg-2 profile_left sidebar_wrapper">
             <div class="profileholder">
                 <div class="image_container">
                     <img class='profile_picture' ng-src={{currentUser.image}} alt="" />
@@ -12,7 +12,7 @@
             <div class="profile_navigator">
                 <ul>
                     <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
-                    <li><a ui-sref="profile.listBooks">Books that I read</a></li>
+                    <li><a ui-sref="profile.listBooks">My Collection</a></li>
                     <li><a ui-sref="profile.following">Following</a></li>
                     <li><a ui-sref="profile.followers">Followers</a></li>
                     <li><a ui-sref="profile.newBook">Add new book</a></li>

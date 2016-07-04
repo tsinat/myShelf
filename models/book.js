@@ -1,6 +1,17 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var uuid = require('uuid');
+
+var AWS = require('aws-sdk');
+
+
+const JWT_SECRET = process.env.JWT_SECRET;
+
+var s3 = new AWS.S3();
+
+var bucketName = process.env.AWS_BUCKET;
+var urlBase = process.env.AWS_URL_BASE;
 
 var bookSchema = new mongoose.Schema({
     title: {type: String, required: true},
@@ -77,6 +88,51 @@ bookSchema.statics.highBid = (bookId, userId, bid, cb) => {
         });
     });
 }
+
+//add image url to the database and upload the image file to aws s3
+bookSchema.statics.upload = (file, id, cb) => {
+  console.log('file:', file);
+  console.log('id:', id);
+  
+  if(!file.mimetype.match(/image/)) {
+    return cb({error: 'File must be image.'});
+  }
+
+  var filenameParts = file.originalname.split('.');
+
+  var ext;
+  if(filenameParts.length > 1) {
+    ext = '.' + filenameParts.pop();
+  } else {
+    ext = '';
+  }
+
+  var key = uuid() + `${ext}`;
+  var params = {
+    Bucket: bucketName,
+    Key: key,
+    ACL: 'public-read',
+    Body: file.buffer
+  };
+
+  s3.putObject(params, (err, result) => {
+    if(err) return cb(err);
+
+    var imgUrl = `${urlBase}${bucketName}/${key}`;
+    var passedObj = {
+        cover: imgUrl
+    }
+    Book.findByIdAndUpdate(id, {$set: passedObj}, (err, updatedBook) => {
+        if (err) cb(err);
+        updatedBook.save((err, savedBook) => {
+            if (err) cb(err);
+            cb(null, savedBook);
+        });
+    });
+
+  });
+};
+
 var Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;

@@ -46,19 +46,19 @@ router.post('/logout', (req, res) => {
     res.clearCookie('accessToken').send();
 });
 
-router.get('/', User.auth(), (req, res) => {
-    User.find({}, (err, users) => {
-        res.status(err ? 400 : 200).send(err || users);
-    }).select('-password');
-});
-
 router.get('/:id', User.auth(), (req, res) => {
-    User.find(req.params.id, (err, user) => {
+    User.findById(req.params.id, (err, user) => {
         if (err) return res.status(400).send(err)
 
         res.send(user)
-    }).select('-password');
+    }).populate('books');
 });
+router.get('/', User.auth(), (req, res) => {
+    User.find({}, (err, users) => {
+        res.status(err ? 400 : 200).send(err || users);
+    }).populate('books');
+});
+
 
 router.delete('/:id', User.auth(), (req, res) => {
     User.findByIdAndRemove(req.params.id, (err, user) => {
