@@ -16,6 +16,11 @@ div.row {
     min-height: 700px;
     height: auto;
 }
+.profile_left {
+    padding-top:20px;
+    padding-left:20px;
+    display:none;
+}
 .profile_main {
     background-color: white;
     min-height: 1000px;
@@ -23,10 +28,12 @@ div.row {
     // padding:40px;
     padding-top: 10px;
 }
-.profile_left {
-    padding-top:20px;
-    padding-left:0;
+.profile_right{
+    display:none;
 }
+// .form-group.list-group {
+//     display: none;
+// }
 .profile_picture {
     width:150px;
     height: 150px;
@@ -79,8 +86,13 @@ div.row {
     // margin-left:10px;
 }
 @media (min-width: 1200px){
-    .col-lg-3 {
-      width: 25%;
+    .profile_left {
+        padding-top:20px;
+        padding-left:20px;
+        display:block;
+    }
+    .profile_right{
+        display:block;
     }
     .list-group-item {
         padding: 0 5px;
@@ -88,11 +100,12 @@ div.row {
     div.list-group-item {
         margin-bottom: 0;
         margin:0 !important;
-        padding: 0;
+        padding: 0 !important;
+        padding-left: 10px !important;
     }
     div.form-group.list-group{
         margin-top:  0;
-        padding: 0  20px 0 10px;
+        padding: 0;
     }
     div.col-xs-3 {
         padding-left: 0;

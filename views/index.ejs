@@ -3,9 +3,11 @@
 
 <head>
     <title> MyShelf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel='stylesheet' href='/css/style.css' />
 
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -28,42 +30,46 @@
 </head>
 
 <body ng-app='myApp' ng-controller='mainCtrl'>
-<div class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" ui-sref='profile'>Myshelf</a>
-    </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav">
-        <li ng-hide='currentUser'><a ui-sref='register'>Register</a></li>
-        <li ng-hide='currentUser'><a ui-sref='home'>Login</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-show='currentUser'><a ng-click='logout()' >Logout</a></li>
-        <li class="dropdown">
-          <a ui-sref='profile' data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.firstName || 'hello'}}
+    <div ng-hide='!currentUser' class="navbar navbar-default navbar-fixed-top">
+        <span class="navbar-button-o" ng-click="hideSideNav()">
+            <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
+        </span>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <!-- <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> -->
+                </button>
+                <!-- <a class="navbar-brand" ui-sref='profile'>Myshelf</a> -->
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-hide='currentUser'><a ui-sref='register'>Register</a></li>
+                    <li ng-hide='currentUser'><a ui-sref='home'>Login</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show='currentUser'><a ng-click='logout()'>Logout</a></li>
+                    <li class="dropdown">
+                        <a ui-sref='profile' data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.firstName || 'hello'}}
             <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)">Action</a></li>
-            <li><a href="javascript:void(0)">Another action</a></li>
-            <li><a href="javascript:void(0)">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)">Action</a></li>
+                            <li><a href="javascript:void(0)">Another action</a></li>
+                            <li><a href="javascript:void(0)">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="javascript:void(0)">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <ui-view></ui-view>
 </body>
 <script type="text/javascript">
     $.material.init()
 </script>
+
 </html>
