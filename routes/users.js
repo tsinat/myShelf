@@ -9,6 +9,7 @@ var upload = multer({storage: multer.memoryStorage()});
 var User = require('../models/user');
 
 router.post('/register', (req, res) => {
+    console.log('req.body:', req.body);
     User.register(req.body, (err, savedUser) => {
         res.status(err ? 400 : 200).send(err || savedUser);
     });

@@ -23,6 +23,15 @@ var userSchema = new mongoose.Schema({
     image: { type: String},
     admin: {type: Boolean, default: false },
     password: {type: String, required: true},
+    address: {
+        street: {type: String},
+        apt: {type: String },
+        city: { type: String },
+        state: { type: String },
+        postalcode: { type: String }
+    },
+    lat: { type: String },
+    lng: { type : String },
     followers: [{
         type: mongoose.Schema.Types.ObjectId, ref:'User'
     }],
@@ -96,6 +105,9 @@ userSchema.statics.register = (userObj, cb) => {
                 firstName: userObj.firstName,
                 lastName: userObj.lastName,
                 email: userObj.email,
+                address: userObj.address,
+                lat: userObj.lat,
+                lng: userObj.lng,
                 password: hash
             });
 

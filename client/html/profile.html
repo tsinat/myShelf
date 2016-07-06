@@ -1,12 +1,14 @@
 <div class=' profile'>
     <div class="row">
-        <div class="col-xs-4 col-lg-2 profile_left sidebar_wrapper">
+        <div class="col-xs-4 col-lg-2" ng-if="active" >
             <div class="profileholder">
+                <br>
                 <div class="image_container">
                     <img class='profile_picture' ng-src={{currentUser.image}} alt="" />
                     <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
                 </div>
                 <h5>{{currentUser.firstName}}  {{currentUser.lastName}}</h5>
+                <h5>{{currentUser.lat}}  {{currentUser.lng}}</h5>
 
             </div>
             <div class="profile_navigator">
@@ -20,40 +22,17 @@
                 </ul>
             </div>
         </div>
-        <div class="col-xs-8 col-lg-7 profile_main">
-
-            <ui-view>
-                <div class="">
-                    What ever Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </div>
-            </ui-view>
+        <div class="profile_main" ng-class="active?'col-lg-7 col-xs-8':'col-lg-9 col-xs-12'">
+            <button type="button" name="button" ng-click="active = !active" ng-init="active=true">toggle</button>
+            <div ui-view="main"></div>
         </div>
         <div class="col-xs-0 col-lg-3">
-            <form class="form-inline">
-                <div class="form-group list-group">
-                    <div class="input-group">
-                        <input type="text"  ng-model='search' class="form-control text-center" id="exampleInputAmount" placeholder="Search">
-                    </div>
-                    <div ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index' class='list-group-item'>
-                        <div class="list-group-item">
-                          <div class="row-picture">
-                            <img class="circle" ng-src={{user.image}} alt="">
-                          </div>
-                          <div class="row-content">
-
-                            <p class="list-group-item-text"><b>{{user.firstName}} {{user.lastName}}</b></p>
-                            <p class="list-group-item-text">Some details notes will go here</p>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
+            <div ui-view="side"></div>
         </div>
     </div>
-</div>
-<div class="footer_div">
-    <div class="text-center">
-        <a href="http://www.tsinatzeree.com" target='_blank'><p>www.tsinatzeree.com</p></a>
+    <div class="footer_div">
+        <div class="text-center">
+            <a href="http://www.tsinatzeree.com" target='_blank'><p>www.tsinatzeree.com</p></a>
+        </div>
     </div>
 </div>

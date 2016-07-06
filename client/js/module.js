@@ -28,11 +28,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: '/html/profile.html',
             controller: 'mainCtrl',
             resolve: {
-                profile: function(Auth, $q, $state) {
+                profile: function(Auth, $q, $state, $location) {
                     return Auth.getProfile()
                         .then(res => {
                             return $q.resolve();
-                            $state.go('profile');
+                            $location.path('/profile/listBooks');
                         })
                         .catch(() => {
                             $state.go('home');
@@ -43,33 +43,66 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('profile.listBooks', {
             url: '/listBooks',
-            templateUrl: '/html/listBooks.html',
-            controller: 'listBooksCtrl'
+            views: {
+                'main': {
+                    templateUrl: '/html/listBooks.html',
+                    controller: 'listBooksCtrl'
+                }
+            }
         })
         .state('profile.profileEditor', {
             url: '/profileEditor',
-            templateUrl: '/html/profileEditor.html',
-            controller: 'mainCtrl'
+            views: {
+                'main': {
+                    templateUrl: '/html/profileEditor.html',
+                    controller: 'mainCtrl'
+                }
+            }
         })
         .state('profile.profileImageUpload', {
             url: '/profileImageUpload',
-            templateUrl: '/html/profileImageUpload.html',
-            controller: 'mainCtrl'
+            views: {
+                'main': {
+                    templateUrl: '/html/profileImageUpload.html',
+                    controller: 'mainCtrl'
+                }
+            }
+
         })
         .state('profile.newBook', {
             url: '/newBook',
-            templateUrl: '/html/newBook.html',
-            controller: 'newBookCtrl'
+            views: {
+                'main': {
+                    templateUrl: '/html/newBook.html',
+                    controller: 'newBookCtrl'
+                }
+            }
         })
         .state('profile.followers', {
             url: '/followers',
-            templateUrl: '/html/followers.html',
-            controller: 'mainCtrl'
+            views: {
+                'main': {
+                    templateUrl: '/html/followers.html',
+                    controller: 'mainCtrl'
+                },
+                'side': {
+                    templateUrl:'/html/friendsList.html',
+                    controller: 'mainCtrl'
+                }
+            }
         })
         .state('profile.following', {
             url: '/following',
-            templateUrl: '/html/following.html',
-            controller: 'mainCtrl'
+            views: {
+                'main': {
+                    templateUrl: '/html/following.html',
+                    controller: 'mainCtrl'
+                },
+                'side': {
+                    templateUrl:'/html/friendsList.html',
+                    controller: 'mainCtrl'
+                }
+            }
         })
 
     $urlRouterProvider.otherwise('/profile');

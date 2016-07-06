@@ -2,11 +2,9 @@
 <h1 class='text-center'>My Collection</h1>
 <div class="col-xs-12 col-lg-4" ng-repeat='book in books' >
     <div class="book_container">
-        <img ng-src={{book.cover}} alt="" />
-        <h4>{{book.author}}</h4>
-        <p>
-            <b>{{book.category}}</b>
-        </p>
+        <img class='text-center' ng-src={{book.cover}} alt="" />
+        <h4 class=''><b>{{book.author}}</b></h4>
+        <h4 class=''><b>{{book.title}}</b></h4>
         <p>
             {{book.review}}
         </p>
