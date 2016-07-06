@@ -12,7 +12,7 @@ div.row {
     padding-top:0;
     margin-right: 0;
     padding-right: 0;
-    padding-left:30px;
+    // padding-left:30px;
     min-height: 700px;
     height: auto;
 }
@@ -22,6 +22,9 @@ div.row {
     height: 100%;
     // padding:40px;
     padding-top: 10px;
+}
+.profile_right {
+    display:none;
 }
 .profile_left {
     padding-top:20px;
@@ -79,8 +82,14 @@ div.row {
     // margin-left:10px;
 }
 @media (min-width: 1200px){
+    .profile_left {
+        padding-left: 40px;
+    }
     .col-lg-3 {
-      width: 25%;
+    //   width: 25%;
+    }
+    .profile_right {
+        display: block;
     }
     .list-group-item {
         padding: 0 5px;
