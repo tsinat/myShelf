@@ -3,14 +3,13 @@
 var app = angular.module('myApp');
 
 app.service('Auth', function($http, $q) {
-    this.register = userObj => {
+    this.register = (userObj) => {
         console.log('userobj:', userObj);
         return $http.post('/users/register', userObj);
     };
     this.login = userObj => {
         return $http.post('/users/authenticate', userObj)
             .then(res => {
-                // this.currentUser = res.data;
                 return this.getProfile();
             });
     };

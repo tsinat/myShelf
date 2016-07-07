@@ -56,7 +56,29 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
     }
     User.getAll()
         .then(res => {
-            $scope.users = res.data;
+                var temp = res.data;
+                console.log('temp:', temp);
+                $scope.users = temp.map(function(user) {
+                    if(user.lat){
+                        var R = 6371;
+                        var dLat = deg2rad($scope.currentUser.lat - user.lat); //
+                        var dLon = deg2rad($scope.currentUser.lng - user.lng);
+                        var a =
+                            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                            Math.cos(deg2rad(user.lat)) * Math.cos(deg2rad($scope.currentUser.lat)) *
+                            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                        var d = R * c; // Distance in km
+
+                        function deg2rad(deg) {
+                            return deg * (Math.PI / 180)
+                        }
+                        user.distance = d.toFixed(0);
+                        return user;
+                    }else
+                        return user;
+                });
+                console.log('users', $scope.users);
         })
         .catch(err => {
             console.log(err);

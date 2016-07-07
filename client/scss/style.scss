@@ -2,6 +2,7 @@
 @import 'main';
 @import 'listBook';
 @import "register";
+@import 'friendsList';
 
 body {
     margin:0;
@@ -22,6 +23,16 @@ body {
 }
 .navbar-default .navbar-brand {
     color: white;
+}
+.navbar-button-o {
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #ddd;
+    cursor: pointer;
+    padding: 0 10px;
+    font-size: 1.3em;
+    float:left;
 }
 .fa-bars {
     padding-top: 10px;

@@ -73,14 +73,14 @@ gulp.task('clean:js', function() {
         .pipe(rimraf());
 });
 //////// html /////////////
-gulp.task('watch.html', function() {
-    return gulp.watch('./client/html/*.html')
-});
-
 gulp.task('html', function() {
-        return gulp.src('./client/html/*.html')
+        return gulp.src('./client/html/**/*.html')
         .pipe(gulp.dest('./public/html'));
 })
+
+gulp.task('watch.html', function() {
+    return gulp.watch('./client/html/**/*.html', ['html']);
+});
 ///////  CSS ///////////
 
 

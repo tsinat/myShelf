@@ -20,11 +20,15 @@ div.row {
     background-color: white;
     min-height: 1000px;
     height: 100%;
-    // padding:40px;
     padding-top: 10px;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
 }
 .profile_right {
     display:none;
+    height: auto;
+    max-height: 1000px;
+    overflow: scroll;
 }
 .profile_left {
     padding-top:20px;

@@ -1,5 +1,5 @@
 <div class=' profile'>
-    <!-- <div class="row"> -->
+    <div class="row">
         <div class="col-xs-8 col-lg-2" ng-if="active" >
             <div class="profileholder">
                 <br>
@@ -14,7 +14,7 @@
             <div class="profile_navigator">
                 <ul>
                     <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
-                    <li><a ui-sref="profile.listBooks">My Collection</a></li>
+                    <li><a ui-sref="profile.listBooks" ng-click="active = !active">My Collection</a></li>
                     <li><a ui-sref="profile.following">Following</a></li>
                     <li><a ui-sref="profile.followers">Followers</a></li>
                     <li><a ui-sref="profile.newBook">Add new book</a></li>
@@ -29,7 +29,7 @@
         <div class="profile_right col-xs-0 col-lg-3">
             <div ui-view="side"></div>
         </div>
-    <!-- </div> -->
+    </div>
     <div class="footer_div">
         <div class="text-center">
             <a href="http://www.tsinatzeree.com" target='_blank'><p>www.tsinatzeree.com</p></a>
