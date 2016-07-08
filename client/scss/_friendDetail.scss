@@ -1,0 +1,52 @@
+.friendDetail_container {
+    max-height: 1000px;
+    overflow-y: scroll;
+    margin: 20px;
+    .single_user {
+        background: #F1F1F1;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid lightgrey;
+        height: 120px;
+        border-radius: 5px;
+        img {
+            width: 100px;
+            height: 100px;
+            float: left;
+            border-radius: 50%;
+        }
+        .profile-meta {
+            margin-top: 50px !important;
+            margin-left: 120px !important;
+        }
+    }
+    .additional-info {
+        margin-right: 10px;
+        border: 1px solid lightgrey;
+        min-height: 40px;
+        button {
+            margin: 5px;
+            background: transparent !important;
+            border: 1px solid #009688 !important;
+            border-radius: 5px;
+            color: #009688 !important;
+        }
+    }
+    .interest {
+        margin-bottom: 60px;
+    }
+    .single_book {
+        float: left;
+        box-shadow: 1px 1px 1px 1px  grey;
+        margin-right: 20px;
+        max-width: 150px;
+        min-height: 300px;
+        border: 1px solid lightgrey;
+        img {
+            width: 150px;
+            height: auto;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}

@@ -105,6 +105,8 @@ userSchema.statics.register = (userObj, cb) => {
                 firstName: userObj.firstName,
                 lastName: userObj.lastName,
                 email: userObj.email,
+                title: userObj.title,
+                about: userObj.about,
                 address: userObj.address,
                 lat: userObj.lat,
                 lng: userObj.lng,

@@ -1,0 +1,35 @@
+<div class="friendDetail_container">
+    <div class="single_user">
+        <img ng-src={{singleUser.image}} alt="" />
+        <div class="profile-meta">
+            <div class="name-line">
+                <h4><b>{{singleUser.firstName}} {{singleUser.lastName}}</b></h4>
+            </div>
+            <div class="address-line">
+                <h6>{{singleUser.address.city}} {{singleUser.address.state}}</h6>
+            </div>
+        </div>
+    </div>
+    <div class="additional-info">
+        <button class='btn  btn-success' type="button" name="button">Follow</button>
+        <button class='btn  btn-success' type="button" name="button">Private Message</button>
+    </div><br>
+    <div class="interest">
+        <h4>Interest</h4>
+        <hr>
+        <p>
+            what ever interest the user might have will be filled in here.
+        </p>
+    </div>
+    <div class="books-list">
+        <h4>Books</h4>
+        <hr>
+        <div class="single_book" ng-repeat='book in singleUser.books'>
+            <img ng-src={{book.cover}} alt="" />
+            <div class="">
+                <p>{{book.title}}</p>
+                <p>{{book.author}}</p>
+            </div>
+        </div>
+    </div>
+</div>

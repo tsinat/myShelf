@@ -3,6 +3,11 @@
 @import 'listBook';
 @import "register";
 @import 'friendsList';
+@import 'friendDetail';
+@import 'bookNew';
+@import 'profileEditor';
+@import 'buttons';
+@import 'variables';
 
 body {
     margin:0;
@@ -36,6 +41,11 @@ body {
 }
 .fa-bars {
     padding-top: 10px;
+}
+
+input, button {
+   outline: none !important;
+   // border: none !important;
 }
 .register_container {
     background-color: white;

@@ -1,6 +1,6 @@
 <div class=' profile'>
     <div class="row">
-        <div class="col-xs-8 col-lg-2" ng-if="active" >
+        <div class="profile_left col-xs-8 col-lg-2" ng-if="active" >
             <div class="profileholder">
                 <br>
                 <div class="image_container">
@@ -8,16 +8,16 @@
                     <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
                 </div>
                 <h5>{{currentUser.firstName}}  {{currentUser.lastName}}</h5>
-                <h5>{{currentUser.lat}}  {{currentUser.lng}}</h5>
 
             </div>
             <div class="profile_navigator">
                 <ul>
                     <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
                     <li><a ui-sref="profile.listBooks" ng-click="active = !active">My Collection</a></li>
+                    <li><a ui-sref="profile.newBook">Add new book</a></li>
+                    <li><a ui-sref="profile.wishList">My Wish List</a></li>
                     <li><a ui-sref="profile.following">Following</a></li>
                     <li><a ui-sref="profile.followers">Followers</a></li>
-                    <li><a ui-sref="profile.newBook">Add new book</a></li>
                     <li role="presentation" class="active"><a href="">Notifications <span class="badge"> 42</span></a></li>
                 </ul>
             </div>

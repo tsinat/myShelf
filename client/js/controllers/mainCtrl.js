@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp');
 
-app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
+app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $location) {
 
     $scope.$watch(function() {
         return Auth.currentUser;
@@ -32,6 +32,13 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
             alert('passwords must match.');
         }
         Auth.editPro($scope.currentUser._id, user)
+            .then(res => {
+                console.log(res.data);
+                $location.path('profile/listBooks');                
+            })
+            .catch(err => {
+                console.log('error while updating profile', err);
+            })
     }
     $scope.submit = () => {
         upload($scope.file, $scope.currentUser._id);
@@ -56,10 +63,12 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
     }
     User.getAll()
         .then(res => {
-                var temp = res.data;
-                console.log('temp:', temp);
-                $scope.users = temp.map(function(user) {
-                    if(user.lat){
+            var temp = res.data;
+            console.log('temp:', temp);
+            $scope.users = temp.map(function(user) {
+                if (user.lat) {
+                    // if ($scope.currentUser.address.city == user.address.city) {
+
                         var R = 6371;
                         var dLat = deg2rad($scope.currentUser.lat - user.lat); //
                         var dLon = deg2rad($scope.currentUser.lng - user.lng);
@@ -73,12 +82,14 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload) {
                         function deg2rad(deg) {
                             return deg * (Math.PI / 180)
                         }
-                        user.distance = d.toFixed(0);
+                        user.distance = d.toFixed(0) + ' miles';
                         return user;
-                    }else
-                        return user;
-                });
-                console.log('users', $scope.users);
+                    // }
+                } else {
+                    return user;
+                }
+            });
+            console.log('users', $scope.users);
         })
         .catch(err => {
             console.log(err);

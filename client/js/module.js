@@ -32,7 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     return Auth.getProfile()
                         .then(res => {
                             return $q.resolve();
-                            $location.path('/profile/listBooks');
+                            $location.path('/profile/followers');
                         })
                         .catch(() => {
                             $state.go('home');
@@ -78,6 +78,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('profile.wishList', {
+            url: '/wishList',
+            views: {
+                'main': {
+                    templateUrl: '/html/wishList.html',
+                    controller: 'wishListCtrl'
+                }
+            }
+        })
         .state('profile.followers', {
             url: '/followers',
             views: {
@@ -86,7 +95,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     controller: 'mainCtrl'
                 },
                 'side': {
-                    templateUrl:'/html/friendsList.html',
+                    templateUrl: '/html/friendsList.html',
                     controller: 'mainCtrl'
                 }
             }
@@ -99,7 +108,36 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     controller: 'mainCtrl'
                 },
                 'side': {
-                    templateUrl:'/html/friendsList.html',
+                    templateUrl: '/html/friendsList.html',
+                    controller: 'mainCtrl'
+                }
+            }
+        })
+        .state('profile.friendDetail', {
+            url: '/friendDetail/:id',
+            views: {
+                'main': {
+                    templateUrl: '/html/friendDetail.html',
+                    controller: 'friendDetailCtrl',
+                    resolve: {
+                        friend: function(User, $q, $state, $stateParams) {
+                            var id = $stateParams.id
+                            return User.getOne(id)
+                                .then(res => {
+                                    console.log('res:', res.data);
+                                    return res.data
+                                    // $state.go('profile.friendDetail');
+                                })
+                                .catch(err => {
+                                    console.log('error while getting single user', err);
+                                    $state.go('profile');
+                                });
+
+                        }
+                    }
+                },
+                'side': {
+                    templateUrl: '/html/friendsList.html',
                     controller: 'mainCtrl'
                 }
             }

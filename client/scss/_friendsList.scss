@@ -1,3 +1,44 @@
 .miles {
     color: blue;
 }
+
+@media (min-width: 1200px){
+    .form-inline {
+        // background: red;
+        padding:0;
+        margin:0;
+    }
+    .friendList_hr {
+        margin: 5px  10px 10px 20px !important;
+        padding-right:30px;
+        background: white;
+    }
+    .list-group-item:hover {
+        background: #bdc3c7;
+        border-radius: 5px;
+    }
+    div.list-group-item {
+        margin-bottom: 0;
+        margin-right: 0 !important;
+        margin-left: 20px;
+        padding: 5px !important;
+        padding-right: 20px;
+    }
+    div.form-group.list-group{
+        margin-top:  0;
+        padding: 0  1px 0 30px;
+    }
+    .circle {
+        width:50px !important;
+        height:50px !important;
+    }
+    div.col-xs-3 {
+        padding-left: 0;
+        margin-left: 0;
+    }
+    div.list-group-item.ng-scope {
+        margin: 0 !important;
+        padding: 0 !important
+    }
+
+}

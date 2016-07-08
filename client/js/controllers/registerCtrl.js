@@ -18,7 +18,7 @@ app.controller('registerCtrl', function($scope, Auth, $state, $location) {
                     Auth.register(user)
                         .then(res => {
                             Auth.login($scope.user);
-                            $state.go('profile');
+                            $location.path('/profile/listBooks');
                         })
                         .catch(res => {
                             alert(res.data.error);

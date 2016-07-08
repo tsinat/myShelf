@@ -15,10 +15,11 @@ var urlBase = process.env.AWS_URL_BASE;
 
 var bookSchema = new mongoose.Schema({
     title: {type: String, required: true},
-    author: {type: String},
+    author: {type: String, required: true},
     cover: { type: String},
-    category: {type: String, required: true},
-    review: { type: String, required: true},
+    category: {type: String},
+    review: { type: String},
+    status: { type: String},
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     likes: {type: Number, default: 0},
     comments: [{
@@ -41,6 +42,7 @@ bookSchema.statics.create = (bookObj, cb) => {
         author: bookObj.author,
         category: bookObj.category,
         review: bookObj.review,
+        status: bookObj.status,
         owner: bookObj.owner
     });
     book.save((err, savedBook) => {
@@ -93,7 +95,7 @@ bookSchema.statics.highBid = (bookId, userId, bid, cb) => {
 bookSchema.statics.upload = (file, id, cb) => {
   console.log('file:', file);
   console.log('id:', id);
-  
+
   if(!file.mimetype.match(/image/)) {
     return cb({error: 'File must be image.'});
   }
