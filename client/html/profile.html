@@ -7,20 +7,20 @@
                     <img class='profile_picture' ng-src={{currentUser.image}} alt="" />
                     <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
                 </div>
-                <h5>{{currentUser.firstName}}  {{currentUser.lastName}}</h5>
-
+                <h5>{{currentUser.firstName}}  {{currentUser.lastName}}
+                    <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
+                </h5>
             </div>
             <div class="profile_navigator">
-                <ul>
-                    <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
-                    <li><a ui-sref="#">Books Feed</a></li>
-                    <li><a ui-sref="profile.listBooks" ng-click="active = !active">My Collection</a></li>
-                    <li><a ui-sref="profile.newBook">Add new book</a></li>
-                    <li><a ui-sref="profile.wishList">My Wish List</a></li>
-                    <li><a ui-sref="profile.following(currentUser)">Following</a></li>
-                    <li><a ui-sref="profile.followers(currentUser)">Followers</a></li>
-                    <li><a ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> search Friends</a></li>
-                    <li role="presentation" class="active"><a href="">Inbox <span class="badge"> 42</span></a></li>
+                <ul style='cursor:pointer'>
+                    <li ui-sref="#">Books Feed </li>
+                    <li ui-sref="profile.listBooks" ng-click="active = !active">My Collection </li>
+                    <li ui-sref="profile.newBook">Add new book </li>
+                    <li ui-sref="profile.wishList">My Wish List </li>
+                    <li ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> search Friends </li>
+                    <li ui-sref="profile.following({id:currentUser._id})">Following </li>
+                    <li ui-sref="profile.followers({id:currentUser._id})">Followers </li>
+                    <li role="presentation" class="active">Inbox <span class="badge"> 42</span> </li>
                 </ul>
             </div>
         </div>
@@ -32,9 +32,9 @@
             <div ui-view="side"></div>
         </div>
     </div>
-    <div class="footer_div">
-        <div class="text-center">
-            <a href="http://www.tsinatzeree.com" target='_blank'><p>www.tsinatzeree.com</p></a>
-        </div>
+</div>
+<div class="footer_div">
+    <div class="text-center">
+        <a href="http://www.tsinatzeree.com" target='_blank'><p>www.tsinatzeree.com</p></a>
     </div>
 </div>

@@ -5,6 +5,9 @@
             <div class="name-line">
                 <h4><b>{{singleUser.firstName}} {{singleUser.lastName}}</b></h4>
             </div>
+            <div class="">
+                <h6>{{singleUser.title}}</h6>
+            </div>
             <div class="address-line">
                 <h6>{{singleUser.address.city}} {{singleUser.address.state}}</h6>
             </div>
@@ -33,5 +36,16 @@
                 <p>{{book.author}}</p>
             </div>
         </div>
+    </div><br>
+    <div class="wish-list">
+        <h4>Wish List</h4>
+        <hr>
+        <!-- <div class="single_book" ng-repeat='book in singleUser.wishList'>
+            <img ng-src={{book.cover}} alt="" />
+            <div class="">
+                <p>{{book.title}}</p>
+                <p>{{book.author}}</p>
+            </div>
+        </div> -->
     </div>
 </div>

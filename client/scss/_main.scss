@@ -1,5 +1,5 @@
 div.row {
-    padding:0 !important;
+    padding: 0 !important;
     margin: 0 !important;
 }
 .navbar {
@@ -9,92 +9,95 @@ div.row {
 }
 .profile {
     background-color: #ecf0f1;
-    padding-top:60px;
+    padding-top: 60px;
     margin-right: 20px;
     padding-right: 0;
-    padding-left:20px;
+    padding-left: 10px;
     min-height: 700px;
     height: auto;
-}
-.profile_main {
-    background-color: white;
-    min-height: 1000px;
-    height: 100%;
-    padding-top: 10px;
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-}
-.profile_right {
-    display:none;
-    height: auto;
-    max-height: 1000px;
-    overflow: scroll;
-}
-.profile_left {
-    padding-top:20px !important;
-    padding-left:20px !important;
-}
-.profile_picture {
-    width:150px;
-    height: 150px;
-    // border-radius: 50%;
-    border:5px solid white;
-}
-.editProfile {
-    padding:0 1px;
-    // background-color: transparent;
-    border:none;
-    position: relative;
-    bottom:60px;
-    right:25px;
-}
-.profile_navigator {
-    ul {
-        margin-top:20px;
-        list-style-type: none;
-        padding: 0!important;
-        width:100%;
-        height: 40px;
-
-        li{
-            list-style: none;
-            border: 1px solid white;
-            padding:2px 20px;
-            margin-bottom: 5px;
-             a {
-                text-decoration: none;
-                display: block;
-                padding: 8px 0 8px 0;
-                color: grey;
-            }
-            &:hover {
-                background: darken(#ecf0f1, 10);;
+    .profile_main {
+        background-color: white;
+        min-height: 1000px;
+        height: 100%;
+        padding-top: 10px;
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+    }
+    .profile_right {
+        // display: none;
+        height: auto;
+        max-height: 1000px;
+        overflow: scroll;
+    }
+    .profile_left {
+        padding-top: 20px !important;
+        padding-left: 10px !important;
+        .profile_picture {
+            width: 150px;
+            height: 150px;
+            // border-radius: 50%;
+            border: 5px solid white;
+        }
+        .edit-profile {
+            padding-left: 30px;
+        }
+        .profile_navigator {
+            ul {
+                margin-top: 20px;
+                list-style-type: none;
+                padding: 0 !important;
+                width: 100%;
+                height: 40px;
+                li {
+                    list-style: none;
+                    border: 1px solid white;
+                    padding: 10px 20px;
+                    margin-bottom: 5px;
+                    a {
+                        text-decoration: none;
+                        display: block;
+                        padding: 8px 0;
+                        color: grey;
+                    }
+                    &:hover {
+                        background: darken(#ecf0f1, 10);
+                    }
+                }
             }
         }
     }
-}
-.user_list {
-    margin-top: 30px;
-    margin-left: 20px;
-}
-.user_list_image {
-    width:30px;
-    height: 30px;
-    // border-radius: 50%;
-    border: 1px solid grey;
-}
-.user_list_text {
-    // margin-left:10px;
+    .editProfile {
+        padding: 0 1px;
+        background-color: transparent;
+        border: none;
+        position: relative;
+        bottom: 60px;
+        right: 25px;
+    }
+    .user_list {
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+    .user_list_image {
+        width: 30px;
+        height: 30px;
+        // border-radius: 50%;
+        border: 1px solid grey;
+    }
+    .user_list_text {
+        // margin-left:10px;
+    }
 }
 .footer_div {
     background: #16A085;
     padding-top: 10px;
     min-height: 40px;
+    margin-bottom: 0 !important;
     a {
         color: silver !important;
     }
 }
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
     .profile_left {
         padding-left: 20px !important;
         padding-right: 10px !important;
@@ -111,5 +114,4 @@ div.row {
     //     padding-left:0 !important;
     //     margin-left:0 !important;
     // }
-
 }

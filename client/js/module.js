@@ -88,11 +88,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
         .state('profile.followers', {
-            url: '/followers',
+            url: '/followers/:id',
             views: {
                 'main': {
                     templateUrl: '/html/followers.html',
-                    controller: 'mainCtrl'
+                    controller: 'loggedDetailsCtrl',
+                    resolve: {
+                        loggedDetails: function(User, $q, $state, $stateParams) {
+                            var id = $stateParams.id;
+                            return User.getOne(id)
+                                .then(res => {
+                                    console.log('res:', res.data);
+                                    return res.data
+                                        // $state.go('profile.friendDetail');
+                                })
+                                .catch(err => {
+                                    console.log('error while getting single user', err);
+                                    $state.go('profile');
+                                });
+                        }
+                    }
                 },
                 'side': {
                     templateUrl: '/html/friendsList.html',
@@ -101,11 +116,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
             }
         })
         .state('profile.following', {
-            url: '/following',
+            url: '/following/:id',
             views: {
                 'main': {
                     templateUrl: '/html/following.html',
-                    controller: 'mainCtrl'
+                    controller: 'loggedDetailsCtrl',
+                    resolve: {
+                        loggedDetails: function(User, $q, $state, $stateParams) {
+                            var id = $stateParams.id;
+                            return User.getOne(id)
+                                .then(res => {
+                                    console.log('res:', res.data);
+                                    return res.data
+                                        // $state.go('profile.friendDetail');
+                                })
+                                .catch(err => {
+                                    console.log('error while getting single user', err);
+                                    $state.go('profile');
+                                });
+                        }
+                    }
                 },
                 'side': {
                     templateUrl: '/html/friendsList.html',
@@ -135,7 +165,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                                 .then(res => {
                                     console.log('res:', res.data);
                                     return res.data
-                                    // $state.go('profile.friendDetail');
+                                        // $state.go('profile.friendDetail');
                                 })
                                 .catch(err => {
                                     console.log('error while getting single user', err);

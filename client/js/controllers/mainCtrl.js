@@ -3,7 +3,6 @@
 var app = angular.module('myApp');
 
 app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $location) {
-
     $scope.$watch(function() {
         return Auth.currentUser;
     }, function(newVal, oldVal) {
@@ -93,4 +92,45 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
         .catch(err => {
             console.log(err);
         })
+
+        $scope.showIfNotUser = (id) => {
+            return ! ($scope.currentUser._id == id);
+        };
+
+        //follow and unfollow in the user finder
+        $scope.flg_unfollow;
+        $scope.checkIfFollowed = (id) => {
+             return checkFollowed(id);
+        };
+
+        $scope.showIfNotUser = (id) => {
+            return ! ($scope.currentUser._id == id);
+        };
+        $scope.follow = (currentId, targetId) => {
+            User.followUnfollow(currentId, targetId)
+                .then(res => {
+                    // console.log('response after following user', res);
+                    $state.reload();
+                })
+                .catch(err => {
+                    console.log('error while following user', err);
+                })
+        };
+        $scope.unfollow = (currentId, targetId) => {
+            User.followUnfollow(currentId, targetId)
+                .then(res => {
+                    // console.log('response after following user', res);
+                    $state.reload();
+                })
+                .catch(err => {
+                    console.log('error while following user', err);
+                })
+        };
+
+        function checkFollowed(targetId){
+            $scope.flg_unfollow = $scope.currentUser.following.some((userId) => {
+                return userId == targetId;
+            });
+            return $scope.flg_unfollow;
+        }
 });

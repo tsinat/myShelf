@@ -1,7 +1,24 @@
-<div class='container '>
-    <div class="following-friends" ng-repeat='user in currentUser.following'>
-        <span>{{user.firstName}}</span>
+<div class=' '>
+    <div class='col-xs-12 col-lg-4' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index' >
+        <div class="following_user text-center">
+            <img ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer'/>
+            <div class="profile-meta">
+                <div class="name-line" style='cursor: pointer'>
+                    <a ui-sref='profile.friendDetail({id: user._id})'><h4><b>{{user.firstName}} {{user.lastName}}</b></h4></a>
+                </div>
+                <div class="address-line">
+                    <h6>{{user.address.city}} {{user.address.state}}</h6>
+                </div>
+            </div>
+            <div class="follow-container" ng-show='showIfNotUser(user._id)'>
+                <button ng-show="checkIfFollowed(user._id)" class=" btn  btn-success following" href="#" ng-click="unfollow(currentUser._id, user._id)">following</button>
+                <button ng-hide="checkIfFollowed(user._id)" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, user._id)">follow</button><br>
+            </div>
+            <div class="followers text-left">
+                <span class='left'>Followers <span class="badge">{{user.followers.length}}</span><br>
+                <span>Following <span class="badge">{{user.following.length}}</span>
+            </div>
+        </div>
     </div>
-
 
 </div>

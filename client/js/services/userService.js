@@ -7,6 +7,7 @@ app.service('User', function($http, $q) {
         return $http.get('/users')
     }
     this.getOne = id => {
+        console.log('id', id);
         return $http.get(`/users/${id}`)
     }
     this.followUnfollow = (currentId, targetId) => {

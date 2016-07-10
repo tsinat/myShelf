@@ -1,5 +1,6 @@
-<div class="" style="overflow: scroll; height:500px;">
+<!-- <div class="" style="overflow: scroll; height:500px;"> -->
 <h1 class='text-center'>My Collection</h1>
+<hr>
 <div class="col-xs-12 col-lg-4" ng-repeat='book in books' >
     <div class="book_container">
         <img class='text-center' ng-src={{book.cover}} alt="" />
@@ -11,6 +12,6 @@
     </div>
 </div>
 </div>
-<div class="">
-    <button class='btn btn-raised btn-lg' type="button" ui-sref="profile.newBook">Add Book</button>
+<div class="text-center">
+    <button class='btn btn-raised btn-lg' type="button" ui-sref="profile.newBook">Add New</button>
 </div>
