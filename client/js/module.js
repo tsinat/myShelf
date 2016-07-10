@@ -113,6 +113,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('profile.users', {
+            url: '/users',
+            views: {
+                'main': {
+                    templateUrl: '/html/searchUsers.html',
+                    controller: 'mainCtrl'
+                }
+            }
+        })
         .state('profile.friendDetail', {
             url: '/friendDetail/:id',
             views: {

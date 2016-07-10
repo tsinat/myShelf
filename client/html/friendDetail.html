@@ -10,15 +10,17 @@
             </div>
         </div>
     </div>
-    <div class="additional-info">
-        <button class='btn  btn-success' type="button" name="button">Follow</button>
+    <div ng-show='showIfNotUser(singleUser._id)' class="additional-info">
+        <button ng-show="flg_unfollow" class=" btn  btn-success following" href="#" ng-click="unfollow(currentUser._id, singleUser._id)">following</button>
+        <button ng-hide="flg_unfollow" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, singleUser._id)">follow</button>
         <button class='btn  btn-success' type="button" name="button">Private Message</button>
-    </div><br>
+    </div>
+    <br>
     <div class="interest">
-        <h4>Interest</h4>
+        <h4>About</h4>
         <hr>
         <p>
-            what ever interest the user might have will be filled in here.
+            {{singleUser.about}}
         </p>
     </div>
     <div class="books-list">

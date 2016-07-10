@@ -7,12 +7,12 @@ div.row {
     background-color: #454C58;
     margin-bottom: 0;
 }
-.profile div.row{
+.profile {
     background-color: #ecf0f1;
-    padding-top:0;
-    margin-right: 0;
+    padding-top:60px;
+    margin-right: 20px;
     padding-right: 0;
-    padding-left:30px;
+    padding-left:20px;
     min-height: 700px;
     height: auto;
 }
@@ -58,16 +58,17 @@ div.row {
 
         li{
             list-style: none;
-            border-bottom: 1px solid white;
+            border: 1px solid white;
+            padding:2px 20px;
+            margin-bottom: 5px;
              a {
                 text-decoration: none;
                 display: block;
                 padding: 8px 0 8px 0;
                 color: grey;
-                &:hover {
-                    color: black;
-                }
-
+            }
+            &:hover {
+                background: darken(#ecf0f1, 10);;
             }
         }
     }

@@ -8,14 +8,16 @@
 @import 'profileEditor';
 @import 'buttons';
 @import 'variables';
+@import 'searchUser.scss';
 
 body {
     margin:0;
-    margin-top: 60px;
+    // margin-top: 60px;
     overflow-x: hidden;
 }
 .navbar {
     position: sticky;
+    top:0;
 }
 .glyphicon-menu-hamburger {
     background-color: transparent;
@@ -77,12 +79,13 @@ input, button {
 
 }
 .homesplash {
-    // background-image: url('http://i.imgur.com/XqmPd4X.jpg');
-    // width:100%;
+    background-image: url('../../absurdity.png');
+    // background: #00aa9a;
+    margin-top: 0 !important;
     min-height: 600px;
-    height: auto;
+    height: 100vh;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     // color:#c0392b;
 
 }

@@ -1,5 +1,7 @@
 <div class='container '>
-    <h5>People that the current user is following will be listed here</h5>
+    <div class="following-friends" ng-repeat='user in currentUser.following'>
+        <span>{{user.firstName}}</span>
+    </div>
 
 
 </div>

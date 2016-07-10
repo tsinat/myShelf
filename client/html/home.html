@@ -1,50 +1,44 @@
-<div class="container homesplash">
-    <!-- <div class="jumbotron"> -->
-
-        <div class="row">
-          <div class="col-xs-0 col-lg-7">
-
-          </div>
-          <div class="col-xs-12 col-lg-5">
-              <div class=' '>
-                  <div class="login_container ">
-                      <form class="form-horizontal" ng-submit='loginForm(user)'>
-                        <fieldset>
-                          <legend class='text-center'>Login</legend>
-                          <div class="form-group">
-                            <label for="inputEmail" class="col-md-2 control-label">Email</label>
-
-                            <div class="">
-                              <input type="email" class="form-control" id="inputEmail" placeholder="" ng-model='user.email' required>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="inputPassword" class="col-md-2 control-label">Password</label>
-
-                            <div class="">
-                              <input type="password" class="form-control" id="inputPassword" placeholder="" ng-model='user.password' required>
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                            <div class="">
-                              <button type="submit" class="btn btn-lg btn-block btn-raised btn-primary">Login</button>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                  </div>
-              </div><br>
-              <div class="returning-user">
-                 <p>
-                    <a type="button" class=" " ui-sref='register'>Register</a> If you are a new User
-                 </p>
-              </div>
-
-          </div>
+<div class=" homesplash">
+    <div class="row">
+        <div class="col-xs-0 col-lg-7">
         </div>
+        <div class="col-xs-12 col-lg-5">
+            <div class=' '>
+                <div class="login_container ">
+                    <form class="form-horizontal" ng-submit='loginForm(user)'>
+                        <fieldset>
+                            <legend class='text-center'>Login</legend>
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-md-2 control-label">Email</label>
 
-    <!-- </div> -->
+                                <div class="">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="" ng-model='user.email' required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword" class="col-md-2 control-label">Password</label>
 
-    <!-- </div> -->
+                                <div class="">
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="" ng-model='user.password' required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="">
+                                    <button type="submit" class="btn btn-lg btn-block btn-raised btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="returning-user">
+                <p>
+                    <a type="button" class=" " ui-sref='register'>Register</a> If you are a new User
+                </p>
+            </div>
+
+        </div>
+    </div>
 </div>

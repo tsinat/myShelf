@@ -33,8 +33,8 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
         }
         Auth.editPro($scope.currentUser._id, user)
             .then(res => {
-                console.log(res.data);
-                $location.path('profile/listBooks');                
+                // console.log(res.data);
+                $location.path('profile/listBooks');
             })
             .catch(err => {
                 console.log('error while updating profile', err);
@@ -45,7 +45,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
     };
 
     function upload(file, id) {
-        console.log(file, id);
+        // console.log(file, id);
         Upload.upload({
                 url: `/api/images/${id}`,
                 data: {
@@ -54,7 +54,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                 method: 'PUT'
             })
             .then(res => {
-                console.log('res:', res);
+                // console.log('res:', res);
                 $state.reload();
             })
             .catch(err => {
@@ -64,7 +64,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
     User.getAll()
         .then(res => {
             var temp = res.data;
-            console.log('temp:', temp);
+            // console.log('temp:', temp);
             $scope.users = temp.map(function(user) {
                 if (user.lat) {
                     // if ($scope.currentUser.address.city == user.address.city) {
@@ -82,14 +82,13 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                         function deg2rad(deg) {
                             return deg * (Math.PI / 180)
                         }
-                        user.distance = d.toFixed(0) + ' miles';
+                        user.distance = d.toFixed(0) + ' Kilometers';
                         return user;
                     // }
                 } else {
                     return user;
                 }
             });
-            console.log('users', $scope.users);
         })
         .catch(err => {
             console.log(err);

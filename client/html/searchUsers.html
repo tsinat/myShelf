@@ -1,0 +1,25 @@
+<form class="form-inline friendlist_container">
+    <div class="row">
+        <div class="input-group search">
+            <input type="text" ng-model='search' class="form-control text-center" id="exampleInputAmount" placeholder="Search">
+        </div>
+        <div class='col-xs-12 col-lg-4' style='cursor: pointer' ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index'  ui-sref='profile.friendDetail({id: user._id})'>
+            <div class="single_users text-center">
+                <img ng-src={{user.image}} alt="" />
+                <div class="profile-meta">
+                    <div class="name-line">
+                        <h4><b>{{user.firstName}} {{user.lastName}}</b></h4>
+                    </div>
+                    <div class="address-line">
+                        <h6>{{user.address.city}} {{user.address.state}}</h6>
+                    </div>
+                </div>
+                <div class="followers text-left">
+                    <span class='left'>Followers <span class="badge">{{user.followers.length}}</span><br>
+                    <span>Following <span class="badge">{{user.following.length}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- <hr> -->
+    </div>
+</form>

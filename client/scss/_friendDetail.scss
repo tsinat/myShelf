@@ -1,7 +1,7 @@
 .friendDetail_container {
     max-height: 1000px;
     overflow-y: scroll;
-    margin: 20px;
+    padding: 20px;
     .single_user {
         background: #F1F1F1;
         padding: 10px;
@@ -31,6 +31,10 @@
             border-radius: 5px;
             color: #009688 !important;
         }
+        .following {
+            background: #009688 !important;
+            color: white !important;
+        }
     }
     .interest {
         margin-bottom: 60px;
@@ -40,10 +44,11 @@
         box-shadow: 1px 1px 1px 1px  grey;
         margin-right: 20px;
         max-width: 150px;
+        margin-bottom: 20px;
         min-height: 300px;
-        border: 1px solid lightgrey;
+        border: 5px solid lightgrey;
         img {
-            width: 150px;
+            width: 100%;
             height: auto;
             text-align: center;
             margin: 0 auto;

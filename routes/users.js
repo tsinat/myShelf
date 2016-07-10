@@ -24,11 +24,13 @@ router.post('/authenticate', (req, res) => {
         }
     });
 });
+
 router.put('/image/:id', upload.single('newFile'), (req, res) => {
     User.upload(req.file, (err, image) => {
         res.status(err? 400: 200).send(err || image);
     });
 });
+
 router.get('/profile', User.isLoggedIn, (req, res) => {
     res.send(req.user);
 });
@@ -54,18 +56,26 @@ router.get('/:id', User.auth(), (req, res) => {
         res.send(user)
     }).populate('books');
 });
+
 router.get('/', User.auth(), (req, res) => {
     User.find({}, (err, users) => {
         res.status(err ? 400 : 200).send(err || users);
     }).populate('books');
 });
 
-
 router.delete('/:id', User.auth(), (req, res) => {
     User.findByIdAndRemove(req.params.id, (err, user) => {
         if(err) return res.status(400).send(err);
 
         res.send();
+    });
+});
+
+router.put('/:currentUserId/followUnfollow/:targetUserId', User.auth(), (req, res) => {
+    let currentId = req.params.currentUserId;
+    let targetId = req.params.targetUserId;
+    User.followUnfollow(currentId, targetId, (err, updatedUser) => {
+        res.status(err ? 400: 200).send(err || updatedUser);
     });
 });
 

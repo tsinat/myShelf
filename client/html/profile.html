@@ -13,12 +13,14 @@
             <div class="profile_navigator">
                 <ul>
                     <li><a ui-sref="profile.profileEditor" ng-click='showForm()'>Edit Profile</a></li>
+                    <li><a ui-sref="#">Books Feed</a></li>
                     <li><a ui-sref="profile.listBooks" ng-click="active = !active">My Collection</a></li>
                     <li><a ui-sref="profile.newBook">Add new book</a></li>
                     <li><a ui-sref="profile.wishList">My Wish List</a></li>
-                    <li><a ui-sref="profile.following">Following</a></li>
-                    <li><a ui-sref="profile.followers">Followers</a></li>
-                    <li role="presentation" class="active"><a href="">Notifications <span class="badge"> 42</span></a></li>
+                    <li><a ui-sref="profile.following(currentUser)">Following</a></li>
+                    <li><a ui-sref="profile.followers(currentUser)">Followers</a></li>
+                    <li><a ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> search Friends</a></li>
+                    <li role="presentation" class="active"><a href="">Inbox <span class="badge"> 42</span></a></li>
                 </ul>
             </div>
         </div>

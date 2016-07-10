@@ -17,23 +17,66 @@ var bucketName = process.env.AWS_BUCKET;
 var urlBase = process.env.AWS_URL_BASE;
 
 var userSchema = new mongoose.Schema({
-    firstName: {type: String, required: true},
-    lastName: {type: String, required: true},
-    email: {type: String, required: true, unique: true},
-    image: { type: String},
-    admin: {type: Boolean, default: false },
-    password: {type: String, required: true},
-    address: {
-        street: {type: String},
-        apt: {type: String },
-        city: { type: String },
-        state: { type: String },
-        postalcode: { type: String }
+    firstName: {
+        type: String,
+        required: true
     },
-    lat: { type: String },
-    lng: { type : String },
+    lastName: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    image: {
+        type: String
+    },
+    title: {
+        type: String
+    },
+    about: {
+        type: String
+    },
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    address: {
+        street: {
+            type: String
+        },
+        apt: {
+            type: String
+        },
+        city: {
+            type: String
+        },
+        state: {
+            type: String
+        },
+        postalcode: {
+            type: String
+        }
+    },
+    lat: {
+        type: String
+    },
+    lng: {
+        type: String
+    },
     followers: [{
-        type: mongoose.Schema.Types.ObjectId, ref:'User'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    following: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }],
     books: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -156,8 +199,7 @@ userSchema.statics.edit = (id, passedObj, cb) => {
         if (err) cb(err);
 
         updatedUser.save((err, savedUser) => {
-            if (err) cb(err);
-            cb(null, savedUser);
+            cb(err, savedUser);
         });
     });
 };
@@ -165,53 +207,92 @@ userSchema.statics.edit = (id, passedObj, cb) => {
 userSchema.statics.addBook = (user, book, cb) => {
     user.books.push(book._id);
     user.save((err, addedBook) => {
-        if (err) cb(err)
-        cb(null, addedBook)
+        cb(err, addedBook)
     });
-}
+};
+
+userSchema.statics.followUnfollow = (currentId, targetId, cb) => {
+    User.findById(currentId, (err, currentUser) => {
+        User.findById(targetId, (err2, targetUser) => {
+            if (err || err2) return cb(err || err2);
+
+            let status = currentUser.following.some((userId) => {
+                return userId == targetId;
+            });
+            console.log('status:', status);
+            if (status) {
+                currentUser.following = currentUser.following.filter((userId) => {
+                    if (userId != targetId) {
+                        return userId;
+                    }
+                });
+                targetUser.followers = currentUser.followers.filter((userId) => {
+                    if (userId != currentId) {
+                        return userId;
+                    }
+                })
+            } else {
+                currentUser.following.push(targetId);
+                targetUser.followers.push(currentId);
+            }
+            currentUser.save((err, updatedCurrentUser) => {
+                targetUser.save((err2, updatedTargetUser) => {
+                    if(err || err2) return cb(err || err2);
+
+                    cb(null, updatedCurrentUser);
+                });
+            });
+        });
+    });
+};
+
 //add image url to the database and upload the image file to aws s3
 userSchema.statics.upload = (file, id, cb) => {
 
-  if(!file.mimetype.match(/image/)) {
-    return cb({error: 'File must be image.'});
-  }
-
-  var filenameParts = file.originalname.split('.');
-
-  var ext;
-  if(filenameParts.length > 1) {
-    ext = '.' + filenameParts.pop();
-  } else {
-    ext = '';
-  }
-
-  var key = uuid() + `${ext}`;
-  var params = {
-    Bucket: bucketName,
-    Key: key,
-    ACL: 'public-read',
-    Body: file.buffer
-  };
-
-  s3.putObject(params, (err, result) => {
-    if(err) return cb(err);
-
-    var imgUrl = `${urlBase}${bucketName}/${key}`;
-    var passedObj = {
-        image: imgUrl
-    }
-    User.findByIdAndUpdate(id, {$set: passedObj}, (err, updatedUser) => {
-        if (err) cb(err);
-        updatedUser.save((err, savedUser) => {
-            if (err) cb(err);
-            cb(null, savedUser);
+    if (!file.mimetype.match(/image/)) {
+        return cb({
+            error: 'File must be image.'
         });
+    }
+
+    var filenameParts = file.originalname.split('.');
+
+    var ext;
+    if (filenameParts.length > 1) {
+        ext = '.' + filenameParts.pop();
+    } else {
+        ext = '';
+    }
+
+    var key = uuid() + `${ext}`;
+    var params = {
+        Bucket: bucketName,
+        Key: key,
+        ACL: 'public-read',
+        Body: file.buffer
+    };
+
+    s3.putObject(params, (err, result) => {
+        if (err) return cb(err);
+
+        var imgUrl = `${urlBase}${bucketName}/${key}`;
+        var passedObj = {
+            image: imgUrl
+        }
+        User.findByIdAndUpdate(id, {
+            $set: passedObj
+        }, (err, updatedUser) => {
+            if (err) cb(err);
+            updatedUser.save((err, savedUser) => {
+                if (err) cb(err);
+                cb(null, savedUser);
+            });
+        });
+        // Image.create({
+        //   url: imgUrl,
+        //   name: file.originalname
+        // }, cb);
     });
-    // Image.create({
-    //   url: imgUrl,
-    //   name: file.originalname
-    // }, cb);
-  });
 };
 
 var User = mongoose.model('User', userSchema);
