@@ -48,11 +48,47 @@
 }
 .intro {
     padding-top: 20px;
-    height: 400px;
+    height: 500px;
     background: white;
     h2 {
         color: #00aa9a !important;
         font-weight: bold;
+
+    }
+    h3 {
+        width:80%;
+        line-height: 1.8em;
+    }
+    .about-image {
+        width:300px;
+        height: 300px;
+        border-radius: 50%;
+        margin-left: 40px;
+        border: 5px solid #00aa9a;
+    }
+}
+.detail {
+    padding-top: 20px;
+    height: 500px;
+    background: #ecf0f1;
+    h2 {
+        color: #00aa9a !important;
+        font-weight: bold;
+
+    }
+    .sub-container {
+        padding-left: 40px;
+        h3 {
+            width:80%;
+            line-height: 1.8em;
+        }
+    }
+    .about-image {
+        width:300px;
+        height: 300px;
+        border-radius: 50%;
+        margin-top: 40px !important;
+        border: 5px solid #00aa9a;
 
     }
 }

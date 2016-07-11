@@ -1,4 +1,6 @@
 <div class=' '>
+    <h2 class='text-center'>Following</h2>
+    <hr>
     <div class='col-xs-12 col-lg-4' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index' >
         <div class="following_user text-center">
             <img ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer'/>
@@ -21,4 +23,7 @@
         </div>
     </div>
 
+    <div class="text-center" ng-show='checkFollowing()'>
+        <h3 class'text-center'>Users whom you are following will apear here.<br><br>Browse for users to follow!!</h3>
+    </div>
 </div>

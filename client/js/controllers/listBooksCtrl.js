@@ -16,4 +16,7 @@ app.controller('listBooksCtrl', function($scope, $state, User) {
                 console.log('err while getting all books:', err);
             })
     }
+    $scope.check = () => {
+        return $scope.books == '';
+    }
 });
