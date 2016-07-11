@@ -1,44 +1,66 @@
 <div class=" homesplash">
-    <div class="row">
-        <div class="col-xs-0 col-lg-7">
-        </div>
-        <div class="col-xs-12 col-lg-5">
-            <div class=' '>
-                <div class="login_container ">
-                    <form class="form-horizontal" ng-submit='loginForm(user)'>
-                        <fieldset>
-                            <legend class='text-center'>Login</legend>
-                            <div class="form-group">
-                                <label for="inputEmail" class="col-md-2 control-label">Email</label>
+    <section class='header'>
+        <div class="row">
+            <div class="col-xs-0 col-lg-6 col-lg-offset-1">
+                <h1 class='logo'><i class="fa fa-book" aria-hidden="true"></i> My shelf</h1>
+                <h1>Exchange Books with friends and neighbors</h1>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <div class=' '>
+                    <div class="login_container ">
+                        <form class="form-horizontal" ng-submit='loginForm(user)'>
+                            <fieldset>
+                                <legend class='text-center'>Login</legend>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-md-2 control-label">Email</label>
 
-                                <div class="">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="" ng-model='user.email' required>
+                                    <div class="">
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="" ng-model='user.email' required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPassword" class="col-md-2 control-label">Password</label>
+                                <div class="form-group">
+                                    <label for="inputPassword" class="col-md-2 control-label">Password</label>
 
-                                <div class="">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="" ng-model='user.password' required>
+                                    <div class="">
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="" ng-model='user.password' required>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="">
-                                    <button type="submit" class="btn btn-lg btn-block btn-raised btn-primary">Login</button>
+                                <div class="form-group">
+                                    <div class="">
+                                        <button type="submit" class="btn btn-lg btn-block btn-raised btn-primary">Login</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </fieldset>
-                    </form>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <br>
-            <div class="returning-user">
-                <p>
-                    <a type="button" class=" " ui-sref='register'>Register</a> If you are a new User
-                </p>
-            </div>
+                <br>
+                <div class="returning-user">
+                    <p>
+                        <a type="button" class=" " ui-sref='register'>Register</a> If you don't have an account.
+                    </p>
+                </div>
 
+            </div>
+            <div class="scroll-down">
+                <i class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>
+            </div>
         </div>
-    </div>
+    </section>
+    <section class='about'>
+        <div class="col-xs-12">
+            <h2 class='text-center'>My Shelf</h2>
+        </div>
+    </section>
+    <section class='intro'>
+        <div class="col-xs-12">
+            <h2 class='text-center'>How does it work?</h2>
+        </div>
+    </section>
+    <section class='footer'>
+        <div class="col-xs-12">
+            <h2 class='text-center'>Contact Us</h2>
+        </div>
+    </section>
 </div>

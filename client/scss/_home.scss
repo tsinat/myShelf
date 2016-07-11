@@ -1,17 +1,65 @@
-div.row {
-    margin: 0 auto !important;
-}
-div.login_container {
-    padding-top: 20px !important;
-    width: 90% !important;
-    background-color: white;
-    padding: 40px;
-    margin-left:20px;
-    margin-top: 60px;
+.header {
+    div.row {
+        margin: 0 auto !important;
+        padding-bottom: 140px !important;
+        background-color: #00aa9a;
+        background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+        h1 {
+            color: white;
+            font-weight: bold;
+        }
+        .logo {
+            margin-top:20%;
+        }
+        div.login_container {
+            padding-top: 20px !important;
+            width: 90% !important;
+            background-color: #ecf0f1;
+            padding: 40px;
+            margin-left:20px;
+            margin-top: 60px;
+            color: silver !important;
 
+        }
+        .returning-user {
+            margin-left: 20px;
+            a {
+                color: white;
+            }
+        }
+        .scroll-down {
+            color: white;
+            position:absolute;
+            bottom:40px;
+            left:48%;
+            padding:10px 15px;
+            cursor: pointer;
+        }
+    }
 }
-.returning-user {
-    margin-left: 20px;
+.about {
+    padding-top: 20px;
+    height: 400px;
+    background: #ecf0f1;
+    h2 {
+        color: #00aa9a !important;
+        font-weight: bold;
+    }
+}
+.intro {
+    padding-top: 20px;
+    height: 400px;
+    background: white;
+    h2 {
+        color: #00aa9a !important;
+        font-weight: bold;
+
+    }
+}
+.footer {
+    min-height:60px;
+    background: #00aa9a;
+
 }
 @media (min-width: 768px){
     .register_container {
