@@ -102,8 +102,17 @@ div.row {
         padding-left: 20px !important;
         padding-right: 10px !important;
     }
+    .profile_main {
+        background-color: white;
+        min-height: 1500px !important;
+        height: 100%;
+        padding-top: 10px;
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+    }
     .profile_right {
         display: block;
+        min-height: 1500px !important;
         padding: 0 !important;
         margin: 0 !important;
     }

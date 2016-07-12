@@ -5,6 +5,8 @@ var Book = require('../models/book');
 var User = require('../models/user');
 
 
+
+
 router.get('/', (req, res) => {
     Book.find({}, (err, auctions) => {
         if (err) return res.status(400).send(err);

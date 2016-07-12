@@ -1,6 +1,12 @@
-.register {
-    // padding:0 40px 100px 40px;
-    background: #00aa9a !important;
-    margin-bottom: 40px;
-    // margin-top: 40px;
+.register-container {
+    // background: #00aa9a !important;
+    a {
+        // color:white !important;
+    }
+    .register {
+        margin-bottom: 40px;
+        padding:0 40px 100px 40px;
+        margin-top: 40px;
+        background: white;
+    }
 }
