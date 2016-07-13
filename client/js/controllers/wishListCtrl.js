@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp');
 
-app.controller('wishListCtrl', function($scope, Book, User) {
+app.controller('wishListCtrl', function($scope, Book, User, $location) {
     console.log('wishListCtrl');
     $scope.search = () => {
         console.log('working');
@@ -37,6 +37,7 @@ app.controller('wishListCtrl', function($scope, Book, User) {
         User.addWishBook(wishBook, $scope.currentUser._id)
             .then(res => {
                 console.log('response when wishbook is added', res.data);
+                $location.path('profile/myWishList');
             })
             .catch(err => {
                 console.log('error while adding wishBook', err);
