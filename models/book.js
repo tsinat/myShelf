@@ -15,11 +15,15 @@ var urlBase = process.env.AWS_URL_BASE;
 
 var bookSchema = new mongoose.Schema({
     title: {type: String, required: true},
-    author: {type: String, required: true},
-    cover: { type: String},
+    subtitle: { type: String },
+    author: {type: String},
+    authors:[],
+    thumbnail: { type: String },
+    googleId: { type: String },
     category: {type: String},
-    review: { type: String},
+    description: { type: String },
     status: { type: String},
+    cover: { type: String},
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User'},
     likes: {type: Number, default: 0},
     comments: [{
@@ -39,16 +43,19 @@ bookSchema.statics.create = (bookObj, cb) => {
     console.log('book create:', bookObj);
     var book = new Book({
         title: bookObj.title,
+        subtitle: bookObj.subtitle,
         author: bookObj.author,
+        authors: bookObj.authors,
+        thumbnail: bookObj.thumbnail,
+        googleId: bookObj.googleId,
         category: bookObj.category,
-        review: bookObj.review,
+        description: bookObj.description,
         status: bookObj.status,
         owner: bookObj.owner
     });
+    console.log('book:', book);
     book.save((err, savedBook) => {
-        if(err) return cb(err);
-
-        else cb(null, savedBook);
+        cb(err, savedBook);
     });
 };
 

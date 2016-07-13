@@ -14,4 +14,7 @@ app.service('User', function($http, $q) {
         console.log('waw:', currentId, targetId);
         return $http.put(`/users/${currentId}/followUnfollow/${targetId}`);
     }
+    this.addWishBook = (wishBook, currentUserId) => {
+        return $http.post(`/users/addWish/${currentUserId}`, wishBook);
+    }
 });

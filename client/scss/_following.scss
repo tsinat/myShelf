@@ -22,6 +22,10 @@
     }
     .follow-container {
         height: 40px !important;
+        .following {
+            background: #009688 !important;
+            color:white !important;
+        }
         button {
             margin: 5px;
             margin-bottom: 15px !important;

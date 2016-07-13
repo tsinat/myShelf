@@ -78,11 +78,29 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('profile.wishList', {
-            url: '/wishList',
+        .state('profile.addBook', {
+            url: '/addBook',
             views: {
                 'main': {
-                    templateUrl: '/html/wishList.html',
+                    templateUrl: '/html/addBook.html',
+                    controller: 'newBookCtrl'
+                }
+            }
+        })
+        .state('profile.myWishList', {
+            url: '/myWishList',
+            views: {
+                'main': {
+                    templateUrl: '/html/myWishList.html',
+                    controller: 'wishListCtrl'
+                }
+            }
+        })
+        .state('profile.addWishList', {
+            url: '/addWishList',
+            views: {
+                'main': {
+                    templateUrl: '/html/addWishList.html',
                     controller: 'wishListCtrl'
                 }
             }

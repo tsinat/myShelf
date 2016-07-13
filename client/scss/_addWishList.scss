@@ -1,0 +1,30 @@
+.wishlist-container {
+    max-height: 1500px;
+    overflow-y: scroll !important;
+    .form-header {
+        clear:both !important;
+    }
+    input {
+        border: 1px solid lightgrey !important;
+        border-bottom: none !important;
+        border-radius: 20px !important;
+        padding-left: 20px;
+    }
+    .result-container {
+        margin-top:40px !important;
+        clear:both !important;
+        display: block;
+        .search-result {
+            min-height:300px !important
+        }
+        .search-result-image img {
+            border: 1px solid lightgrey !important;
+            float:left;
+            margin-right: 20px;
+        }
+        .button-container {
+            clear:both;
+        }
+    }
+
+}

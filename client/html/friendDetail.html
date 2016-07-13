@@ -30,7 +30,8 @@
         <h4>Books</h4>
         <hr>
         <div class="single_book" ng-repeat='book in singleUser.books'>
-            <img ng-src={{book.cover}} alt="" />
+            <img ng-show='!book.thumbnail' ng-src={{book.cover}} alt="" />
+            <img ng-show='!book.cover && book.thumbnail' ng-src={{book.thumbnail}} alt="" />
             <div class="">
                 <p>{{book.title}}</p>
                 <p>{{book.author}}</p>
@@ -40,12 +41,12 @@
     <div class="wish-list">
         <h4>Wish List</h4>
         <hr>
-        <!-- <div class="single_book" ng-repeat='book in singleUser.wishList'>
-            <img ng-src={{book.cover}} alt="" />
+        <div class="single_book" ng-repeat='book in singleUser.wishList'>
+            <img  ng-src={{book.thumbnail}} alt="" />
             <div class="">
-                <p>{{book.title}}</p>
-                <p>{{book.author}}</p>
+                <p><b>Title/s</b>: {{book.title}}</p>
+                <p><b>Author/s</b>: {{book.authors[0]}}</p>
             </div>
-        </div> -->
+        </div>
     </div>
 </div>

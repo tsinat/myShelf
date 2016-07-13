@@ -26,8 +26,10 @@ router.get('/:id', (req, res) => {
 
 router.post('/', User.isLoggedIn, (req, res) => {
     Book.create(req.body, (err1, book) => {
+        console.log('err', err1)
         if (err1) res.status(400).send(err1)
         else {
+            console.log('book created:', book);
             User.addBook(req.user, book, (err2, addedBook) => {
                 if (err2) res.status(400).send(err2);
             });

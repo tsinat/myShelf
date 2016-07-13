@@ -1,0 +1,51 @@
+<div class='AddBook-container '>
+    <h1 class='text-center'>Add Book for exchange</h1><hr>
+    <div class="form-header">
+        <div class="text-center">
+        <h3>
+            Search for a book that you want to post for exchange and <br>specify what you want in return.
+        </h3>
+    </div><br>
+        <form ng-submit='search()' class='col-lg-8 col-lg-offset-2'>
+            <div class="form-group">
+                <!-- <label class="control-label" for="name" >Search</label> -->
+                <input type="text" class="form-control text-center" id='name' ng-model='wish.search' placeholder='Search by title or author name'>
+            </div>
+            <div class="serach-button-container text-center">
+                <button class='btn btn-raised btn-primary' type='submit'>Search Book</button>
+                <button class='btn btn-raised btn-success' ui-sref="profile.newBook">upload Manually </button>
+
+            </div>
+        </form><br>
+    </div>
+
+    <div class="result-container col-xs-9 col-xs-offset-1">
+        <div class="serach-result" ng-repeat='book in books'>
+            <div class="search-result-image">
+                <img ng-src={{book.volumeInfo.imageLinks.thumbnail}} alt="" />
+            </div>
+            <p><b>Author/s:</b> {{book.volumeInfo.authors[0]}}</p>
+            <p><b>Title:</b> {{book.volumeInfo.title}}</p>
+            <p><b>Sub Title:</b> {{book.volumeInfo.subtitle}}</p>
+            <p ng-show='isSecondAuthor(book, 1)'>{{book.volumeInfo.authors[1]}}</p>
+            <p ng-show='isSecondAuthor(book, 2)'>{{book.volumeInfo.authors[2]}}</p>
+            <p><b>Category:</b> {{book.volumeInfo.categories[0]}}</p>
+            <p><b>Description:</b> {{book.volumeInfo.description}}</p>
+        <div class="button-container text-center">
+            <div class="form-group">
+                <label>what do you want in return?:</label>
+                <select class="form-control" ng-model='book.status'>
+                    <option>Free</option>
+                    <option>Exchange</option>
+                    <option>Wish List</option>
+                    <option>Negotiate</option>
+                    <option>Will keep it</option>
+                </select>
+            </div>
+            <button class='btn btn-raised btn-success' ng-click='addToCollection(book)'>Add to Collection</button>
+        </div>
+            <hr>
+        </div>
+    </div>
+
+</div>

@@ -1,26 +1,36 @@
 .friendlist_container {
-    max-height: 1000px;
+    max-height: 1500px;
     overflow-y: scroll;
     padding: 20px;
     .search {
         margin-right: 40px !important;
         min-width: 200px;
+        input {
+            border: 1px solid lightgrey !important;
+            border-bottom: none !important;
+            border-radius: 20px !important;
+            padding-left: 20px;
+        }
     }
     .single_users {
-        padding: 10px;
-        margin-top: 10px;
+        padding: 5px;
+        margin-top: 20px;
         box-shadow: 1px 1px 1px 1px lightgrey;
-        height: 300px;
-        min-width: 200px;
+        height: 250px;
+        min-width: 120px;
+        .following {
+            background: #009688 !important;
+            color:white !important;
+        }
         img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: 5px solid lightgrey;
             // float: left;
         }
         .profile-meta {
-            margin-top: 20px !important;
+            // margin-top: 20px !important;
             // margin-left: 120px !important;
             a {
                 text-decoration: none;
@@ -36,7 +46,7 @@
             border: 1px solid #009688 !important;
             border-radius: 5px;
             color: #009688 !important;
-            padding: 5px 20px !important;
+            padding: 5px 10px !important;
             text-transform: lowercase !important;
         }
         .followers {
@@ -60,5 +70,8 @@
         width: 95%;
         border-: 1px solid grey !important;
         border-radius: 5px;
+    }
+    div.col-xs-12.col-lg-3 {
+        padding:5px !important;
     }
 }
