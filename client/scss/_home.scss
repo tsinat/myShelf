@@ -94,12 +94,15 @@
     }
 }
 .footer {
-    // min-height:60px;
+    min-height:80px;
+    padding-top:20px;
     height: auto !important;
     background: #00aa9a !important;
     color:white;
     margin:0 !important;
-
+    p a {
+        color: white;
+    }
 }
 @media (min-width: 768px){
     .register_container {
