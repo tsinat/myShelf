@@ -4,7 +4,8 @@
             <div class="profileholder">
                 <br>
                 <div class="image_container">
-                    <img class='profile_picture' ng-src={{currentUser.image}} alt="" />
+                    <img class='profile_picture' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
+                    <img class='profile_picture' ng-show='!currentUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
                     <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
                 </div>
                 <h5>{{currentUser.firstName}}  {{currentUser.lastName}}

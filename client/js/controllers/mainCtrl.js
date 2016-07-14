@@ -33,7 +33,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
         Auth.editPro($scope.currentUser._id, user)
             .then(res => {
                 // console.log(res.data);
-                $location.path('profile/listBooks');
+                $location.path('/profile/listBooks');
             })
             .catch(err => {
                 console.log('error while updating profile', err);
@@ -54,6 +54,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
             })
             .then(res => {
                 // console.log('res:', res);
+                $location.path('/profile/listBooks');
                 $state.reload();
             })
             .catch(err => {

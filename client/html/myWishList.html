@@ -14,11 +14,11 @@
                 <p ng-show='book.authors[1]'>{{book.authors[1]}}</p>
             </div>
         </div>
-        <div class="text-center" ng-show='check()'>
+        <div class="text-center" ng-show='checkIfEmpty()'>
             <h3 class 'text-center'>Books that you have posted for exchange will appear here.<br><br>Please add book below!!</h3>
         </div>
     </div>
     <div class="text-center add-new">
-        <button class='btn btn-raised btn-lg' type="button" ui-sref="profile.addBook">Add New</button>
+        <button class='btn btn-raised btn-lg' type="button" ui-sref="profile.addWishList">Add New</button>
     </div>
 </div>

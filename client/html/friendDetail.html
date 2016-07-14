@@ -1,6 +1,8 @@
 <div class="friendDetail_container">
     <div class="single_user">
-        <img ng-src={{singleUser.image}} alt="" />
+        <!-- <img ng-src={{singleUser.image}} alt="" /> -->
+        <img  ng-hide='!singleUser.image' ng-src={{singleUser.image}} alt="" />
+        <img  ng-show='!singleUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
         <div class="profile-meta">
             <div class="name-line">
                 <h4><b>{{singleUser.firstName}} {{singleUser.lastName}}</b></h4>
@@ -33,15 +35,17 @@
             <img ng-show='!book.thumbnail' ng-src={{book.cover}} alt="" />
             <img ng-show='!book.cover && book.thumbnail' ng-src={{book.thumbnail}} alt="" />
             <div class="">
-                <p>{{book.title}}</p>
-                <p>{{book.author}}</p>
+                <p>Title: {{book.title}}</p>
+                <p ng-show='!book.authors'><b>Author/s</b> {{book.author}}</p>
+                <p ng-show='!book.author'><b>Author/s</b>: {{book.authors[0]}}</p>
+                <p ng-show='!book.author && book.authors[1]'><b>Author/s</b>: {{book.authors[0]}}</p>
             </div>
         </div>
     </div><br>
     <div class="wish-list">
         <h4>Wish List</h4>
         <hr>
-        <div class="single_book" ng-repeat='book in singleUser.wishList'>
+        <div class="single_book" ng-repeat='book in singleUser.wishList' ui-sref='profile.bookDetail({id: book.googleId})'>
             <img  ng-src={{book.thumbnail}} alt="" />
             <div class="">
                 <p><b>Title/s</b>: {{book.title}}</p>

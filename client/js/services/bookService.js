@@ -13,4 +13,8 @@ app.service('Book', function($http, $q) {
         // return $http.get("https://www.googleapis.com/books/v1/volumes/yq1xDpicghkC");
         // return $http.get("http://books.google.com/books/about/The_God_Delusion.html?hl=&id=yq1xDpicghkC");
     }
+    this.getDetail = id => {
+        console.log('BookDetails:', id);
+        return $http.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
+    }
 });

@@ -47,6 +47,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 'main': {
                     templateUrl: '/html/listBooks.html',
                     controller: 'listBooksCtrl'
+                },
+                'side': {
+                    templateUrl: '/html/friendsList.html',
+                    controller: 'mainCtrl'
                 }
             }
         })
@@ -87,6 +91,28 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('profile.bookDetail', {
+            url: '/bookDetail/:id',
+            views: {
+                'main': {
+                    templateUrl: '/html/bookDetail.html',
+                    controller: 'bookDetailCtrl',
+                    resolve: {
+                        detailBook: function(Book, $state, $stateParams) {
+                            var id = $stateParams.id;
+                            return Book.getDetail(id)
+                                .then(res => {
+                                    console.log('bookDetail:', res.data);
+                                    return res.data;
+                                })
+                                .catch(err => {
+                                    console.log('error while getting book detail', err)
+                                })
+                        }
+                    }
+                }
+            }
+        })
         .state('profile.myWishList', {
             url: '/myWishList',
             views: {
@@ -114,6 +140,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     resolve: {
                         loggedDetails: function(User, $q, $state, $stateParams) {
                             var id = $stateParams.id;
+                            console.log('id', id);
                             return User.getOne(id)
                                 .then(res => {
                                     console.log('res:', res.data);

@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp');
 
-app.controller('wishListCtrl', function($scope, Book, User, $location) {
+app.controller('wishListCtrl', function($scope, Book, User, $state, $location) {
     console.log('wishListCtrl');
     $scope.search = () => {
         console.log('working');
@@ -17,6 +17,9 @@ app.controller('wishListCtrl', function($scope, Book, User, $location) {
                 console.log('error while searching books:', err);
             })
         }
+    }
+    $scope.checkIfEmpty = () => {
+        return $scope.currentUser.wishList == ''
     }
     $scope.isSecondAuthor = (book, num) => {
         return book.volumeInfo.authors.length > num;
@@ -38,6 +41,7 @@ app.controller('wishListCtrl', function($scope, Book, User, $location) {
             .then(res => {
                 console.log('response when wishbook is added', res.data);
                 $location.path('profile/myWishList');
+                $state.reload();
             })
             .catch(err => {
                 console.log('error while adding wishBook', err);

@@ -17,8 +17,14 @@ app.controller('registerCtrl', function($scope, Auth, $state, $location) {
                     user.lng = res.data.results[0].geometry.location.lng
                     Auth.register(user)
                         .then(res => {
-                            Auth.login($scope.user);
-                            $location.path('/profile/listBooks');
+                            Auth.login($scope.user)
+                                .then(res => {
+                                    $state.go('profile.listBooks');
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                })
+
                         })
                         .catch(res => {
                             alert(res.data.error);

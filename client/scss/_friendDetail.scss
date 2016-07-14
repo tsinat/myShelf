@@ -44,12 +44,12 @@
         clear:both !important;
         .single_book {
             float: left;
-            box-shadow: 1px 1px 1px 1px  grey;
+            // box-shadow: 1px 1px 1px 1px  grey;
             margin-right: 20px;
             max-width: 150px;
             margin-bottom: 20px;
             min-height: 300px;
-            border: 5px solid lightgrey;
+            border: 1px solid lightgrey;
             img {
                 width: 100%;
                 height: auto;

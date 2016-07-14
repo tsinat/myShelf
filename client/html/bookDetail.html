@@ -1,0 +1,20 @@
+<div class="book-detail-container">
+    <div class="serach-result">
+        <div class="search-result-image">
+            <img ng-src={{bookDetails.volumeInfo.imageLinks.thumbnail}} alt="" />
+        </div>
+        <a href={{bookDetails.accessInfo.webReaderLink}} target='_blank'>Sample Read</a><br>
+        <p><b>Author/s:</b> {{bookDetails.volumeInfo.authors[0]}}</p>
+        <p><b>Title:</b> {{bookDetails.volumeInfo.title}}</p>
+        <p><b>Sub Title:</b> {{bookDetails.volumeInfo.subtitle}}</p>
+        <p ng-show='isSecondAuthor(bookDetails, 1)'>{{bookDetails.volumeInfo.authors[1]}}</p>
+        <p ng-show='isSecondAuthor(bookDetails, 2)'>{{bookDetails.volumeInfo.authors[2]}}</p>
+        <p><b>ISBN:</b> {{bookDetails.industryIdentifiers[0].identifier}}</p>
+        <p><b>Category:</b> {{bookDetails.volumeInfo.categories[0]}}</p>
+        <p><b>publishedDate:</b> {{bookDetails.volumeInfo.publishedDate}}</p>
+        <p><b>publisher:</b> {{bookDetails.volumeInfo.publisher}}</p>
+        <p><b>Description:</b> {{bookDetails.volumeInfo.description}}</p>
+
+        <hr>
+    </div>
+</div>
