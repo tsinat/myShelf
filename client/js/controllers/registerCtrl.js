@@ -19,7 +19,7 @@ app.controller('registerCtrl', function($scope, Auth, $state, $location) {
                         .then(res => {
                             Auth.login($scope.user)
                                 .then(res => {
-                                    $state.go('profile.listBooks');
+                                    $state.go('profile.booksFeed');
                                 })
                                 .catch(err => {
                                     console.log(err);

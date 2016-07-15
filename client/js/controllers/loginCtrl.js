@@ -2,14 +2,16 @@
 
 var app = angular.module('myApp');
 
-app.controller('loginCtrl', function($scope, Auth, $state, $location) {
+app.controller('loginCtrl', function($scope, Auth, $state, $location, $timeout) {
     console.log('loginCtrl');
     $scope.loginForm = user => {
         console.log('user', user);
         Auth.login($scope.user)
             .then(res => {
-                // $state.go('profile.listBooks');
-                $location.path('/profile/listBooks');
+                $timeout(function() {
+                    $state.go('profile.booksFeed');
+                }, 1000);
+                // $location.path('/profile/booksFeed');
 
             })
             .catch(res => {
