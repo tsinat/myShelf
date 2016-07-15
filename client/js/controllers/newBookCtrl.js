@@ -40,7 +40,10 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book, $location) 
             })
     }
     $scope.isSecondAuthor = (book, num) => {
-        return book.volumeInfo.authors.length > num;
+        if(book.volumeInfo.authors){
+            return book.volumeInfo.authors.length > num;
+        }
+        return false;
     };
 
     $scope.search = () => {

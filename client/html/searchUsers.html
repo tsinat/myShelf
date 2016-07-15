@@ -6,7 +6,8 @@
         <br>
         <div class='col-xs-12 col-lg-4' ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index' >
             <div class="single_users text-center">
-                <img ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer'/>
+                <img ng-hide='!user.image' ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' />
+                <img ng-show='!user.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' alt="" />
                 <div class="profile-meta">
                     <div class="name-line" style='cursor: pointer'>
                         <a ui-sref='profile.friendDetail({id: user._id})'><h4><b>{{user.firstName}} {{user.lastName}}</b></h4></a>

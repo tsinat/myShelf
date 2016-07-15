@@ -1,13 +1,14 @@
 .book-detail-container {
-    margin-top:40px !important;
-    // clear:both !important;
+    margin-top:20px !important;
+    padding: 20px;
     display: block;
     div.search-result-image {
          float:left !important;
-         width:200px !important;
+         max-width:200px !important;
          img {
             border: 1px solid lightgrey !important;
-            margin-right: 10px;
+            margin-right: 20px;
+            // margin-bottom: 10px;
         }
     }
 

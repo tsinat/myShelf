@@ -134,4 +134,10 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
             });
             return $scope.flg_unfollow;
         }
+
+        $scope.checkDistance = user => {
+            // console.log( (user.distance.split(' ')[0]))
+            var temp = user.distance.split(' ')[0];
+            return  parseInt(temp) < 50;
+        }
 });

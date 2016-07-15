@@ -41,6 +41,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('profile.booksFeed', {
+            url: '/booksFeed/',
+            views: {
+                'main': {
+                    templateUrl: '/html/booksFeed.html',
+                    controller: 'booksFeedCtrl',
+                    resolve: {
+                        booksFeed: function(Book, $state, $stateParams) {
+                            return Book.getBooksFeed()
+                                .then(res => {
+                                    console.log('booksFeed:', res.data);
+                                    return res.data;
+                                })
+                                .catch(err => {
+                                    console.log('error while getting book detail', err)
+                                })
+                        }
+                    }
+                }
+            }
+        })
         .state('profile.listBooks', {
             url: '/listBooks',
             views: {

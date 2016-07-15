@@ -1,8 +1,8 @@
 <div class="myWishList-container">
-    <div class="text-center">
+    <div class="">
         <h1 class='text-center'>My Wish List</h1>
         <hr>
-        <div class="col-xs-12 col-lg-3" ng-repeat='book in currentUser.wishList'>
+        <div class="col-xs-12 col-lg-3" ng-repeat='book in currentUser.wishList' ui-sref='profile.bookDetail({id: book.googleId})'>
             <div class="book_container">
                 <div class="image-container text-center">
                     <img ng-show='!book.thumbnail' ng-src={{book.cover}} alt="" />

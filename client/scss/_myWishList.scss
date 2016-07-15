@@ -6,8 +6,8 @@
         max-width:200px;
         height: 340px;
         padding:10px;
-        // box-shadow: 1px 1px 1px 1px  grey;
-        border: 1px solid lightgrey;
+        box-shadow: 1px 1px 1px 1px grey;
+        // border: 1px solid lightgrey;
         box-sizing: border-box;
         margin-right: 10px;
         .image-container img {
@@ -34,7 +34,7 @@
             height: 340px;
             padding:10px;
             box-shadow: none !important;
-            border: 1px solid lightgrey !important;
+            box-shadow: 1px 1px 1px grey;
             box-sizing: border-box;
             margin-right: 10px;
             .image-container img {

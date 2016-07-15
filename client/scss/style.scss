@@ -1,6 +1,5 @@
 @import 'home';
 @import 'main';
-@import 'listBook';
 @import "register";
 @import 'friendsList';
 @import 'friendDetail';
@@ -15,6 +14,8 @@
 @import 'myWishList';
 @import 'addBook';
 @import 'bookDetail';
+@import 'listBook';
+@import 'booksFeed';
 
 html {
     margin:0 !important;
@@ -29,7 +30,7 @@ body {
     overflow-x: hidden;
 }
 .navbar {
-    position: sticky;
+    position: fixed;
     top:0;
 }
 .glyphicon-menu-hamburger {

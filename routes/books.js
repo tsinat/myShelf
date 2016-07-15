@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     Book.find({}, (err, auctions) => {
         if (err) return res.status(400).send(err);
         else res.send(auctions);
-    });
+    }).populate('owner');
 });
 
 router.get('/:id', (req, res) => {
