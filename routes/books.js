@@ -58,10 +58,10 @@ router.delete('/:id', User.isLoggedIn, (req, res) => {
     });
 });
 
-router.put('/:auctionId/addBid/:userId', User.isLoggedIn, (req, res) => {
-    Book.highBid(req.params.auctionId, req.params.userId, req.body, (err, hightestBid) => {
+router.put('/addComment/:bookId', User.isLoggedIn, (req, res) => {
+    Book.addComment(req.params.bookId, req.body, (err, updatedBook) => {
         if (err) res.status(400).send(err);
-        res.send(hightestBid);
+        res.send(updatedBook);
     });
 });
 

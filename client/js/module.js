@@ -1,12 +1,13 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router', 'ngFileUpload']);
+var app = angular.module('myApp', ['ui.router', 'ngFileUpload', 'angular-loading-bar']);
 
 app.run(function(Auth) {
     Auth.getProfile();
 });
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = true;
     $stateProvider
         .state('home', {
             url: '/',

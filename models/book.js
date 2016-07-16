@@ -40,6 +40,9 @@ var bookSchema = new mongoose.Schema({
     status: {
         type: String
     },
+    createdAt: {
+        type: Date, default: Date.now()
+    },
     cover: {
         type: String
     },
@@ -112,22 +115,22 @@ bookSchema.statics.deleteBook = (id, cb) => {
     });
 };
 
-// bookSchema.statics.highBid = (bookId, userId, bid, cb) => {
-//     Book.findById(bookId, (err, book) => {
-//         console.log("book:", book);
-//         if (err) cb(err);
-//         var obj = {
-//             value: Number(bid.value),
-//             bider: bid.bider
-//         };
-//         book.highestBid.push(obj);
-//         book.save((err, savedBid) => {
-//             if (err) cb(err);
-//
-//             cb(null, savedBid)
-//         });
-//     });
-// }
+bookSchema.statics.addComment = (bookId, newComment, cb) => {
+    Book.findById(bookId, (err, book) => {
+        console.log("book:", book);
+        if (err) cb(err);
+        var comment = {
+            content: newComment.content,
+            by: newComment.by
+        };
+        book.comments.push(comment);
+        book.save((err, savedBook) => {
+            if (err) cb(err);
+
+            cb(null, savedBook)
+        });
+    });
+}
 
 //add image url to the database and upload the image file to aws s3
 bookSchema.statics.upload = (file, id, cb) => {

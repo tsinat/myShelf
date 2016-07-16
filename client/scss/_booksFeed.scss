@@ -12,15 +12,6 @@
                 margin-bottom: 10px;
             }
         }
-        .text-container {
-            height: 100%;
-            max-width: 300px;
-            position: relative;
-            bottom:20px;
-            float: left;
-            margin-top:0 !important;
-            margin-bottom: 10px !important;
-        }
         .owner {
             clear: both;
             width: 100%;
@@ -33,15 +24,76 @@
                 margin-bottom: 10px !important;
             }
             h4 {
-                padding:10px 20px;
-                margin-left:40px !important;
+                padding: 10px 20px;
+                margin-left: 40px !important;
             }
+        }
+        .text-container {
+            height: 100%;
+            max-width: 300px;
+            position: relative;
+            bottom: 20px;
+            float: left;
+            margin-top: 0 !important;
+            margin-bottom: 10px !important;
         }
         .description {
             width: 100%;
             float: left;
         }
+        .comments-container {
+            background: #F6F6F6;
+            clear: both;
+            padding: 10px 20px 10px 20px;
+            .form-container {
+                div.form-group {
+                    box-sizing: border-box;
+                    img {
+                        width: 55px;
+                        height: 55px;
+                        float: left;
+                    }
+                    textarea.form-control {
+                        margin-left: 10px;
+                        padding-left: 10px;
+                        background: white;
+                        width: 100%;
+                    }
+                }
+                .col-xs-1,
+                .col-xs-10 {
+                    margin: 0;
+                    padding-left: 0 !important;
+                    .btn {
+                        float: left;
+                        padding:5px 10px;
+                        position:relative;
+                        bottom: 10px;
+                        .glyphicon {
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+            }
+        }
     }
+}
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    /* padding-left: 15px; */
 }
 @media (min-width: 1200px) {
     .book-feed-container {

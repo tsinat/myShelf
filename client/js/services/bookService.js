@@ -20,4 +20,7 @@ app.service('Book', function($http, $q) {
         console.log('BookDetails:', id);
         return $http.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
     }
+    this.addNewComment = (newComment, bookId) => {
+        return $http.put(`api/books/addComment/${bookId}`, newComment);
+    }
 });
