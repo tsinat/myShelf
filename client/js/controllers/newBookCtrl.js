@@ -61,6 +61,7 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book, $location) 
         }
     }
     $scope.addToCollection = (book) => {
+        console.log('book:', book);
         let newBook = {
             title:book.volumeInfo.title,
             subtitle:book.volumeInfo.subtitle,
@@ -69,11 +70,11 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book, $location) 
             googleId: book.id,
             category: book.volumeInfo.categories[0],
             description: book.volumeInfo.description,
+            sampleRead: book.accessInfo.webReaderLink,
             status: book.status,
-            owner: $scope.currentUser._id
+            owner: $scope.currentUser._id,
         }
         console.log('newBook', newBook);
-        console.log('$scope.currentUser._id');
         Book.create(newBook)
             .then(res => {
                 console.log('response when wishbook is added', res.data);

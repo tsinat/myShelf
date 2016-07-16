@@ -18,18 +18,32 @@
             <p ng-show='isSecondAuthor(book, 2)'>{{book.authors[2]}}</p>
             <p><b>Category:</b> {{book.category}}</p>
             <p><b>Status:</b> {{book.status}}</p>
-            <a href={{book.thumbnail}} target='_blank'>Sample Read</a>
+            <a href={{book.sampleRead}} target='_blank'>Sample Read</a>
         </div>
         <div class="">
             <p class='description'><b>Description:</b> {{book.description}}</p>
         </div>
-
+        <div class="reaction-buttons">
+            <div class="col-xs-8">
+                <button type="button" class='btn btn-success readit active'>Readit <span class='badge'>{{book.readit}}</span></button>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+            </div>
+        </div>
         <div class="comments-container">
-            <div class="" ng-repeat='comment in book.comments'>
-                <p>
-                    {{comment.content}}
-                </p>
-                <hr>
+            <div class="row main" ng-repeat='comment in book.comments'>
+                <div class="comment-header col-xs-1">
+                    <img ng-src={{comment.by.image}} alt="" />
+                </div>
+                <div class="comment-main col-xs-10">
+                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span>
+                    <p>{{comment.content}}</p>
+                </div>
+                <hr/>
             </div>
             <form class='form-inline' ng-submit='addComment(comment, book._id)'>
                 <div class="form-container row">

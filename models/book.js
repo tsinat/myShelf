@@ -46,6 +46,9 @@ var bookSchema = new mongoose.Schema({
     cover: {
         type: String
     },
+    readit: {
+        type:Number, default: 0
+    },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -81,6 +84,7 @@ bookSchema.statics.create = (bookObj, cb) => {
         authors: bookObj.authors,
         thumbnail: bookObj.thumbnail,
         googleId: bookObj.googleId,
+        sampleRead:bookObj.sampleRead,
         category: bookObj.category,
         description: bookObj.description,
         status: bookObj.status,
@@ -125,9 +129,11 @@ bookSchema.statics.addComment = (bookId, newComment, cb) => {
         };
         book.comments.push(comment);
         book.save((err, savedBook) => {
-            if (err) cb(err);
+            Book.findById(savedBook._id, (err2, updatedBook) => {
+                if (err || err2) cb(err);
 
-            cb(null, savedBook)
+                cb(null, updatedBook)
+            }).populate('by');
         });
     });
 }

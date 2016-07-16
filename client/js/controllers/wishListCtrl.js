@@ -2,7 +2,7 @@
 
 var app = angular.module('myApp');
 
-app.controller('wishListCtrl', function($scope, Book, User, $state, $location) {
+app.controller('wishListCtrl', function($scope, Book, $state, $location) {
     console.log('wishListCtrl');
     $scope.search = () => {
         console.log('working');
@@ -34,10 +34,13 @@ app.controller('wishListCtrl', function($scope, Book, User, $state, $location) {
             authors: book.volumeInfo.authors,
             googleId: book.id,
             category: book.volumeInfo.categories[0],
-            description: book.volumeInfo.description
+            description: book.volumeInfo.description,
+            sampleRead: book.accessInfo.webReaderLink,
+            status: book.status,
+            owner: $scope.currentUser._id,
         }
         console.log('wishBook', wishBook);
-        User.addWishBook(wishBook, $scope.currentUser._id)
+        Book.addWishBook(wishBook)
             .then(res => {
                 console.log('response when wishbook is added', res.data);
                 $location.path('profile/myWishList');

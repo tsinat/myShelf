@@ -6,6 +6,9 @@ app.service('Book', function($http, $q) {
     this.create = book => {
         return $http.post('api/books/', book);
     }
+    this.addWishBook = book => {
+        return $http.post('api/books/wishList', book);
+    }
     this.getBooksFeed = () => {
         return $http.get(`api/books/`);
     }

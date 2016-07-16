@@ -70,15 +70,15 @@ var userSchema = new mongoose.Schema({
     lng: {
         type: String
     },
-    wishList: [{
-        title:{ type: String },
-        subtitle: { type: String },
-        thumbnail: { type: String },
-        authors: [],
-        googleId: { type: String },
-        category: { type: String },
-        description: { type: String }
-    }],
+    // wishList: [{
+    //     title:{ type: String },
+    //     subtitle: { type: String },
+    //     thumbnail: { type: String },
+    //     authors: [],
+    //     googleId: { type: String },
+    //     category: { type: String },
+    //     description: { type: String }
+    // }],
     followers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -90,6 +90,10 @@ var userSchema = new mongoose.Schema({
     books: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Book'
+    }],
+    wishLists: [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Book'
     }]
 });
 
@@ -219,6 +223,14 @@ userSchema.statics.addBook = (user, book, cb) => {
         cb(err, addedBook)
     });
 };
+userSchema.statics.addWishBook = (user, book, cb) => {
+    console.log('even here', book._id)
+    user.wishLists.push(book._id);
+    user.save((err, addedBook) => {
+
+        cb(err, addedBook)
+    });
+};
 
 userSchema.statics.followUnfollow = (currentId, targetId, cb) => {
     User.findById(currentId, (err, currentUser) => {
@@ -255,18 +267,18 @@ userSchema.statics.followUnfollow = (currentId, targetId, cb) => {
     });
 };
 
-userSchema.statics.addWishBook = (userId, wishBook, cb) => {
-    console.log('wishBook', wishBook);
-    console.log('userId', userId);
-    User.findById(userId, (err, dbUser) => {
-        if(err || !dbUser) return cb(err);
-
-        dbUser.wishList.push(wishBook);
-        dbUser.save((err, savedUser) => {
-            cb(err, savedUser);
-        });
-    });
-};
+// userSchema.statics.addWishBook = (userId, wishBook, cb) => {
+//     console.log('wishBook', wishBook);
+//     console.log('userId', userId);
+//     User.findById(userId, (err, dbUser) => {
+//         if(err || !dbUser) return cb(err);
+//
+//         dbUser.wishList.push(wishBook);
+//         dbUser.save((err, savedUser) => {
+//             cb(err, savedUser);
+//         });
+//     });
+// };
 //add image url to the database and upload the image file to aws s3
 userSchema.statics.upload = (file, id, cb) => {
 
