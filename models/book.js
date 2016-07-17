@@ -68,12 +68,12 @@ var bookSchema = new mongoose.Schema({
     }]
 });
 
-bookSchema.statics.getOne = (id, cb) => {
-    Book.findById(id, (err, book) => {
-        if (err) return cb(err);
-        cb(null, book);
-    });
-};
+// bookSchema.statics.getOne = (id, cb) => {
+//     Book.findById(id, (err, book) => {
+//         if (err) return cb(err);
+//         cb(null, book);
+//     });
+// };
 
 bookSchema.statics.create = (bookObj, cb) => {
     console.log('book create:', bookObj);
@@ -110,11 +110,12 @@ bookSchema.statics.update = (id, currentBook, cb) => {
 };
 
 bookSchema.statics.deleteBook = (id, cb) => {
+    console.log('deleting one book:', id);
     Book.findByIdAndRemove(id, (err, deletedBook) => {
         if (err) {
             cb(err)
         } else {
-            cb(deletedBook);
+            cb(null, deletedBook);
         }
     });
 };

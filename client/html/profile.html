@@ -16,9 +16,9 @@
                 <ul style='cursor:pointer'>
                     <li ui-sref="profile.booksFeed">Books Feed </li>
                     <li ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> search Friends </li>
-                    <li ui-sref="profile.listBooks" ng-click="active = !active">My Collection </li>
                     <li ui-sref="profile.addBook">Add Book </li>
-                    <li ui-sref="profile.myWishList">My Wish List </li>
+                    <li ui-sref="profile.listBooks" ng-click="active = !active">Collection </li>
+                    <li ui-sref="profile.myWishList">Wish List </li>
                     <li ui-sref="profile.addWishList">Add Wish List </li>
                     <li ui-sref="profile.following({id:currentUser._id})">Following </li>
                     <li ui-sref="profile.followers({id:currentUser._id})">Followers </li>
@@ -26,9 +26,9 @@
                 </ul>
             </div>
         </div>
-        <div class="profile_main" ng-class="active?'col-lg-7 col-xs-4':'col-lg-9 col-xs-12'">
+        <div class="profile_main " ng-class="active?'col-lg-7 col-xs-4':'col-lg-9 col-xs-12'">
             <!-- <button type="button" name="button" ng-click="active = !active" ng-init="active=true">toggle</button> -->
-            <div ui-view="main"></div>
+            <div ui-view="main" ng-view ng-class='slideup'></div>
         </div>
         <div class="profile_right col-xs-0 col-lg-3">
             <div ui-view="side"></div>

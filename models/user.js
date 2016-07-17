@@ -201,7 +201,6 @@ userSchema.methods.generateToken = function() {
         _id: this._id,
         exp: moment().add(1, 'day').unix()
     };
-    console.log('JWT_SECRET:', JWT_SECRET);
     return jwt.sign(payload, JWT_SECRET);
 };
 
@@ -219,12 +218,23 @@ userSchema.statics.edit = (id, passedObj, cb) => {
 
 userSchema.statics.addBook = (user, book, cb) => {
     user.books.push(book._id);
-    user.save((err, addedBook) => {
-        cb(err, addedBook)
+    user.save((err, updatedUser) => {
+        cb(err, updatedUser)
     });
 };
+userSchema.statics.deleteBook = (user, bookId, cb) => {
+    console.log('books.before', user.books)
+    user.books = user.books.filter((dbId) => {
+        if(dbId != bookId){
+         return dbId
+        }
+    });
+    user.save((err, updateduser) => {
+        console.log('books.after:',updateduser.books);
+        cb(err, updateduser);
+    });
+}
 userSchema.statics.addWishBook = (user, book, cb) => {
-    console.log('even here', book._id)
     user.wishLists.push(book._id);
     user.save((err, addedBook) => {
 

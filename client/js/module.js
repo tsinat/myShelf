@@ -40,7 +40,18 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
                             return $q.reject();
                         });
                 }
+                // booksFeed: function(Book, $state, $stateParams) {
+                //     return Book.getBooksFeed()
+                //         .then(res => {
+                //             console.log('booksFeed:', res.data);
+                //             return res.data;
+                //         })
+                //         .catch(err => {
+                //             console.log('error while getting book detail', err)
+                //         })
+                // }
             }
+
         })
         .state('profile.booksFeed', {
             url: '/booksFeed/',
@@ -114,21 +125,33 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
             }
         })
         .state('profile.bookDetail', {
-            url: '/bookDetail/:id',
+            url: '/bookDetail/:googleId/detail/:id',
             views: {
                 'main': {
                     templateUrl: '/html/bookDetail.html',
                     controller: 'bookDetailCtrl',
                     resolve: {
                         detailBook: function(Book, $state, $stateParams) {
-                            var id = $stateParams.id;
-                            return Book.getDetail(id)
+                            var googleId = $stateParams.googleId;
+                            return Book.getDetail(googleId)
                                 .then(res => {
                                     console.log('bookDetail:', res.data);
-                                    return res.data;
+                                    return res;
                                 })
                                 .catch(err => {
                                     console.log('error while getting book detail', err)
+                                })
+                        },
+                        getDbDeatil: function(Book, $state, $stateParams) {
+                            var id = $stateParams.id;
+                            console.log('id:', id);
+                            return Book.getDetailFromDb(id)
+                                .then(res => {
+                                    console.log('detail from db:', res.data);
+                                    return res;
+                                })
+                                .catch(err => {
+                                    console.log('error while getting detail from db', err);
                                 })
                         }
                     }

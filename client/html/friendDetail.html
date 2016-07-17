@@ -31,7 +31,7 @@
     <div class="books-list">
         <h4>Books</h4>
         <hr>
-        <div class="single_book" ng-repeat='book in singleUser.books' style='cursor:pointer'>
+        <div class="single_book" ng-repeat='book in singleUser.books' style='cursor:pointer' ui-sref='profile.bookDetail({googleId: book.googleId, id:book._id})'>
             <img ng-show='!book.thumbnail' ng-src={{book.cover}} alt="" />
             <img ng-show='!book.cover && book.thumbnail' ng-src={{book.thumbnail}} alt="" />
             <div class="">

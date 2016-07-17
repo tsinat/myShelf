@@ -50,10 +50,10 @@ div.row {
                 li {
                     list-style: none;
                     // border: 1px solid white;
-                    box-shadow: 1px 0px 1px 1px lightgrey;
+                    box-shadow: 1px 0 1px 1px lightgrey;
                     padding: 10px 20px;
                     margin-bottom: 5px;
-                    color:#252525;
+                    color: #252525;
                     a {
                         text-decoration: none;
                         display: block;
@@ -109,6 +109,30 @@ div.row {
         padding-top: 10px;
         margin-right: 0 !important;
         padding-right: 0 !important;
+        .slideup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+        }
+        .slideup.ng-enter,
+        .slideup.ng-leave {
+            -webkit-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+        .slideup.ng-enter {
+            top: 100%;
+        }
+        .slideup.ng-enter-active {
+            top: 0;
+        }
+        .slideup.ng-leave {
+            top: 0;
+        }
+        .slideup.ng-leave-active {
+            top: -100%;
+        }
     }
     .profile_right {
         display: block;

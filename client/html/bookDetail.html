@@ -1,20 +1,68 @@
-<div class="book-detail-container">
-    <div class="serach-result">
-        <div class="search-result-image">
-            <img ng-src={{bookDetails.volumeInfo.imageLinks.thumbnail}} alt="" />
-        </div>
-        <a href={{bookDetails.accessInfo.webReaderLink}} target='_blank'>Sample Read</a><br>
-        <p><b>Author/s:</b> {{bookDetails.volumeInfo.authors[0]}}</p>
-        <p><b>Title:</b> {{bookDetails.volumeInfo.title}}</p>
-        <p><b>Sub Title:</b> {{bookDetails.volumeInfo.subtitle}}</p>
-        <p ng-show='isSecondAuthor(bookDetails, 1)'>{{bookDetails.volumeInfo.authors[1]}}</p>
-        <p ng-show='isSecondAuthor(bookDetails, 2)'>{{bookDetails.volumeInfo.authors[2]}}</p>
-        <p><b>ISBN:</b> {{bookDetails.industryIdentifiers[0].identifier}}</p>
-        <p><b>Category:</b> {{bookDetails.volumeInfo.categories[0]}}</p>
-        <p><b>publishedDate:</b> {{bookDetails.volumeInfo.publishedDate}}</p>
-        <p><b>publisher:</b> {{bookDetails.volumeInfo.publisher}}</p>
-        <p><b>Description:</b> {{bookDetails.volumeInfo.description}}</p>
 
-        <hr>
+<div class="books-detail-container">
+    <div class="book-container">
+        <div class="owner">
+            <img ng-hide='!bookDetailFromDb.owner.image' ng-src={{bookDetailFromDb.owner.image}} alt="" ui-sref='profile.friendDetail({id: bookDetailFromDb.owner._id})' style='cursor: pointer' />
+            <img ng-show='!bookDetailFromDb.owner.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: bookDetailFromDb.owner._id})' style='cursor: pointer' alt="" />
+            <a ui-sref='profile.friendDetail({id: bookDetailFromDb.owner._id})'><h4>{{bookDetailFromDb.owner.firstName}} {{bookDetailFromDb.owner.lastName}}</h4></a>
+            <button ng-if='currentUser._id==bookDetailFromDb.owner._id' ng-click='deleteOneBook(bookDetailFromDb._id)' class='btn btn-xs'><span class='glyphicon glyphicon-trash'></span></button>
+        </div>
+        <div class="serach-result">
+            <div class="search-result-image">
+                <img ng-src={{bookDetails.volumeInfo.imageLinks.thumbnail}} alt="" />
+            </div>
+            <a href={{bookDetails.accessInfo.webReaderLink}} target='_blank'>Sample Read</a><br>
+            <p><b>Author/s:</b> {{bookDetails.volumeInfo.authors[0]}}</p>
+            <p><b>Title:</b> {{bookDetails.volumeInfo.title}}</p>
+            <p><b>Sub Title:</b> {{bookDetails.volumeInfo.subtitle}}</p>
+            <p ng-show='isSecondAuthor(bookDetails, 1)'>{{bookDetails.volumeInfo.authors[1]}}</p>
+            <p ng-show='isSecondAuthor(bookDetails, 2)'>{{bookDetails.volumeInfo.authors[2]}}</p>
+            <p><b>ISBN:</b> {{bookDetails.industryIdentifiers[0].identifier}}</p>
+            <p><b>Category:</b> {{bookDetails.volumeInfo.categories[0]}}</p>
+            <p><b>publishedDate:</b> {{bookDetails.volumeInfo.publishedDate}}</p>
+            <p><b>publisher:</b> {{bookDetails.volumeInfo.publisher}}</p>
+            <p><b>Description:</b> {{bookDetails.volumeInfo.description}}</p>
+
+            <hr>
+        </div>
+        <div class="reaction-buttons">
+            <div class="col-xs-8">
+                <button type="button" class='btn btn-success readit active'>Readit <span class='badge'>{{book.readit}}</span></button>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+            </div>
+        </div>
+        <div class="comments-container">
+            <div class="row main" ng-repeat='comment in bookDetailFromDb.comments'>
+                <div class="comment-header col-xs-1">
+                    <img ng-src={{comment.by.image}} alt="" />
+                </div>
+                <div class="comment-main col-xs-10">
+                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span>
+                    <p>{{comment.content}}</p>
+                </div>
+                <hr/>
+            </div>
+            <form class='form-inline' ng-submit='addComment(comment, bookDetailFromDb._id)'>
+                <div class="form-container row">
+                    <div class="form-group col-xs-1">
+                        <img ng-src={{currentUser.image}} alt="" />
+                    </div>
+                    <div class="form-group col-xs-10">
+                        <textarea type="text" class="form-control" ng-model='comment' placeholder="Add comment"></textarea>
+                        <!-- <button class='btn btn-raised btn-primary'><span class='glyphicon glyphicon-send'></span></button> -->
+                    </div>
+                    <div class="form-group col-xs-1">
+                        <button class='btn btn-raised btn-primary '><span class='glyphicon glyphicon-send'></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- </div> -->
+        <br>
     </div>
 </div>
