@@ -13,7 +13,7 @@
             }
         }
         .owner {
-            background: #ecf0f1;
+            border: 2px solid #ecf0f1;
             padding-top: 5px;
             clear: both;
             width: 100%;
@@ -21,13 +21,18 @@
             img {
                 float: left !important;
                 width: 50px;
+                height: 50px;
                 border: 5px solid lightgrey;
                 border-radius: 50%;
-                margin-bottom: 10px !important;
+                // margin-bottom: 10px !important;
             }
-            h4 {
+            span {
+                margin-left: 10px;
+            }
+            span.comment-date{
                 padding: 10px 20px;
-                margin-left: 40px !important;
+                float:right;
+                // margin-left: 40px !important;
             }
         }
         .text-container {

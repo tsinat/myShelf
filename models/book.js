@@ -37,6 +37,9 @@ var bookSchema = new mongoose.Schema({
     description: {
         type: String
     },
+    sampleRead: {
+        type: String
+    },
     status: {
         type: String
     },

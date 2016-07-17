@@ -71,6 +71,10 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
                                 })
                         }
                     }
+                },
+                'side': {
+                    templateUrl: '/html/friendsList.html',
+                    controller: 'mainCtrl'
                 }
             }
         })

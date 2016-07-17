@@ -3,7 +3,8 @@
         <div class="owner">
             <img ng-hide='!book.owner.image' ng-src={{book.owner.image}} alt="" ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' />
             <img ng-show='!book.owner.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' alt="" />
-            <a ui-sref='profile.friendDetail({id: book.owner._id})'><h4>{{book.owner.firstName}} {{book.owner.lastName}}</h4></a>
+            <a ui-sref='profile.friendDetail({id: book.owner._id})'><span>{{book.owner.firstName}} {{book.owner.lastName}}</span></a>
+            <span class='comment-date'>  {{book.createdAt | date : 'short'}}</span>
         </div>
         <div class="feed-image">
             <img ng-show='!book.thumbnail' ng-src={{book.cover}} width='150px' alt="" />
@@ -28,10 +29,14 @@
                 <button type="button" class='btn btn-success readit active'>Readit <span class='badge'>{{book.readit}}</span></button>
             </div>
             <div class="col-xs-2">
-                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i>
+                    <span class='badge'>{{book.readit}}</span>
+                </button>
             </div>
             <div class="col-xs-2">
-                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i>
+                    <span class='badge'>{{book.readit}}</span>
+                </button>
             </div>
         </div>
         <div class="comments-container">
@@ -40,7 +45,8 @@
                     <img ng-src={{comment.by.image}} alt="" />
                 </div>
                 <div class="comment-main col-xs-10">
-                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span><span class='comment-date'>{{comment.createdAt | date : 'short'}}</span>
+                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span>
+                    <span class='comment-date'>{{comment.createdAt | date : 'short'}}</span>
                     <p>{{comment.content}}</p>
                 </div>
                 <hr/>

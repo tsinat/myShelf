@@ -6,8 +6,8 @@
         margin-right: 40px !important;
         min-width: 200px;
         input {
-            border: 1px solid lightgrey !important;
-            border-bottom: none !important;
+            // border: 1px solid lightgrey !important;
+            // border-bottom: none !important;
             padding-left: 20px;
         }
     }
@@ -67,7 +67,7 @@
     .form-inline .input-group > .form-control {
         margin-left: 0!important;
         width: 95%;
-        border-: 1px solid grey !important;
+        border-:none !important;
         border-radius: 5px;
     }
     div.col-xs-12.col-lg-3 {

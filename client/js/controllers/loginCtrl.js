@@ -9,7 +9,7 @@ app.controller('loginCtrl', function($scope, Auth, $state, $location, $timeout) 
         Auth.login($scope.user)
             .then(res => {
                 $timeout(function() {
-                    $state.go('profile.booksFeed');
+                    $state.go('profile');
                 }, 1000);
                 // $location.path('/profile/booksFeed');
 

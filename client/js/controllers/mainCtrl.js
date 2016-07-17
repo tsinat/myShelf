@@ -3,6 +3,10 @@
 var app = angular.module('myApp');
 
 app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $location) {
+    console.log('check');
+    if ($state.is('profile')) {
+        $state.go('profile.booksFeed')
+    }
     $scope.$watch(function() {
         return Auth.currentUser;
     }, function(newVal, oldVal) {
@@ -69,21 +73,21 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                 if (user.lat) {
                     // if ($scope.currentUser.address.city == user.address.city) {
 
-                        var R = 6371;
-                        var dLat = deg2rad($scope.currentUser.lat - user.lat); //
-                        var dLon = deg2rad($scope.currentUser.lng - user.lng);
-                        var a =
-                            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                            Math.cos(deg2rad(user.lat)) * Math.cos(deg2rad($scope.currentUser.lat)) *
-                            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-                        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-                        var d = R * c; // Distance in km
+                    var R = 6371;
+                    var dLat = deg2rad($scope.currentUser.lat - user.lat); //
+                    var dLon = deg2rad($scope.currentUser.lng - user.lng);
+                    var a =
+                        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                        Math.cos(deg2rad(user.lat)) * Math.cos(deg2rad($scope.currentUser.lat)) *
+                        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                    var d = R * c; // Distance in km
 
-                        function deg2rad(deg) {
-                            return deg * (Math.PI / 180)
-                        }
-                        user.distance = d.toFixed(0) + ' Kilometers';
-                        return user;
+                    function deg2rad(deg) {
+                        return deg * (Math.PI / 180)
+                    }
+                    user.distance = d.toFixed(0) + ' Kilometers';
+                    return user;
                     // }
                 } else {
                     return user;
@@ -94,50 +98,50 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
             console.log(err);
         })
 
-        $scope.showIfNotUser = (id) => {
-            return ! ($scope.currentUser._id == id);
-        };
+    $scope.showIfNotUser = (id) => {
+        return !($scope.currentUser._id == id);
+    };
 
-        //follow and unfollow in the user finder
-        $scope.flg_unfollow;
-        $scope.checkIfFollowed = (id) => {
-             return checkFollowed(id);
-        };
+    //follow and unfollow in the user finder
+    $scope.flg_unfollow;
+    $scope.checkIfFollowed = (id) => {
+        return checkFollowed(id);
+    };
 
-        $scope.showIfNotUser = (id) => {
-            return ! ($scope.currentUser._id == id);
-        };
-        $scope.follow = (currentId, targetId) => {
-            User.followUnfollow(currentId, targetId)
-                .then(res => {
-                    // console.log('response after following user', res);
-                    $state.reload();
-                })
-                .catch(err => {
-                    console.log('error while following user', err);
-                })
-        };
-        $scope.unfollow = (currentId, targetId) => {
-            User.followUnfollow(currentId, targetId)
-                .then(res => {
-                    // console.log('response after following user', res);
-                    $state.reload();
-                })
-                .catch(err => {
-                    console.log('error while following user', err);
-                })
-        };
+    $scope.showIfNotUser = (id) => {
+        return !($scope.currentUser._id == id);
+    };
+    $scope.follow = (currentId, targetId) => {
+        User.followUnfollow(currentId, targetId)
+            .then(res => {
+                // console.log('response after following user', res);
+                $state.reload();
+            })
+            .catch(err => {
+                console.log('error while following user', err);
+            })
+    };
+    $scope.unfollow = (currentId, targetId) => {
+        User.followUnfollow(currentId, targetId)
+            .then(res => {
+                // console.log('response after following user', res);
+                $state.reload();
+            })
+            .catch(err => {
+                console.log('error while following user', err);
+            })
+    };
 
-        function checkFollowed(targetId){
-            $scope.flg_unfollow = $scope.currentUser.following.some((userId) => {
-                return userId == targetId;
-            });
-            return $scope.flg_unfollow;
-        }
+    function checkFollowed(targetId) {
+        $scope.flg_unfollow = $scope.currentUser.following.some((userId) => {
+            return userId == targetId;
+        });
+        return $scope.flg_unfollow;
+    }
 
-        $scope.checkDistance = user => {
-            // console.log( (user.distance.split(' ')[0]))
-            var temp = user.distance.split(' ')[0];
-            return  parseInt(temp) < 50;
-        }
+    $scope.checkDistance = user => {
+        // console.log( (user.distance.split(' ')[0]))
+        var temp = user.distance.split(' ')[0];
+        return parseInt(temp) < 50;
+    }
 });

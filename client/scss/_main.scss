@@ -50,14 +50,15 @@ div.row {
                 li {
                     list-style: none;
                     // border: 1px solid white;
-                    box-shadow: 1px 0 1px 1px lightgrey;
+                    // box-shadow: 1px 0 1px 1px lightgrey;
                     padding: 10px 20px;
                     margin-bottom: 5px;
-                    color: #252525;
+                    color: grey;
                     a {
                         text-decoration: none;
                         display: block;
                         padding: 8px 0;
+                        color:silver !important;
                     }
                     &:hover {
                         background: darken(#ecf0f1, 10);
