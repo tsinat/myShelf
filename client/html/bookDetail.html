@@ -22,7 +22,6 @@
             <p><b>publishedDate:</b> {{bookDetails.volumeInfo.publishedDate}}</p>
             <p><b>publisher:</b> {{bookDetails.volumeInfo.publisher}}</p>
             <p><b>Description:</b> {{bookDetails.volumeInfo.description}}</p>
-
             <hr>
         </div>
         <div class="reaction-buttons">
@@ -42,7 +41,7 @@
                     <img ng-src={{comment.by.image}} alt="" />
                 </div>
                 <div class="comment-main col-xs-10">
-                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span>
+                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span><span class='comment-date'>{{comment.createdAt | date : 'short'}}</span>
                     <p>{{comment.content}}</p>
                 </div>
                 <hr/>

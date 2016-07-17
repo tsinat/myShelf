@@ -65,6 +65,7 @@
             padding: 10px 20px;
             div.row.main {
                 margin-bottom: 0 !important;
+                margin-right: 0 !important;
                 .comment-header {
                     img {
                         width: 30px;
@@ -74,7 +75,12 @@
                     }
                 }
                 .comment-main span {
-                    color:green;
+                    color:#009688;
+                }
+                .comment-date {
+                    float:right;
+                    margin-right: 0;
+                    padding-right: 0;
                 }
                 hr {
                     width:100%;

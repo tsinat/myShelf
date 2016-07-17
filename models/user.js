@@ -70,15 +70,10 @@ var userSchema = new mongoose.Schema({
     lng: {
         type: String
     },
-    // wishList: [{
-    //     title:{ type: String },
-    //     subtitle: { type: String },
-    //     thumbnail: { type: String },
-    //     authors: [],
-    //     googleId: { type: String },
-    //     category: { type: String },
-    //     description: { type: String }
-    // }],
+    readit: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Book'
+    }],
     followers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -92,8 +87,8 @@ var userSchema = new mongoose.Schema({
         ref: 'Book'
     }],
     wishLists: [{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Book'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Book'
     }]
 });
 
@@ -225,12 +220,12 @@ userSchema.statics.addBook = (user, book, cb) => {
 userSchema.statics.deleteBook = (user, bookId, cb) => {
     console.log('books.before', user.books)
     user.books = user.books.filter((dbId) => {
-        if(dbId != bookId){
-         return dbId
+        if (dbId != bookId) {
+            return dbId
         }
     });
     user.save((err, updateduser) => {
-        console.log('books.after:',updateduser.books);
+        console.log('books.after:', updateduser.books);
         cb(err, updateduser);
     });
 }
@@ -268,7 +263,7 @@ userSchema.statics.followUnfollow = (currentId, targetId, cb) => {
             }
             currentUser.save((err, updatedCurrentUser) => {
                 targetUser.save((err2, updatedTargetUser) => {
-                    if(err || err2) return cb(err || err2);
+                    if (err || err2) return cb(err || err2);
 
                     cb(null, updatedCurrentUser);
                 });

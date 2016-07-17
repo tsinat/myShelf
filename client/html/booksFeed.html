@@ -40,7 +40,7 @@
                     <img ng-src={{comment.by.image}} alt="" />
                 </div>
                 <div class="comment-main col-xs-10">
-                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span>
+                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span><span class='comment-date'>{{comment.createdAt | date : 'short'}}</span>
                     <p>{{comment.content}}</p>
                 </div>
                 <hr/>

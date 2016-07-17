@@ -90,7 +90,12 @@
                     }
                 }
                 .comment-main span {
-                    color:green;
+                    color:#009688;
+                }
+                .comment-date {
+                    float:right;
+                    margin-right: 0;
+                    padding-right: 0;
                 }
                 hr {
                     width:100%;

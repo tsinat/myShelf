@@ -64,6 +64,9 @@ var bookSchema = new mongoose.Schema({
         by: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
+        },
+        createdAt: {
+            type: Date, default: Date.now()
         }
     }]
 });
