@@ -5,8 +5,8 @@
 @media (min-width: 1200px){
     .form-inline {
         // background: red;
-        padding:0;
-        margin:0;
+        padding:0 !important;
+        margin:0 !important;
     }
     .friendList_hr {
         margin: 5px  10px 10px 20px !important;
@@ -14,19 +14,22 @@
         background: white;
     }
     .list-group-item:hover {
-        background: #bdc3c7;
-        border-radius: 5px;
+        // background: #bdc3c7;
+        border-bottom: 1px solid lightgrey;
+        // border-radius: 5px;
     }
     div.list-group-item {
         margin-bottom: 0;
         margin-right: 0 !important;
-        margin-left: 20px;
-        padding: 5px !important;
-        padding-right: 20px;
+        padding: 5px 0 !important;
+        margin: 0 !important;
+        width:100%;
     }
     div.form-group.list-group{
-        margin-top:  0;
-        padding: 0  1px 0 30px;
+        margin: 0 !important;
+        padding: 0  1px 0 20px;
+        width:100% !important;
+        border-bottom: 1px solid lightgrey !important;
     }
     .circle {
         width:50px !important;

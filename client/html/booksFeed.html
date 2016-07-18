@@ -3,7 +3,7 @@
         <div class="owner">
             <img ng-hide='!book.owner.image' ng-src={{book.owner.image}} alt="" ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' />
             <img ng-show='!book.owner.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' alt="" />
-            <a ui-sref='profile.friendDetail({id: book.owner._id})'><span>{{book.owner.firstName}} {{book.owner.lastName}}</span></a>
+            <span class='owner-name' ui-sref='profile.friendDetail({id: book.owner._id})'><a >{{book.owner.firstName}} {{book.owner.lastName}}</a></span>
             <span class='comment-date'>  {{book.createdAt | date : 'short'}}</span>
         </div>
         <div class="feed-image">

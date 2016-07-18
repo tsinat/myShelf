@@ -14,7 +14,6 @@
         }
         .owner {
             border: 2px solid #ecf0f1;
-            padding-top: 5px;
             clear: both;
             width: 100%;
             overflow: hidden;
@@ -24,10 +23,12 @@
                 height: 50px;
                 border: 5px solid lightgrey;
                 border-radius: 50%;
-                // margin-bottom: 10px !important;
             }
-            span {
+            .owner-name {
                 margin-left: 10px;
+                font-size: 1.5em;
+                padding-top: 15px !important;
+                margin-bottom: 0 !important;
             }
             span.comment-date{
                 padding: 10px 20px;

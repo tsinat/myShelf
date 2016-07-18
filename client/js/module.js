@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router', 'ngFileUpload', 'angular-loading-bar']);
+var app = angular.module('myApp', ['ui.router', 'ngFileUpload', 'angular-loading-bar', 'ngAnimate']);
 
 app.run(function(Auth) {
     Auth.getProfile();
