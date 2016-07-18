@@ -13,23 +13,22 @@
         padding-right:30px;
         background: white;
     }
-    .list-group-item:hover {
-        // background: #bdc3c7;
-        border-bottom: 1px solid lightgrey;
-        // border-radius: 5px;
-    }
     div.list-group-item {
         margin-bottom: 0;
         margin-right: 0 !important;
         padding: 5px 0 !important;
         margin: 0 !important;
         width:100%;
+        box-sizing: border-box !important;
+    }
+    .list-group-item:hover {
+        border-bottom:1px solid darken(#ecf0f1, 10);
+        box-sizing: border-box !important;
     }
     div.form-group.list-group{
         margin: 0 !important;
         padding: 0  1px 0 20px;
         width:100% !important;
-        border-bottom: 1px solid lightgrey !important;
     }
     .circle {
         width:50px !important;

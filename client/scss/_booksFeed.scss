@@ -1,4 +1,6 @@
 .books-feed-container {
+    max-height: 1500px;
+    overflow-y: scroll;
     .book-container {
         margin: 20px !important;
         padding: 20px;
@@ -13,15 +15,16 @@
             }
         }
         .owner {
-            border: 2px solid #ecf0f1;
+            clear:both;
             clear: both;
             width: 100%;
             overflow: hidden;
+            padding-bottom: 10px !important;
             img {
                 float: left !important;
                 width: 50px;
                 height: 50px;
-                border: 5px solid lightgrey;
+                border: 1px solid lightgrey;
                 border-radius: 50%;
             }
             .owner-name {
@@ -59,10 +62,13 @@
                     color: white;
                 }
             }
-            .likes {
-                float: right;
-                padding: 5px;
+            .likes, .comments{
+                float: left;
+                // padding: 5px;
                 background: transparent;
+            }
+            .comments {
+
             }
         }
         .comments-container {
