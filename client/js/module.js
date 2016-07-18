@@ -1,13 +1,14 @@
 'use strict';
 
-var app = angular.module('myApp', ['ui.router', 'ngFileUpload', 'angular-loading-bar', 'ngAnimate']);
+var app = angular.module('myApp', ['ui.router', 'ngFileUpload', 'angular-loading-bar', 'ngAnimate', 'angularModalService']);
 
 app.run(function(Auth) {
     Auth.getProfile();
 });
 
-app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
+app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$uiViewScrollProvider) {
     cfpLoadingBarProvider.includeSpinner = true;
+    $uiViewScrollProvider.useAnchorScroll();
     $stateProvider
         .state('home', {
             url: '/',

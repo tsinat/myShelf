@@ -1,6 +1,9 @@
 .AddBook-container {
+    min-height: 100vh;
     height: 100%;
     overflow-y: scroll !important;
+    background-color: white;
+    margin-right: 15px;
     .form-header {
         clear:both !important;
     }
@@ -15,12 +18,14 @@
         clear:both !important;
         display: block;
         .search-result {
-            min-height:300px !important
+            min-height:300px !important;
+            margin-top:10px !important;
         }
         .search-result-image img {
             border: 1px solid lightgrey !important;
             float:left;
             margin-right: 20px;
+
         }
         .button-container {
             clear:both;

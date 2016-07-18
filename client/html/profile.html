@@ -1,7 +1,7 @@
 <div class=' profile'>
     <div class="row">
         <div class="profile_left col-xs-8 col-lg-2" ng-if="active" >
-            <div class="profileholder">
+            <!-- <div class="profileholder">
                 <br>
                 <div class="image_container">
                     <img class='profile_picture' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
@@ -11,7 +11,7 @@
                 <h5>{{currentUser.firstName}}  {{currentUser.lastName}}
                     <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
                 </h5>
-            </div>
+            </div> -->
             <div class="profile_navigator">
                 <ul style='cursor:pointer'>
                     <li ui-sref="profile.booksFeed">Books Feed </li>
@@ -28,10 +28,10 @@
         </div>
         <div class="profile_main " ng-class="active?'col-lg-7 col-xs-4':'col-lg-9 col-xs-12'">
             <!-- <button type="button" name="button" ng-click="active = !active" ng-init="active=true">toggle</button> -->
-            <div ui-view="main" ng-view ng-class='slideup'></div>
+            <div ui-view="main" ng-view ng-class='slideup' autoscroll="true"></div>
         </div>
         <div class="profile_right col-xs-0 col-lg-3">
-            <div ui-view="side"></div>
+            <div ui-view="side" autoscroll="true"></div>
         </div>
     </div>
 </div>

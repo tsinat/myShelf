@@ -8,22 +8,23 @@ div.row {
     margin-bottom: 0;
 }
 .profile {
-    background-color: #ecf0f1;
+    // background-color: #ecf0f1;
+    background-color: white;
     padding-top: 60px;
-    margin-right: 20px;
+    // margin-right: 20px;
     padding-right: 0;
     padding-left: 10px;
     min-height: 800px;
     height: auto;
     .profile_main {
-        background-color: white;
+        background-color: #F1F1F1;
         height: 100%;
         padding-top: 10px;
         margin-right: 0 !important;
         padding-right: 0 !important;
     }
     .profile_right {
-        // display: none;
+        // border-left: 1px solid lightgrey !important;
         height: auto;
         max-height: 1000px;
         overflow: scroll;
@@ -31,6 +32,8 @@ div.row {
     .profile_left {
         padding-top: 20px !important;
         padding-left: 10px !important;
+        height: 100vh;
+        // border-right: 1px solid lightgrey !important;
         .profile_picture {
             width: 150px;
             height: 150px;
@@ -42,7 +45,7 @@ div.row {
         }
         .profile_navigator {
             ul {
-                margin-top: 20px;
+                // margin-top: 20px;
                 list-style-type: none;
                 padding: 0 !important;
                 width: 100%;
@@ -62,7 +65,8 @@ div.row {
                         color:silver !important;
                     }
                     &:hover {
-                        background: darken(#ecf0f1, 10);
+                        // background: darken(#ecf0f1, 10);
+                        color:#00aa9a;
                     }
                 }
             }
@@ -91,12 +95,13 @@ div.row {
     }
 }
 .footer_div {
-    background: #16A085;
+    border-top: 1px solid lightgrey !important;
+    background: white;
     padding-top: 10px;
     min-height: 40px;
     margin-bottom: 0 !important;
     a {
-        color: silver !important;
+        color: #252525 !important;
     }
 }
 @media (min-width: 1200px) {

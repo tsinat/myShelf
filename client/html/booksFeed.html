@@ -25,22 +25,22 @@
             <p class='description'><b>Description:</b> {{book.description}}</p>
         </div>
         <div class="reaction-buttons" ng-init='test=true'>
-            <div class="col-xs-7">
+            <div class="col-xs-8">
                 <button type="button" class='btn btn-success readit active'>Readit <span class='badge'>{{book.readit}}</span></button>
             </div>
-            <div class="col-xs-2">
+            <div class="col-xs-1">
                 <button ng-click='test=!test' class='comments btn btn-success likes'>
                     <span><i class="fa fa-2x fa-commenting-o" aria-hidden="true" >{{book.comments.length || ''}}</i></span>
                 </button>
             </div>
             <div class="col-xs-1">
                 <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i>
-                    <span class='badge'>{{book.readit}}</span>
+                    <!-- <span class='badge'>{{book.readit}}</span> -->
                 </button>
             </div>
             <div class="col-xs-1">
                 <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i>
-                    <span class='badge'>{{book.readit}}</span>
+                    <!-- <span class='badge'>{{book.readit}}</span> -->
                 </button>
             </div>
         </div>

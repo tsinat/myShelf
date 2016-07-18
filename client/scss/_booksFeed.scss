@@ -2,10 +2,12 @@
     max-height: 1500px;
     overflow-y: scroll;
     .book-container {
-        margin: 20px !important;
+        background: white;
+        margin-right: 15px !important;
+        margin-bottom: 10px !important;
         padding: 20px;
         display: block;
-        box-shadow: 1px 1px 1px 1px lightgrey;
+        // box-shadow: 1px 1px 1px 1px lightgrey;
         div.feed-image {
             float: left !important;
             max-width: 200px !important;
@@ -56,7 +58,8 @@
             background: red;
             .readit {
                 background: #FFFFFF;
-                border: 1px solid green;
+                border: 1px solid #666666;
+                color:#666666;
                 span {
                     background: grey;
                     color: white;
@@ -64,7 +67,7 @@
             }
             .likes, .comments{
                 float: left;
-                // padding: 5px;
+                color: #666666 !important;
                 background: transparent;
             }
             .comments {
@@ -87,7 +90,7 @@
                     }
                 }
                 .comment-main span {
-                    color:#009688;
+                    color:#666666;
                 }
                 .comment-date {
                     float:right;

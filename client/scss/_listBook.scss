@@ -1,16 +1,20 @@
 .collection-container {
     min-width: 300px;
     margin: 0 auto;
+    // background-color: white;
+    margin-right: 15px;
+    margin-top: 0 !important;
+    padding:20px;
     .book_container {
-
         margin-bottom: 20px;
         max-width:200px;
         height: 340px;
         padding:10px;
-        box-shadow: 1px 1px 1px 1px  grey !important;
+        box-shadow: 1px 1px 1px 1px  lightgrey !important;
         border:none !important;
         box-sizing: border-box;
         margin-right: 10px;
+        background: white;
         .image-container img {
             max-width: 150px;
             max-height: 200px;

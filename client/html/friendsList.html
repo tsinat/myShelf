@@ -12,7 +12,7 @@
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text"><b>{{user.firstName}} {{user.lastName}}</b></p>
-                    <p class="list-group-item-text">{{user.email}}</p>
+                    <p class="list-group-item-text">{{user.address.city}} {{user.address.state}}</p>
                     <p class="list-group-item-text miles">{{user.distance || user.address.city}} </p>
                 </div>
             </div>

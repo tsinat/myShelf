@@ -2,7 +2,7 @@
 
 angular
     .module('myApp')
-    .controller('friendDetailCtrl', function($scope, $state, User, friend) {
+    .controller('friendDetailCtrl', function($scope, $state, User, friend, ModalService) {
         $scope.singleUser = friend;
 
         $scope.flg_unfollow;

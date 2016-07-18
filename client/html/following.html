@@ -1,7 +1,7 @@
-<div class=' '>
+<div class='following-container '>
     <h2 class='text-center'>Following</h2>
-    <hr>
-    <div class='col-xs-12 col-lg-4' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index'>
+    <!-- <hr> -->
+    <div class='col-xs-12 col-lg-4 following-container' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index'>
         <div class="following_user text-center">
             <img ng-hide='!user.image' ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' />
             <img ng-show='!user.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' alt="" />

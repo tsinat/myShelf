@@ -1,11 +1,15 @@
 .follower-container {
     min-height: 800px;
+    // background: white;
+    margin-right: 15px;
+    padding-top: 20px;
     .follower_user {
         padding: 10px;
         margin-top: 10px;
         box-shadow: 1px 1px 1px 1px lightgrey;
         height: 300px;
         min-width: 200px;
+        background: white;
         img {
             width: 100px;
             height: 100px;
