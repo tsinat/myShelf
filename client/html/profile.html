@@ -1,7 +1,7 @@
 <div class=' profile'>
     <div class="row">
         <div class="profile_left col-xs-8 col-lg-2" ng-if="active" >
-            <!-- <div class="profileholder">
+            <div class="profileholder">
                 <br>
                 <div class="image_container">
                     <img class='profile_picture' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
@@ -11,7 +11,7 @@
                 <h5>{{currentUser.firstName}}  {{currentUser.lastName}}
                     <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
                 </h5>
-            </div> -->
+            </div>
             <div class="profile_navigator">
                 <ul style='cursor:pointer'>
                     <li ui-sref="profile.booksFeed">Books Feed </li>
@@ -23,6 +23,7 @@
                     <li ui-sref="profile.following({id:currentUser._id})">Following </li>
                     <li ui-sref="profile.followers({id:currentUser._id})">Followers </li>
                     <li role="presentation" class="active">Inbox <span class="badge"> 42</span> </li>
+                    <li class='logout'><a ng-click='logout()'> <i class="fa fa-sign-out " aria-hidden="true"></i> Logout</a></li>
                 </ul>
             </div>
         </div>
