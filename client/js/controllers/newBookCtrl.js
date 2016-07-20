@@ -78,7 +78,7 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book, $location) 
         Book.create(newBook)
             .then(res => {
                 console.log('response when wishbook is added', res.data);
-                $location.path('profile/listBooks');
+                $location.path('profile/booksFeed');
             })
             .catch(err => {
                 console.log('error while adding wishBook', err);

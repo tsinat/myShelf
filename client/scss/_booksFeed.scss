@@ -58,20 +58,33 @@
             background: red;
             .readit {
                 background: #FFFFFF;
-                border: 1px solid #666666;
-                color:#666666;
+                border: 1px solid #00AA9A;
+                color:#00AA9A;
                 span {
                     background: grey;
                     color: white;
                 }
             }
-            .likes, .comments{
-                float: left;
-                color: #666666 !important;
-                background: transparent;
-            }
             .comments {
-
+                float: left !important;
+                padding: 5px 7px;
+                margin-top: 15px;
+            }
+            .like-btn {
+                margin-left:20px !important;
+                padding:0 !important;
+                width: 20px !important;
+            }
+            .likes {
+                float: right;
+                padding: 5px 7px;
+                border-radius: 50%;
+                background: transparent;
+                color:#00AA9A;
+                &:hover {
+                    background: #00AA9A !important;
+                    color:white;
+                }
             }
         }
         .comments-container {

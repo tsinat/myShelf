@@ -70,10 +70,6 @@ var userSchema = new mongoose.Schema({
     lng: {
         type: String
     },
-    readit: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Book'
-    }],
     followers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'

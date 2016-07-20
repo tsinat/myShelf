@@ -49,9 +49,10 @@ var bookSchema = new mongoose.Schema({
     cover: {
         type: String
     },
-    readit: {
-        type:Number, default: 0
-    },
+    readit: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -144,6 +145,31 @@ bookSchema.statics.addComment = (bookId, newComment, cb) => {
         });
     });
 }
+
+bookSchema.statics.readIt = (bookId, userId, cb) => {
+    console.log('userId', userId);
+    console.log(typeof userId);
+    Book.findById(bookId, (err, dbBook) => {
+        if(err) return cb(err);
+
+        if(dbBook.readit.indexOf(userId) == -1) {
+            dbBook.readit.push(userId);
+        } else {
+            dbBook.readit = dbBook.readit.filter((id) => {
+                if(id != userId) {
+                    return id;
+                }
+            });
+        }
+        console.log('readit2', dbBook.readit);
+        dbBook.save((err2, updatedBook) => {
+            console.log('updatedBook:', updatedBook);
+            if(err2) return cb(err2);
+
+            cb(null, updatedBook);
+        });
+    });
+};
 
 //add image url to the database and upload the image file to aws s3
 bookSchema.statics.upload = (file, id, cb) => {

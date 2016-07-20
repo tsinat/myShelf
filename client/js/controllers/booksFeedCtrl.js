@@ -23,4 +23,15 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
                 })
         }
     }
+    $scope.addReadIt = bookId => {
+        console.log('$scope.currentUser._id', $scope.currentUser._id)
+        Book.readIt(bookId, $scope.currentUser._id)
+            .then(res => {
+                $state.reload();
+                console.log('response after adding readit', res.data);
+            })
+            .catch(err => {
+                console.log('error while adding readit', err);
+            })
+    }
 })

@@ -33,4 +33,7 @@ app.service('Book', function($http, $q) {
     this.deleteOne = id => {
         return $http.delete(`api/books/${id}`)
     }
+    this.readIt = (bookId, userId) => {
+        return $http.put(`api/books/${bookId}/readIt/${userId}`);
+    }
 });

@@ -13,6 +13,9 @@
         .logo {
             margin-top:20%;
         }
+        .main-title {
+            padding-left:40px;
+        }
         div.login_container {
             padding-top: 20px !important;
             width: 90% !important;
@@ -40,13 +43,16 @@
 }
 .about {
     padding-top: 20px;
-    min-height: 400px;
+    min-height: 260px;
     height: auto;
     background: #ecf0f1;
     h2 {
         color: #00aa9a !important;
         // font-size: 1.2em !important;
         font-weight: bold;
+    }
+    h1 {
+        font-size: 1.5em;
     }
 }
 .intro {
@@ -60,7 +66,9 @@
     }
     .how-it-works {
         padding: 30px;
-
+        h3 {
+            font-size: 1.5em;
+        }
     }
 
 }
@@ -68,6 +76,7 @@
     position: relative;
     overflow: hidden;
     text-align: center;
+    margin: 0 auto;
     height: 300px;
     width: 300px;
     border-radius: 500px;
@@ -101,16 +110,13 @@
         font-weight: bold;
 
     }
-    // .sub-container {
-    //     padding-left: 40px;
-    //     h3 {
-    //         width:80%;
-    //         line-height: 1.8em;
-    //     }
-    // }
+    h3 {
+        font-size: 1.5em;
+    }
+
 }
 .footer {
-    min-height:80px;
+    min-height:140px;
     padding-top:20px;
     height: auto !important;
     background: #00aa9a !important;
@@ -121,11 +127,17 @@
     }
 }
 @media (min-width: 768px){
-    .register_container {
-        margin-right: 500px !important;
-    }
+
     h1 {
         font-size: 3em !important;
     }
-
+    .main-title {
+        padding-left:10px !important;
+    }
+    .about {
+        min-height: 400px;
+    }
+    .footer {
+        min-height: 80px;
+    }
 }

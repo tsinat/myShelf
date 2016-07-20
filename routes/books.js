@@ -89,4 +89,10 @@ router.put('/addComment/:bookId', User.isLoggedIn, (req, res) => {
     });
 });
 
+router.put('/:bookId/readIt/:userId', (req, res) => {
+    Book.readIt(req.params.bookId, req.params.userId, (err, updatedBook) => {
+        console.log('error while saving readit', err);
+        res.status(err ? 400: 200).send(err || updatedBook);
+    })
+})
 module.exports = router;

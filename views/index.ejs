@@ -34,9 +34,9 @@
     <script src="/js/bundle.js" charset="utf-8"></script>
 </head>
 
-<body ng-app='myApp' ng-controller='mainCtrl'>
+<body ng-app='myApp' ng-controller='mainCtrl' ng-init="active=true">
     <div ng-hide='!currentUser' class="navbar navbar-default navbar-fixed-top">
-        <span class="navbar-button-o" ng-init="active=true" ng-click="active = !active">
+        <span class="navbar-button-o"  ng-click="active = !active">
             <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
         </span>
         <div class="container-fluid">
@@ -51,12 +51,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li >
-                        <img sytle='width:30;height:30;' class='nav-profile' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
-                        <img sytle='width:30px;height:30px;' class='nav-profile' ng-show='!currentUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
+                        <img ui-sref='profile.booksFeed' sytle='width:30;height:30;' class='nav-profile' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
+                        <img ui-sref='profile.booksFeed' sytle='width:30px;height:30px;' class='nav-profile' ng-show='!currentUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
 
                     </li>
                     <li class="dropdown">
-                        <a ui-sref='profile.booksFeed' data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.firstName || 'hello'}}
+                        <a  data-target="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.firstName || 'hello'}}
             <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span> Edit Profile</a></li>
@@ -64,6 +64,7 @@
                             <li class="divider"></li>
                             <li ng-show='currentUser'><a ng-click='logout()'> <i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
                         </ul>
+
                     </li>
                 </ul>
             </div>

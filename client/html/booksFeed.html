@@ -1,4 +1,4 @@
-<div class="books-feed-container" >
+<div class="books-feed-container">
     <div class="book-container" ng-repeat='book in booksFeed'>
         <div class="owner">
             <img ng-hide='!book.owner.image' ng-src={{book.owner.image}} alt="" ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' />
@@ -26,25 +26,26 @@
         </div>
         <div class="reaction-buttons" ng-init='test=true'>
             <div class="col-xs-8">
-                <button type="button" class='btn btn-success readit active'>Readit <span class='badge'>{{book.readit}}</span></button>
+                <button type="button" class='btn btn-success readit active' ng-click='addReadIt(book._id)'>Readit <span class='badge'>{{book.readit.length}}</span></button>
             </div>
-            <div class="col-xs-1">
-                <button ng-click='test=!test' class='comments btn btn-success likes'>
-                    <span><i class="fa fa-2x fa-commenting-o" aria-hidden="true" >{{book.comments.length || ''}}</i></span>
-                </button>
+            <div class="col-xs-2 comments">
+                <!-- <button ng-click='test=!test' class='comments btn btn-success'> -->
+                <a ng-show='book.comments.length < 2' ng-click='test=!test'>{{book.comments.length || ''}} comment</a>
+                <a ng-show='book.comments.length > 1' ng-click='test=!test'>{{book.comments.length || ''}} comments</a>
+                <!-- </button> -->
             </div>
-            <div class="col-xs-1">
+            <div class="col-xs-1 like-btn">
                 <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i>
                     <!-- <span class='badge'>{{book.readit}}</span> -->
                 </button>
             </div>
-            <div class="col-xs-1">
+            <div class="col-xs-1 like-btn">
                 <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i>
                     <!-- <span class='badge'>{{book.readit}}</span> -->
                 </button>
             </div>
         </div>
-        <div class="comments-container" >
+        <div class="comments-container">
             <div class="row main" ng-repeat='comment in book.comments' ng-hide='test'>
                 <div class="comment-header col-xs-1">
                     <img ng-src={{comment.by.image}} alt="" />
@@ -66,7 +67,7 @@
                         <!-- <button class='btn btn-raised btn-primary'><span class='glyphicon glyphicon-send'></span></button> -->
                     </div>
                     <div class="form-group col-xs-1">
-                        <button class='btn btn-raised btn-primary '><span class='glyphicon glyphicon-send'></span></button>
+                        <button class='btn  btn-primary '><span class='glyphicon glyphicon-send'></span></button>
                     </div>
                 </div>
             </form>

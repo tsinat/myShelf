@@ -11,5 +11,13 @@
     }
     .login {
         margin-bottom: 40px !important;
+        p {
+            margin-left:20px;
+        }
+    }
+}
+@media (min-width: 768px){
+    .register {
+        // padding:0;
     }
 }

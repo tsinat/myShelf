@@ -2,11 +2,12 @@
 
 var app = angular.module('myApp');
 
-app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $location) {
-    console.log('check');
+app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $location, $window) {
+
     if ($state.is('profile')) {
         $state.go('profile.booksFeed')
     }
+
     $scope.$watch(function() {
         return Auth.currentUser;
     }, function(newVal, oldVal) {
@@ -27,6 +28,14 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
     }
     $scope.hideForm = () => {
         $scope.showadd = false;
+    }
+    $scope.hide = false;
+    $scope.checkWidth = (e) => {
+        if($window.innerWidth < 700){
+            console.log($scope.active);
+            $scope.hide == true;
+            e.stopPropagation();
+        }
     }
     $scope.editProfile = user => {
         if (user.password !== user.password2) {
