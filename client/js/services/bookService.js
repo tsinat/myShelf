@@ -36,4 +36,10 @@ app.service('Book', function($http, $q) {
     this.readIt = (bookId, userId) => {
         return $http.put(`api/books/${bookId}/readIt/${userId}`);
     }
+    this.upVote = (bookId, userId) => {
+        return $http.put(`api/books/${bookId}/upvote/${userId}`)
+    }
+    this.downVote = (bookId, userId) => {
+        return $http.put(`api/books/${bookId}/downvote/${userId}`)
+    }
 });

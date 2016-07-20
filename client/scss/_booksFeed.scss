@@ -16,6 +16,10 @@
                 margin-bottom: 10px;
             }
         }
+        hr {
+            margin:0 !important;
+            padding:0 !important;
+        }
         .owner {
             clear:both;
             clear: both;
@@ -58,7 +62,7 @@
             background: red;
             .readit {
                 background: #FFFFFF;
-                border: 1px solid #00AA9A;
+                border: 1px solid grey;
                 color:#00AA9A;
                 span {
                     background: grey;
@@ -74,16 +78,32 @@
                 margin-left:20px !important;
                 padding:0 !important;
                 width: 20px !important;
+                .selected {
+                    background: #00AA9A !important;
+                    color:white;
+                }
+                .notSelected {
+                    background: transparent !important;
+                }
+                .selected2 {
+                    background: lightgrey !important;
+                }
+                .notSelected2 {
+                    background: transparent !important;
+                }
             }
             .likes {
                 float: right;
-                padding: 5px 7px;
+                padding: 4px 7px;
                 border-radius: 50%;
                 background: transparent;
-                color:#00AA9A;
+                color:grey;
                 &:hover {
                     background: #00AA9A !important;
                     color:white;
+                }
+                .fa {
+                    font-size: 1.5em;
                 }
             }
         }
@@ -129,6 +149,7 @@
                         background: white;
                         width: 100%;
                     }
+
                 }
                 .col-xs-1,
                 .col-xs-10 {
@@ -146,6 +167,13 @@
                 }
             }
         }
+    }
+}
+.send {
+    background: #00AA9A !important;
+    color:white !important;
+    &:hover {
+        background: darken(#00AA9A, 0.1);
     }
 }
 .col-xs-1,

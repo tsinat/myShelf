@@ -1,13 +1,18 @@
 .follower-container {
     min-height: 800px;
-    // background: white;
     margin-right: 15px;
-    padding-top: 20px;
+
+    hr {
+        background: white;
+    }
+    .col-xs-12.col-lg-4 {
+        padding-left: 0 !important;
+    }
     .follower_user {
         padding: 10px;
         margin-top: 10px;
         box-shadow: 1px 1px 1px 1px lightgrey;
-        height: 300px;
+        height: 260px;
         min-width: 200px;
         background: white;
         img {
@@ -18,7 +23,7 @@
             // float: left;
         }
         .profile-meta {
-            margin-top: 20px !important;
+            margin-top: 5px !important;
             a {
                 text-decoration: none;
             }

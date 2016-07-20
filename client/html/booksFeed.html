@@ -6,6 +6,7 @@
             <span class='owner-name' ui-sref='profile.friendDetail({id: book.owner._id})'><a >{{book.owner.firstName}} {{book.owner.lastName}}</a></span>
             <span class='comment-date'>  {{book.createdAt | date : 'short'}}</span>
         </div>
+        <hr>
         <div class="feed-image">
             <img ng-show='!book.thumbnail' ng-src={{book.cover}} width='150px' alt="" />
             <img ng-show='!book.cover && book.thumbnail' ng-src={{book.thumbnail}} />
@@ -19,29 +20,32 @@
             <p ng-show='isSecondAuthor(book, 2)'>{{book.authors[2]}}</p>
             <p><b>Category:</b> {{book.category}}</p>
             <p><b>Status:</b> {{book.status}}</p>
-            <a href={{book.sampleRead}} target='_blank'>Sample Read</a>
+            <a href={{book.sampleRead}} target='_blank'>Sample Read <i class="fa fa-link" aria-hidden="true"></i></a>
         </div>
         <div class="">
             <p class='description'><b>Description:</b> {{book.description}}</p>
         </div>
         <div class="reaction-buttons" ng-init='test=true'>
-            <div class="col-xs-8">
-                <button type="button" class='btn btn-success readit active' ng-click='addReadIt(book._id)'>Readit <span class='badge'>{{book.readit.length}}</span></button>
+            <div class="col-xs-8" id='readit'>
+                <button type="button" class='btn btn-success readit active' ng-click='addReadIt(book._id)'>Recommend
+                    <span class='badge'>{{book.readit.length}}</span>
+                </button>
             </div>
-            <div class="col-xs-2 comments">
-                <!-- <button ng-click='test=!test' class='comments btn btn-success'> -->
+            <div class="col-xs-2 comments" style='cursor:pointer'>
                 <a ng-show='book.comments.length < 2' ng-click='test=!test'>{{book.comments.length || ''}} comment</a>
                 <a ng-show='book.comments.length > 1' ng-click='test=!test'>{{book.comments.length || ''}} comments</a>
-                <!-- </button> -->
             </div>
             <div class="col-xs-1 like-btn">
-                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i>
-                    <!-- <span class='badge'>{{book.readit}}</span> -->
+                <button ng-class="checkIfUpVoted(book) ? 'selected' : 'notSelected'" ng-click='addLike(book._id)' type="button" class='btn btn-success likes'>
+                    <i class="fa  fa-thumbs-o-up" aria-hidden="true"></i>
+                    <!-- {{checkIfLiked()}} -->
+
                 </button>
             </div>
             <div class="col-xs-1 like-btn">
-                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i>
-                    <!-- <span class='badge'>{{book.readit}}</span> -->
+                <button ng-class="checkIfDownVoted(book) ? 'selected2' : 'notSelected2'" ng-click='disLike(book._id)' type="button" class='btn btn-success likes'>
+                    <i class="fa  fa-thumbs-o-down" aria-hidden="true"></i>
+                    <!-- {{checkIfNotLiked()}} -->
                 </button>
             </div>
         </div>
@@ -64,15 +68,13 @@
                     </div>
                     <div class="form-group col-xs-10">
                         <textarea type="text" class="form-control" ng-model='comment' placeholder="Add comment"></textarea>
-                        <!-- <button class='btn btn-raised btn-primary'><span class='glyphicon glyphicon-send'></span></button> -->
                     </div>
                     <div class="form-group col-xs-1">
-                        <button class='btn  btn-primary '><span class='glyphicon glyphicon-send'></span></button>
+                        <button class=' send btn btn-success'><span class='glyphicon glyphicon-send'></span></button>
                     </div>
                 </div>
             </form>
         </div>
-        <!-- </div> -->
         <br>
     </div>
 </div>

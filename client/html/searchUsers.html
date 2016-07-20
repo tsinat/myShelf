@@ -4,7 +4,7 @@
             <input type="text" ng-model='search' class="form-control text-center" id="exampleInputAmount" placeholder="Search">
         </div>
         <br>
-        <div class='col-xs-12 col-lg-4' ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index' >
+        <div class='col-xs-12 col-lg-4' ng-repeat='user in users | filter:search | orderBy:sortOrder track by $index'>
             <div class="single_users text-center">
                 <img ng-hide='!user.image' ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' />
                 <img ng-show='!user.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' alt="" />
@@ -18,14 +18,15 @@
                 </div>
                 <div class="" ng-show='showIfNotUser(user._id)'>
                     <button ng-show="checkIfFollowed(user._id)" class=" btn  btn-success following" href="#" ng-click="unfollow(currentUser._id, user._id)">following</button>
-                    <button ng-hide="checkIfFollowed(user._id)" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, user._id)">follow</button><br>
+                    <button ng-hide="checkIfFollowed(user._id)" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, user._id)">follow</button>
+                    <br>
                 </div>
                 <div class="followers text-left">
-                    <span class='left'>Followers <span class="badge">{{user.followers.length}}</span><br>
+                    <span class='left'>Followers <span class="badge">{{user.followers.length}}</span>
+                    <br>
                     <span>Following <span class="badge">{{user.following.length}}</span>
                 </div>
             </div>
         </div>
-        <!-- <hr> -->
     </div>
 </form>

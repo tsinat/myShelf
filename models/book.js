@@ -49,6 +49,14 @@ var bookSchema = new mongoose.Schema({
     cover: {
         type: String
     },
+    upvote: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
+    downvote: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     readit: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -166,6 +174,59 @@ bookSchema.statics.readIt = (bookId, userId, cb) => {
             console.log('updatedBook:', updatedBook);
             if(err2) return cb(err2);
 
+            cb(null, updatedBook);
+        });
+    });
+};
+
+bookSchema.statics.upVote = (bookId, userId, cb) => {
+    Book.findById(bookId, (err, dbBook) => {
+        if(err) return cb(err);
+
+        if(dbBook.upvote.indexOf(userId) == -1) {
+            if(dbBook.downvote.indexOf(userId) == -1) {
+                dbBook.upvote.push(userId);
+            } else {
+                dbBook.downvote = dbBook.downvote.filter((id) => {
+                    if(id != userId) {
+                        return id;
+                    }
+                })
+            }
+        } else {
+            dbBook.upvote = dbBook.upvote.filter((id) => {
+                if(id != userId) {
+                    return id;
+                }
+            })
+        }
+        dbBook.save((err, updatedBook) => {
+            cb(null, updatedBook);
+        });
+    });
+};
+bookSchema.statics.downVote = (bookId, userId, cb) => {
+    Book.findById(bookId, (err, dbBook) => {
+        if(err) return cb(err);
+
+        if(dbBook.downvote.indexOf(userId) == -1) {
+            if(dbBook.upvote.indexOf(userId) == -1) {
+                dbBook.downvote.push(userId);
+            } else {
+                dbBook.upvote = dbBook.upvote.filter((id) => {
+                    if(id != userId) {
+                        return id;
+                    }
+                });
+            }
+        } else {
+            dbBook.downvote = dbBook.downvote.filter((id) => {
+                if(id != userId) {
+                    return id;
+                }
+            })
+        }
+        dbBook.save((err, updatedBook) => {
             cb(null, updatedBook);
         });
     });

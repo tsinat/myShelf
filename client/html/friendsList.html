@@ -1,4 +1,4 @@
-<form class="form-inline">
+<form class="friendList form-inline">
     <div class="form-group list-group">
         <div class="input-group">
             <input type="text" ng-model='search' class="form-control text-center" id="exampleInputAmount" placeholder="Search">
@@ -7,7 +7,6 @@
         <div style='cursor: pointer' ng-repeat='user in users | limitTo: 15 | filter:search | orderBy:sortOrder track by $index' class='list-group-item' ui-sref='profile.friendDetail({id: user._id})'>
             <div class="list-group-item">
                 <div class="row-picture">
-                    <!-- <img class="circle" ng-src={{user.image}} alt=""> -->
                     <img class='circle' ng-hide='!user.image' ng-src={{user.image}} alt="" />
                     <img class='circle' ng-show='!user.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
                 </div>
@@ -17,8 +16,7 @@
                     <p class="list-group-item-text miles">{{user.distance || user.address.city}} </p>
                 </div>
             </div>
-            <!-- <hr class='friendList_hr'> -->
+            <hr>
         </div>
-        <!-- <hr> -->
     </div>
 </form>

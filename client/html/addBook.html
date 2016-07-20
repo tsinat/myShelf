@@ -3,25 +3,19 @@
     <hr>
     <div class="form-header">
         <div class="text-center">
-            <h3>
-            Search for a book that you want to post for exchange and <br>specify what you want in return.
-        </h3>
+            <h3>Search for a book that you want to post for exchange and <br>specify what you want in return. </h3>
         </div>
         <br>
         <form ng-submit='search()' class='col-lg-8 col-lg-offset-2'>
             <div class="form-group">
-                <!-- <label class="control-label" for="name" >Search</label> -->
                 <input type="text" class="form-control text-center" id='name' ng-model='wish.search' placeholder='Search by title or author name'>
             </div>
             <div class="serach-button-container text-center">
                 <button class='btn btn-raised btn-primary' type='submit'>Search Book</button>
-                <!-- <button class='btn btn-raised btn-success' ui-sref="profile.newBook">upload Manually </button> -->
-
             </div>
         </form>
         <br>
     </div>
-
     <div class="result-container col-xs-9 col-xs-offset-1">
         <div class="serach-result" ng-repeat='book in books'>
             <div class="search-result-image">
@@ -37,7 +31,7 @@
             <div class="button-container text-center">
                 <div class="form-group">
                     <label>trade it for?</label>
-                    <select class="form-control" ng-model='book.status' >
+                    <select class="form-control" ng-model='book.status'>
                         <option selected="selected">Free</option>
                         <option>Exchange</option>
                         <option>Wish List</option>
@@ -45,12 +39,9 @@
                         <option>Will keep it</option>
                     </select>
                 </div>
-                <!-- <button class='btn btn-raised btn-success'>readit</button>
-                <button class='btn btn-raised btn-success'>wish</button> -->
-                <button class='btn btn-raised btn-success' ng-click='addToCollection(book)'>Add to Collection</button>
+                <button class='btn btn-raised btn-primary' ng-click='addToCollection(book)'>Add to Collection</button>
             </div>
             <hr>
         </div>
     </div>
-
 </div>

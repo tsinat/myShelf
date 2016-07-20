@@ -1,6 +1,6 @@
 <div class='following-container '>
     <h2 class='text-center'>Following</h2>
-    <!-- <hr> -->
+    <hr>
     <div class='col-xs-12 col-lg-4 following-container' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index'>
         <div class="following_user text-center">
             <img ng-hide='!user.image' ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' />
@@ -14,8 +14,10 @@
                 </div>
             </div>
             <div class="follow-container" ng-show='showIfNotUser(user._id)'>
-                <button ng-show="checkIfFollowed(user._id)" class=" btn  btn-success following" href="#" ng-click="unfollow(currentUser._id, user._id)">following</button>
-                <button ng-hide="checkIfFollowed(user._id)" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, user._id)">follow</button>
+                <div class="text-center">
+                    <button ng-show="checkIfFollowed(user._id)" class=" btn  btn-success following" href="#" ng-click="unfollow(currentUser._id, user._id)">following</button>
+                    <button ng-hide="checkIfFollowed(user._id)" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, user._id)">follow</button>
+                </div>
                 <br>
             </div>
             <div class="followers text-left">
@@ -25,7 +27,6 @@
             </div>
         </div>
     </div>
-
     <div class="text-center" ng-show='checkFollowing()'>
         <h3 class 'text-center'>Users whom you are following will apear here.<br><br>Browse for users to follow!!</h3>
     </div>

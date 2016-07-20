@@ -10,7 +10,6 @@
         <br>
         <form ng-submit='search()' class='col-lg-8 col-lg-offset-2'>
             <div class="form-group">
-                <!-- <label class="control-label" for="name" >Search</label> -->
                 <input type="text" class="form-control text-center" id='name' ng-model='wish.search' placeholder='Search by title or author name'>
             </div>
             <div class="serach-button-container text-right">
@@ -25,9 +24,6 @@
             <div class="search-result-image">
                 <img ng-src={{book.volumeInfo.imageLinks.thumbnail}} alt="" />
             </div>
-            <!-- <a href={{book.selfLink}} target='_blank'>checkout</a> -->
-            <!-- <p>id:{{book.id}}</p> -->
-            <!-- <a href={{book.saleInfo.buyLink}} target='_blank'>Buy it?</a> -->
             <p><b>Author/s:</b> {{book.volumeInfo.authors[0]}}</p>
             <p><b>Title:</b> {{book.volumeInfo.title}}</p>
             <p><b>Sub Title:</b> {{book.volumeInfo.subtitle}}</p>

@@ -11,6 +11,8 @@ router.get('/', (req, res) => {
     Book.find({})
         .populate('owner')
         .populate('comments.by')
+        // .populate('upvote')
+        // .populate('downvote')
         .exec((err, books) => {
         if (err) return res.status(400).send(err);
         else res.send(books);
@@ -93,6 +95,18 @@ router.put('/:bookId/readIt/:userId', (req, res) => {
     Book.readIt(req.params.bookId, req.params.userId, (err, updatedBook) => {
         console.log('error while saving readit', err);
         res.status(err ? 400: 200).send(err || updatedBook);
-    })
-})
+    });
+});
+router.put('/:bookId/upvote/:userId', (req, res) => {
+    Book.upVote(req.params.bookId, req.params.userId, (err, updatedBook) => {
+        console.log('error while saving readit', err);
+        res.status(err ? 400: 200).send(err || updatedBook);
+    });
+});
+router.put('/:bookId/downvote/:userId', (req, res) => {
+    Book.downVote(req.params.bookId, req.params.userId, (err, updatedBook) => {
+        console.log('error while saving readit', err);
+        res.status(err ? 400: 200).send(err || updatedBook);
+    });
+});
 module.exports = router;

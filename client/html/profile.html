@@ -1,6 +1,6 @@
 <div class=' profile'>
     <div class="row">
-        <div class="profile_left col-xs-6 col-lg-2" ng-if="active"  ng-init="active=true">
+        <div class="profile_left col-xs-6 col-lg-2" ng-if="active" ng-init="active=true">
             <div class="profileholder">
                 <br>
                 <div class="image_container">
@@ -12,7 +12,7 @@
                     <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
                 </h5>
             </div>
-            <div class="profile_navigator" >
+            <div class="profile_navigator">
                 <ul style='cursor:pointer'>
                     <li ui-sref="profile.booksFeed">Books Feed </li>
                     <li ng-click='checkWidth()' ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> Search friend </li>
@@ -23,12 +23,13 @@
                     <li ng-click='checkWidth()' ui-sref="profile.following({id:currentUser._id})">Following </li>
                     <li ng-click='checkWidth()' ui-sref="profile.followers({id:currentUser._id})">Followers </li>
                     <li ng-click='checkWidth()' role="presentation" class="active">Inbox <span class="badge"> 42</span> </li>
-                    <li class='logout'><a ng-click='logout()'> <i class="fa fa-sign-out " aria-hidden="true"></i> Logout</a></li>
+                    <li class='logout'>
+                        <a ng-click='logout()'> <i class="fa fa-sign-out " aria-hidden="true"></i> Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
         <div class="profile_main " ng-class="active?'col-lg-7 col-xs-6':'col-lg-9 col-xs-12'">
-            <!-- <button type="button" name="button" ng-click="active = !active" ng-init="active=true">toggle</button> -->
             <div ui-view="main" ng-view ng-class='slideup' autoscroll="true"></div>
         </div>
         <div class="profile_right col-xs-0 col-lg-3">
@@ -38,6 +39,8 @@
 </div>
 <div class="footer_div">
     <div class="text-center">
-        <a href="http://www.tsinatzeree.com" target='_blank'><p>www.tsinatzeree.com</p></a>
+        <a href="http://www.tsinatzeree.com" target='_blank'>
+            <p>www.tsinatzeree.com</p>
+        </a>
     </div>
 </div>
