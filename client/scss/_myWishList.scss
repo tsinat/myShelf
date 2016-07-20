@@ -1,6 +1,12 @@
 .myWishList-container {
     min-width: 300px;
     margin: 0 auto;
+    hr {
+        margin:0;
+        margin-bottom: 20px;
+        margin-right: 15px !important;
+        background: white;
+    }
     .book_container {
         margin-bottom: 20px;
         max-width:200px;

@@ -31,7 +31,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
     }
     $scope.hide = false;
     $scope.checkWidth = (e) => {
-        if($window.innerWidth < 700){
+        if ($window.innerWidth < 700) {
             console.log($scope.active);
             $scope.hide == true;
             e.stopPropagation();
@@ -153,4 +153,10 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
         var temp = user.distance.split(' ')[0];
         return parseInt(temp) < 50;
     }
+
+    $scope.asideState = {
+        open: false
+    };
+
+
 });

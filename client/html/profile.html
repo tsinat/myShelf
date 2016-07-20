@@ -1,6 +1,6 @@
 <div class=' profile'>
     <div class="row">
-        <div class="profile_left col-xs-6 col-lg-2" ng-if="active" ng-init="active=true">
+        <!-- <div class="profile_left col-xs-6 col-lg-2" ng-if="active" ng-init="active=true">
             <div class="profileholder">
                 <br>
                 <div class="image_container">
@@ -28,8 +28,41 @@
                     </li>
                 </ul>
             </div>
+        </div> -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <div class="profile_left " ng-if="active" ng-init="active=true">
+                <div class="profileholder">
+                    <br>
+                    <div class="image_container">
+                        <img class='profile_picture' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
+                        <img class='profile_picture' ng-show='!currentUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
+                        <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
+                    </div>
+                    <h5>{{currentUser.firstName}}  {{currentUser.lastName}}
+                        <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
+                    </h5>
+                </div>
+                <div class="profile_navigator">
+                    <ul style='cursor:pointer'>
+                        <li onclick="closeNav()" ui-sref="profile.booksFeed">Books Feed </li>
+                        <li onclick="closeNav()" ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> Search friend </li>
+                        <li onclick="closeNav()" ui-sref="profile.addBook"><i class="fa fa-plus" aria-hidden="true"></i> Add Book </li>
+                        <li onclick="closeNav()" ui-sref="profile.listBooks" ng-click="active = !active"><i class="fa fa-book" aria-hidden="true"></i> My shelf </li>
+                        <li onclick="closeNav()" ui-sref="profile.myWishList">Wish List </li>
+                        <li onclick="closeNav()" ui-sref="profile.addWishList">Add Wish List </li>
+                        <li onclick="closeNav()" ui-sref="profile.following({id:currentUser._id})">Following </li>
+                        <li onclick="closeNav()" ui-sref="profile.followers({id:currentUser._id})">Followers </li>
+                        <li onclick="closeNav()" role="presentation" class="active">Inbox <span class="badge"> 42</span> </li>
+                        <li class='logout'>
+                            <a ng-click='logout()'> <i class="fa fa-sign-out " aria-hidden="true"></i> Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-        <div class="profile_main " ng-class="active?'col-lg-7 col-xs-6':'col-lg-9 col-xs-12'">
+        <div class="profile_main " ng-class="active?'col-lg-9 col-xs-12':'col-lg-9 col-xs-12'">
             <div ui-view="main" ng-view ng-class='slideup' autoscroll="true"></div>
         </div>
         <div class="profile_right col-xs-0 col-lg-3">
