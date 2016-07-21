@@ -18,9 +18,6 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book, $location) 
                     console.log(err);
                 })
         }
-        // $scope.bookCover = () => {
-        //     upload($scope.file, $scope.currentUser._id);
-        // };
 
     function upload(file, id) {
         console.log(file, id);
@@ -77,8 +74,8 @@ app.controller('newBookCtrl', function($scope, $state, Upload, Book, $location) 
         console.log('newBook', newBook);
         Book.create(newBook)
             .then(res => {
+                $state.go('profile.booksFeed');
                 console.log('response when wishbook is added', res.data);
-                $location.path('profile/booksFeed');
             })
             .catch(err => {
                 console.log('error while adding wishBook', err);

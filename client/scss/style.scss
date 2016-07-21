@@ -75,7 +75,10 @@ hr {
 button,
 input {
     outline: none !important;
+}
+input {
     // border: none !important;
+
 }
 .register_container {
     background-color: white;
@@ -158,7 +161,7 @@ ui-view.main-view.ng-scope {
 }
 
 .sidenav a {
-    padding: 60px 8px 8px 32px;
+    padding: 60px 0px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #00aa9a;

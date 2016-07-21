@@ -26,7 +26,7 @@
             <p class='description'><b>Description:</b> {{book.description}}</p>
         </div>
         <div class="reaction-buttons" ng-init='test=true'>
-            <div class="col-xs-8" id='readit'>
+            <div class="col-xs-6 col-lg-8" id='readit'>
                 <button type="button" class='btn btn-success readit active' ng-click='addReadIt(book._id)'>Recommend
                     <span class='badge'>{{book.readit.length}}</span>
                 </button>
@@ -38,24 +38,21 @@
             <div class="col-xs-1 like-btn">
                 <button ng-class="checkIfUpVoted(book) ? 'selected' : 'notSelected'" ng-click='addLike(book._id)' type="button" class='btn btn-success likes'>
                     <i class="fa  fa-thumbs-o-up" aria-hidden="true"></i>
-                    <!-- {{checkIfLiked()}} -->
-
                 </button>
             </div>
             <div class="col-xs-1 like-btn">
-                <button ng-class="checkIfDownVoted(book) ? 'selected2' : 'notSelected2'" ng-click='disLike(book._id)' type="button" class='btn btn-success likes'>
+                <button ng-class="checkIfDownVoted(book) ? 'selected2' : 'notSelected2'" ng-click='disLike(book._id)' type="button" class='btn btn-success disliked'>
                     <i class="fa  fa-thumbs-o-down" aria-hidden="true"></i>
-                    <!-- {{checkIfNotLiked()}} -->
                 </button>
             </div>
         </div>
         <div class="comments-container">
             <div class="row main" ng-repeat='comment in book.comments' ng-hide='test'>
-                <div class="comment-header col-xs-1">
+                <div class="comment-header col-lg-1">
                     <img ng-src={{comment.by.image}} alt="" />
                 </div>
-                <div class="comment-main col-xs-10">
-                    <span>{{comment.by.firstName}} {{comment.by.lastName}}</span>
+                <div class="comment-main col-xs-11 col-lg-10">
+                    <span ui-sref='profile.friendDetail({id: comment.by._id})'>{{comment.by.firstName}} {{comment.by.lastName}}</span>
                     <span class='comment-date'>{{comment.createdAt | date : 'short'}}</span>
                     <p>{{comment.content}}</p>
                 </div>
@@ -63,7 +60,7 @@
             </div>
             <form class='form-inline' ng-submit='addComment(comment, book._id)'>
                 <div class="form-container row">
-                    <div class="form-group col-xs-1">
+                    <div class="form-group col-xs-1 hidden-xs">
                         <img ng-src={{currentUser.image}} alt="" />
                     </div>
                     <div class="form-group col-xs-10">

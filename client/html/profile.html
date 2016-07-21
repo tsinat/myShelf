@@ -39,7 +39,7 @@
                         <img class='profile_picture' ng-show='!currentUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
                         <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
                     </div>
-                    <h5>{{currentUser.firstName}}  {{currentUser.lastName}}
+                    <h5 style='color:grey;'>{{currentUser.firstName}}  {{currentUser.lastName}}
                         <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
                     </h5>
                 </div>
@@ -62,7 +62,7 @@
             </div>
 
         </div>
-        <div class="profile_main " ng-class="active?'col-lg-9 col-xs-12':'col-lg-9 col-xs-12'">
+        <div class="profile_main " ng-class="active?'col-lg-9 col-xs-12':'col-lg-9 col-xs-12'" >
             <div ui-view="main" ng-view ng-class='slideup' autoscroll="true"></div>
         </div>
         <div class="profile_right col-xs-0 col-lg-3">

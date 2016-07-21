@@ -5,14 +5,14 @@
     min-width: 300px;
     background: white;
     margin-right: 20px;
-    box-shadow: 1px 1px 1px 1px lightgrey;    
+    box-shadow: 1px 1px 1px 1px lightgrey;
     .single_user {
         background: #F1F1F1;
         padding: 10px;
         margin-right: 10px;
         border: 1px solid lightgrey;
         height: 120px;
-        border-radius: 5px;
+        border-radius:5px 5px 0  0;
         img {
             width: 100px;
             height: 100px;
