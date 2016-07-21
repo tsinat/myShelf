@@ -12,7 +12,7 @@
         margin-right: 10px;
         border: 1px solid lightgrey;
         height: 120px;
-        border-radius:5px 5px 0  0;
+        border-radius: 5px 5px 0 0;
         img {
             width: 100px;
             height: 100px;
@@ -43,42 +43,25 @@
     .interest {
         margin-bottom: 60px;
     }
-    .books-list {
-        clear:both !important;
-        .single_book {
-            float: left;
-            box-shadow: 1px 1px 1px 1px  grey;
-            margin-right: 20px;
-            max-width: 150px;
-            margin-bottom: 20px;
-            height: 320px !important;
-            overflow: hidden;
-            border: 1px solid lightgrey;
-            img {
-                width: 100%;
-                height: auto;
-                text-align: center;
-                margin: 0 auto;
-            }
+    clear: both !important;
+    .single_book {
+        float: left;
+        padding: 10px;
+        box-shadow: 1px 1px 1px 1px lightgrey;
+        margin-right: 20px;
+        max-width: 150px;
+        margin-bottom: 20px;
+        height: 320px !important;
+        overflow: hidden;
+        border: 1px solid lightgrey;
+        img {
+            width: 100%;
+            height: auto;
+            text-align: center;
+            margin: 0 auto;
         }
     }
     .wish-list {
         clear: both;
-        .single_book {
-            float: left;
-            box-shadow: 1px 1px 1px 1px  grey;
-            margin-right: 20px;
-            max-width: 150px;
-            margin-bottom: 20px;
-            height: 320px;
-            overflow: hidden;
-            border: 5px solid lightgrey;
-            img {
-                width: 100%;
-                height: auto;
-                text-align: center;
-                margin: 0 auto;
-            }
-        }
     }
 }

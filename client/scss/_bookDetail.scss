@@ -1,7 +1,6 @@
 .books-detail-container {
     background: white;
-    margin: 10px !important;
-    margin-right: 20px !important;
+    margin: 10px 20px 10px 10px !important;
     .book-container {
         padding: 20px;
         display: block;
@@ -15,14 +14,13 @@
             }
         }
         .owner {
-            // border: 2px solid  #ecf0f1;
             padding-top: 5px;
             clear: both;
             width: 100%;
             overflow: hidden;
             position: relative;
             .book-date {
-                float:right !important;
+                float: right !important;
                 margin-right: 0;
                 padding-right: 0;
             }
@@ -36,17 +34,17 @@
             span {
                 padding: 10px 20px;
                 margin-left: 40px !important;
-                width:100%;
-                float:left;
+                width: 100%;
+                float: left;
             }
             button {
                 position: absolute;
-                top:0px;
-                right: 0px;
+                top: 0;
+                right: 0;
                 float: right;
-                padding:10px 20px;
-                margin:0;
-                color:red;
+                padding: 10px 20px;
+                margin: 0;
+                color: red;
                 background: transparent;
                 font-size: 1.2em;
                 &:hover {
@@ -86,7 +84,7 @@
                 background: transparent;
                 &:hover {
                     background: #00AA9A !important;
-                    color:white;
+                    color: white;
                 }
             }
         }
@@ -105,15 +103,15 @@
                     }
                 }
                 .comment-main span {
-                    color:#009688;
+                    color: #009688;
                 }
                 .comment-date {
-                    float:right;
+                    float: right;
                     margin-right: 0;
                     padding-right: 0;
                 }
                 hr {
-                    width:100%;
+                    width: 100%;
                     margin-bottom: 5px;
                 }
             }
@@ -165,7 +163,6 @@
     position: relative;
     min-height: 1px;
     padding-right: 15px;
-    /* padding-left: 15px; */
 }
 @media (min-width: 1200px) {
     .book-feed-container {
@@ -181,7 +178,6 @@
                 img {
                     border: 1px solid lightgrey !important;
                     margin-right: 10px;
-                    // width:100%;
                 }
             }
         }
