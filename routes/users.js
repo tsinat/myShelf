@@ -79,10 +79,4 @@ router.put('/:currentUserId/followUnfollow/:targetUserId', User.auth(), (req, re
     });
 });
 
-// router.post('/addWish/:userId', User.auth(), (req, res) => {
-//     User.addWishBook(req.params.userId, req.body, (err, updatedUser) => {
-//         res.status(err ? 400: 200).send(err || updatedUser);
-//     });
-// });
-
 module.exports = router;

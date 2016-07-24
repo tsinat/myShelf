@@ -11,8 +11,6 @@ router.get('/', (req, res) => {
     Book.find({})
         .populate('owner')
         .populate('comments.by')
-        // .populate('upvote')
-        // .populate('downvote')
         .exec((err, books) => {
         if (err) return res.status(400).send(err);
         else res.send(books);
@@ -79,7 +77,6 @@ router.delete('/:id', User.isLoggedIn, (req, res) => {
 
                 res.send();
             });
-            // res.send(deletedBook);
         }
     });
 });

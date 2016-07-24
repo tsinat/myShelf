@@ -104,7 +104,6 @@ userSchema.statics.auth = roleRequired => {
                 req.user = user;
 
                 if (roleRequired === 'admin' && !req.user.admin) {
-                    // they don't have admin privilages
                     return res.status(403).send({
                         error: 'Not authorized.'
                     });
@@ -133,7 +132,6 @@ userSchema.statics.isLoggedIn = (req, res, next) => {
             next();
         }).select('-password');
     });
-
 };
 
 userSchema.statics.register = (userObj, cb) => {
@@ -224,7 +222,8 @@ userSchema.statics.deleteBook = (user, bookId, cb) => {
         console.log('books.after:', updateduser.books);
         cb(err, updateduser);
     });
-}
+};
+
 userSchema.statics.addWishBook = (user, book, cb) => {
     user.wishLists.push(book._id);
     user.save((err, addedBook) => {
