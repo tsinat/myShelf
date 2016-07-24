@@ -36,23 +36,7 @@
 
 }
 @media (min-width: 1200px){
-    .collection-container {
-        .book_container {
-            margin-bottom: 20px;
-            max-width:200px;
-            height: 340px;
-            padding:10px;
-            box-shadow: none !important;
-            box-shadow: 1px 1px 1px grey;
-            box-sizing: border-box;
-            margin-right: 10px;
-            .image-container img {
-                max-width: 150px;
-                max-height: 200px;
-                height:auto;;
-            }
-        }
-
+    .myWishList-container {
         .add-new {
             display: block;
             clear:both !important;

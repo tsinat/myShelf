@@ -19,7 +19,7 @@ app.controller('wishListCtrl', function($scope, Book, $state, $location) {
         }
     }
     $scope.checkIfEmpty = () => {
-        return $scope.currentUser.wishList == ''
+        return $scope.currentUser.wishLists == ''
     }
     $scope.isSecondAuthor = (book, num) => {
         return book.volumeInfo.authors.length > num;
