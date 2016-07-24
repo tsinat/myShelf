@@ -123,14 +123,17 @@ userSchema.statics.isLoggedIn = (req, res, next) => {
             error: 'Authentication required'
         });
 
-        User.findById(payload._id, (err, user) => {
+        User.findById(payload._id)
+            .populate('wishLists')
+            .select('-password')
+            .exec((err, user) => {
             if (err || !user) return res.status(401).send({
                 error: 'User not found'
             });
             req.user = user;
 
             next();
-        }).select('-password');
+        });
     });
 };
 
