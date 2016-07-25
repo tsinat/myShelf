@@ -22,7 +22,7 @@ div.row {
         padding-top: 10px;
         margin-right: 0 !important;
         padding-right: 0 !important;
-        padding-left: 20px !important;
+        padding-left: 10px !important;
     }
     .profile_right {
         display: none;
@@ -31,7 +31,7 @@ div.row {
         overflow: scroll;
     }
     .profile_left {
-        padding-top: 20px !important;
+        padding-top: 30px !important;
         // padding-left: 10px !important;
         height: 100vh;
         // border-right: 1px solid lightgrey !important;
@@ -102,6 +102,7 @@ div.row {
         color: #252525 !important;
     }
 }
+
 @media (min-width: 1200px) {
     .profile_left {
         // padding-left: 20px !important;

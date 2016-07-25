@@ -6,12 +6,20 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
     console.log('booksFeedCtrl');
     $scope.booksFeed = booksFeed.reverse();
 
+    function updateFeed(){
+        Book.getBooksFeed()
+            .then(res => {
+                $scope.booksFeed  = res.data;
+            })
+            .catch(err => {
+                console.log('error while getting book detail', err)
+            })
+    }
+
     $scope.checkIfUpVoted = (book) => {
-        console.log(book.upvote.indexOf($scope.currentUser._id) != -1);
         return book.upvote.indexOf($scope.currentUser._id) != -1
     }
     $scope.checkIfDownVoted = (book) => {
-        console.log(book.downvote.indexOf($scope.currentUser._id) != -1);
         return book.downvote.indexOf($scope.currentUser._id) != -1
     }
 
@@ -24,7 +32,7 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
             }
             Book.addNewComment(newComment, bookId)
                 .then(res => {
-                    $state.reload();
+                    updateFeed();
                     console.log('response after saving comment', res.data);
                 })
                 .catch(err => {
@@ -36,7 +44,7 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
         console.log('$scope.currentUser._id', $scope.currentUser._id)
         Book.readIt(bookId, $scope.currentUser._id)
             .then(res => {
-                $state.reload();
+                updateFeed();
                 console.log('response after adding readit', res.data);
             })
             .catch(err => {
@@ -46,7 +54,7 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
     $scope.addLike = (bookId) => {
         Book.upVote(bookId, $scope.currentUser._id)
             .then(res => {
-                $state.reload();
+                updateFeed();
                 console.log('response from book like', res.data);
             })
             .catch(err => {
@@ -57,7 +65,7 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
     $scope.disLike = (bookId) => {
         Book.downVote(bookId, $scope.currentUser._id)
             .then(res => {
-                $state.reload();
+                updateFeed();
                 console.log('response after downVote', res.data);
             })
             .catch(err => {
