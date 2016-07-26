@@ -3,14 +3,14 @@
     overflow-y: scroll;
     padding: 20px;
     min-width: 300px;
-    background: white;
+    background: $color-body-main;
     margin-right: 20px;
-    box-shadow: 1px 1px 1px 1px lightgrey;
+    box-shadow: 1px 1px 1px 1px $color-secondary;
     .single_user {
         background: #F1F1F1;
         padding: 10px;
         margin-right: 10px;
-        border: 1px solid lightgrey;
+        border: 1px solid $color-secondary;
         height: 120px;
         border-radius: 5px 5px 0 0;
         img {
@@ -26,18 +26,18 @@
     }
     .additional-info {
         margin-right: 10px;
-        border: 1px solid lightgrey;
+        border: 1px solid $color-secondary;
         min-height: 40px;
         button {
             margin: 5px;
             background: transparent !important;
-            border: 1px solid #009688 !important;
+            border: 1px solid $color-primary !important;
             border-radius: 5px;
-            color: #009688 !important;
+            color: $color-primary !important;
         }
         .following {
-            background: #009688 !important;
-            color: white !important;
+            background: $color-primary !important;
+            color: $color-body-main !important;
         }
     }
     .interest {
@@ -47,13 +47,13 @@
     .single_book {
         float: left;
         padding: 10px;
-        box-shadow: 1px 1px 1px 1px lightgrey;
+        box-shadow: 1px 1px 1px 1px $color-secondary;
         margin-right: 20px;
         max-width: 150px;
         margin-bottom: 20px;
         height: 320px !important;
         overflow: hidden;
-        border: 1px solid lightgrey;
+        border: 1px solid $color-secondary;
         img {
             width: 100%;
             height: auto;

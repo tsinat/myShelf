@@ -3,7 +3,7 @@
     margin-right: 15px;
 
     hr {
-        background: white;
+        background: $color-body-main;
     }
     .col-xs-12.col-lg-4 {
         padding-left: 0 !important;
@@ -14,13 +14,12 @@
         box-shadow: 1px 1px 1px 1px $color-secondary;
         height: 260px;
         min-width: 200px;
-        background: white;
+        background: $color-body-main;
         img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             border: 5px solid $color-secondary;
-            // float: left;
         }
         .profile-meta {
             margin-top: 5px !important;
@@ -34,16 +33,16 @@
         .follow-container {
             height: 40px !important;
             .following {
-                background: #009688 !important;
-                color:white !important;
+                background: $color-primary !important;
+                color:$color-body-main !important;
             }
             button {
                 margin: 5px;
                 margin-bottom: 15px !important;
                 background: transparent !important;
-                border: 1px solid #009688 !important;
+                border: 1px solid $color-primary !important;
                 border-radius: 5px;
-                color: #009688 !important;
+                color: $color-primary !important;
                 padding: 5px 20px !important;
                 text-transform: lowercase !important;
 

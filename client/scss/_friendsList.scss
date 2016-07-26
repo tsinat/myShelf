@@ -1,5 +1,5 @@
 .miles {
-    color: #00aa9a;
+    color: $color-primary;
 }
 hr {
     width:100%;
@@ -27,7 +27,7 @@ hr {
     .friendList_hr {
         margin: 5px  10px 10px 20px !important;
         padding-right:30px;
-        background: white;
+        background: $color-body-main;
     }
     div.list-group-item {
         margin-bottom: 0;
@@ -39,7 +39,7 @@ hr {
     }
     .list-group-item:hover {
         box-sizing: border-box !important;
-        color:lightgrey;
+        color:$color-secondary;
     }
     div.form-group.list-group{
         margin: 0 !important;

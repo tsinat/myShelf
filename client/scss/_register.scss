@@ -1,13 +1,9 @@
 .register-container {
-    // background: #00aa9a !important;
-    a {
-        // color:white !important;
-    }
     .register {
         margin-bottom: 20px;
         padding:0 40px 40px 40px;
         margin-top: 40px;
-        background: white;
+        background: $color-body-main;
     }
     .login {
         margin-bottom: 40px !important;
@@ -17,7 +13,5 @@
     }
 }
 @media (min-width: 768px){
-    .register {
-        // padding:0;
-    }
+
 }

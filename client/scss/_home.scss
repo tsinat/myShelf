@@ -3,10 +3,10 @@
         padding-left: 60px;
         margin: 0 auto !important;
         padding-top: 60px !important;
-        background-color: #00aa9a;
+        background-color: $color-primary;
         background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
         h1 {
-            color: white;
+            color: $color-body-main;
             font-weight: bold;
             font-size: 2em;
         }
@@ -31,13 +31,12 @@
         .returning-user {
             margin-left: 20px;
             a {
-                color: white;
+                color: $color-body-main;
             }
         }
         .scroll-down {
-            color: white;
+            color: $color-body-main;
             bottom:40px;
-            // left:42%;
             margin-top: 60px;
             cursor: pointer;
         }
@@ -49,8 +48,7 @@
     height: auto;
     background: #ecf0f1;
     h2 {
-        color: #00aa9a !important;
-        // font-size: 1.2em !important;
+        color: $color-primary !important;
         font-weight: bold;
     }
     h1 {
@@ -60,9 +58,9 @@
 .intro {
     padding-top: 20px;
     min-height: 460px;
-    background: white;
+    background: $color-body-main;
     h2 {
-        color: #00aa9a !important;
+        color: $color-primary !important;
         font-weight: bold;
 
     }
@@ -82,7 +80,7 @@
     height: 300px;
     width: 300px;
     border-radius: 500px;
-    border: 5px solid #00aa9a;
+    border: 5px solid $color-primary;
     transition: .1s all ease-in-out;
     .about-image {
         transition: .1s all ease-in-out;
@@ -108,7 +106,7 @@
     background: #ecf0f1;
     padding-bottom: 20px !important;
     h2 {
-        color: #00aa9a !important;
+        color: $color-primary !important;
         font-weight: bold;
 
     }
@@ -121,11 +119,11 @@
     min-height:140px;
     padding-top:20px;
     height: auto !important;
-    background: #00aa9a !important;
-    color:white;
+    background: $color-primary !important;
+    color:$color-body-main;
     margin:0 !important;
     p a {
-        color: white;
+        color: $color-body-main;
     }
 }
 @media (min-width: 768px){
