@@ -1,5 +1,5 @@
 <div class="books-feed-container">
-    <div class="book-container" ng-repeat='book in booksFeed'>
+    <div class="book-container" ng-repeat='book in booksFeed | orderBy: _id'>
         <div class="owner">
             <img ng-hide='!book.owner.image' ng-src={{book.owner.image}} alt="" ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' />
             <img ng-show='!book.owner.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: book.owner._id})' style='cursor: pointer' alt="" />
