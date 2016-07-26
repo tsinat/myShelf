@@ -11,16 +11,16 @@ div.row {
     background-color: $color-body-main;
     padding-top: 60px;
     padding-right: 0;
-    padding-left: 10px;
+    padding-left: 0px;
     min-height: 600px;
     height: auto;
     .profile_main {
         background-color: #F1F1F1;
         height: 100%;
-        padding-top: 10px;
+        padding-top: 15px;
         margin-right: 0 !important;
         padding-right: 0 !important;
-        padding-left: 10px !important;
+        padding-left: 15px !important;
     }
     .profile_right {
         display: none;
