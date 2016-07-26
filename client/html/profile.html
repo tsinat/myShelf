@@ -1,38 +1,9 @@
 <div class=' profile'>
     <div class="row">
-        <!-- <div class="profile_left col-xs-6 col-lg-2" ng-if="active" ng-init="active=true">
-            <div class="profileholder">
-                <br>
-                <div class="image_container">
-                    <img class='profile_picture' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
-                    <img class='profile_picture' ng-show='!currentUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
-                    <span ui-sref="profile.profileImageUpload" class="btn btn-default editProfile"><span class='glyphicon glyphicon-edit'></span></span>
-                </div>
-                <h5>{{currentUser.firstName}}  {{currentUser.lastName}}
-                    <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
-                </h5>
-            </div>
-            <div class="profile_navigator">
-                <ul style='cursor:pointer'>
-                    <li ui-sref="profile.booksFeed">Books Feed </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.users"><i class="fa fa-search" aria-hidden="true"></i> Search friend </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.addBook"><i class="fa fa-plus" aria-hidden="true"></i> Add Book </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.listBooks" ng-click="active = !active"><i class="fa fa-book" aria-hidden="true"></i> My shelf </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.myWishList">Wish List </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.addWishList">Add Wish List </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.following({id:currentUser._id})">Following </li>
-                    <li ng-click='checkWidth()' ui-sref="profile.followers({id:currentUser._id})">Followers </li>
-                    <li ng-click='checkWidth()' role="presentation" class="active">Inbox <span class="badge"> 42</span> </li>
-                    <li class='logout'>
-                        <a ng-click='logout()'> <i class="fa fa-sign-out " aria-hidden="true"></i> Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </div> -->
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             <div class="profile_left " ng-if="active" ng-init="active=true">
-                <div class="profileholder">
+                <!-- <div class="profileholder">
                     <br>
                     <div class="image_container">
                         <img class='profile_picture' ng-hide='!currentUser.image' ng-src={{currentUser.image}} alt="" />
@@ -42,7 +13,7 @@
                     <h5 style='color:grey;'>{{currentUser.firstName}}  {{currentUser.lastName}}
                         <span class='edit-profile'><a ui-sref="profile.profileEditor" ng-click='showForm()'><span class='glyphicon glyphicon-edit'></span></a></span>
                     </h5>
-                </div>
+                </div> -->
                 <div class="profile_navigator">
                     <ul style='cursor:pointer'>
                         <li onclick="closeNav()" ui-sref="profile.booksFeed">Books Feed </li>

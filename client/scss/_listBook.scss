@@ -30,10 +30,14 @@
         display: block;
         clear:both !important;
         margin-top: 60px !important;
+        .btn {
+            background: $color-primary;
+            color:$color-body-main;
+        }
     }
 
 }
-@media (min-width: 1200px){
+@media (min-width: 767px){
     .collection-container {
         .book_container {
             box-shadow: 1px 1px 1px 1px $color-secondary !important;
@@ -43,6 +47,7 @@
             padding:10px;
             border: none !important;
             margin-right: 10px;
+            transition: .2s all ease-in-out;
             .image-container img {
                 max-width: 150px;
                 max-height: 200px;

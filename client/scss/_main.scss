@@ -25,8 +25,8 @@ div.row {
     .profile_right {
         display: none;
         height: auto;
-        max-height: 1000px;
-        overflow: scroll;
+        height: 100vh;
+        overflow-y: scroll;
     }
     .profile_left {
         padding-top: 40px !important;
@@ -61,6 +61,9 @@ div.row {
                         color: $color-primary;
                     }
                 }
+                .logout {
+                    font-size: 0.5em;
+                }
             }
         }
     }
@@ -92,7 +95,7 @@ div.row {
         color: #252525 !important;
     }
 }
-@media (min-width: 1200px) {
+@media (min-width: 767px) {
     .profile_left {
         padding-right: 10px !important;
         .profileholder {
