@@ -1,10 +1,10 @@
 .books-detail-container {
     background: $color-body-main;
-    margin: 10px 20px 10px 10px !important;
+    margin: 10px 20px 10px 5px !important;
     .book-container {
         padding: 20px;
         display: block;
-        box-shadow: 1px 1px 1px 1px $color-secondary;
+        // box-shadow: 1px 1px 1px 1px $color-secondary;
         div.feed-image {
             float: left !important;
             max-width: 200px !important;

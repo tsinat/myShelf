@@ -4,6 +4,11 @@
     margin-right: 15px;
     margin-top: 0 !important;
     padding:20px;
+    padding-top: 0;
+    hr {
+        background: $color-body-main;
+        margin-bottom: 10px;
+    }
     .book_container {
         margin-bottom: 20px;
         max-width:200px;
@@ -14,6 +19,7 @@
         box-sizing: border-box;
         margin-right: 10px;
         background: $color-body-main;
+        transition: .2s all ease-in-out;
         .image-container img {
             max-width: 150px;
             max-height: 200px;
