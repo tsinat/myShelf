@@ -2,15 +2,13 @@
     min-height: 100vh;
     height: 100%;
     overflow-y: scroll !important;
-    background-color: white;
+    background-color: $color-body-main;
     margin-right: 15px;
     .form-header {
         clear:both !important;
     }
     input {
-        // border: 1px solid lightgrey !important;
         border-bottom: none !important;
-        // border-radius: 20px !important;
         padding-left: 20px;
     }
     .result-container {
@@ -22,7 +20,7 @@
             margin-top:10px !important;
         }
         .search-result-image img {
-            border: 1px solid lightgrey !important;
+            border: 1px solid $color-secondary !important;
             float:left;
             margin-right: 20px;
 

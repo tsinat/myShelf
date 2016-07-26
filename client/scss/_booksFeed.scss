@@ -2,12 +2,11 @@
     max-height: 1500px;
     overflow-y: scroll;
     .book-container {
-        background: white;
+        background: $color-body-main;
         margin-right: 15px !important;
         margin-bottom: 10px !important;
         padding: 20px;
         display: block;
-        // box-shadow: 1px 1px 1px 1px lightgrey;
         div.feed-image {
             float: left !important;
             max-width: 200px !important;
@@ -30,7 +29,7 @@
                 float: left !important;
                 width: 50px;
                 height: 50px;
-                border: 1px solid lightgrey;
+                border: 1px solid $color-secondary;
                 border-radius: 50%;
             }
             .owner-name {
@@ -42,7 +41,6 @@
             span.comment-date{
                 padding: 10px 20px;
                 float:right;
-                // margin-left: 40px !important;
             }
         }
         .text-container {
@@ -62,16 +60,15 @@
             float: left;
         }
         .reaction-buttons {
-            // background: red;
             margin-left:0!important;
             .readit {
-                background: #FFFFFF;
-                border: 1px solid grey;
-                color:#00AA9A;
+                background: $color-body-main;
+                border: 1px solid $color-tertiary;
+                color:$color-primary;
                 padding: 5px ;
                 span {
-                    background: grey;
-                    color: white;
+                    background: $color-tertiary;
+                    color: $color-body-main;
                 }
             }
             .comments {
@@ -86,14 +83,14 @@
                 padding:0 !important;
                 width: 20px !important;
                 .selected {
-                    background: #00AA9A !important;
-                    color:white;
+                    background: $color-primary !important;
+                    color:$color-body-main;
                 }
                 .notSelected {
                     background: transparent !important;
                 }
                 .selected2 {
-                    background: lightgrey !important;
+                    background: $color-secondary !important;
                 }
                 .notSelected2 {
                     background: transparent !important;
@@ -104,10 +101,10 @@
                 padding: 4px 7px;
                 border-radius: 50%;
                 background: transparent;
-                color:grey;
+                color:$color-tertiary;
                 &:hover {
-                    background: #00AA9A !important;
-                    color:white;
+                    background: $color-primary !important;
+                    color:$color-body-main;
                 }
                 .fa {
                     font-size: 1.5em;
@@ -118,10 +115,10 @@
                 padding: 4px 7px;
                 border-radius: 50%;
                 background: transparent;
-                color:grey;
+                color:$color-tertiary;
                 &:hover {
-                    background: grey !important;
-                    color:white;
+                    background: $color-tertiary !important;
+                    color:$color-body-main;
                 }
                 .fa {
                     font-size: 1.5em;
@@ -167,9 +164,9 @@
                     textarea.form-control {
                         margin-left: 10px;
                         padding-left: 10px;
-                        background: white;
+                        background: $color-body-main;
                         width: 100%;
-                        border-box: 1px 1px 1px solid lightgrey !important;
+                        border-box: 1px 1px 1px solid $color-secondary !important;
                     }
 
                 }
@@ -192,29 +189,13 @@
     }
 }
 .send {
-    background: #00AA9A !important;
-    color:white !important;
+    background: $color-primary !important;
+    color:$color-body-main !important;
     &:hover {
-        background: darken(#00AA9A, 0.1);
+        background: darken($color-primary, 0.1);
     }
 }
-// .col-xs-1,
-// .col-xs-10,
-// .col-xs-11,
-// .col-xs-12,
-// .col-xs-2,
-// .col-xs-3,
-// .col-xs-4,
-// .col-xs-5,
-// .col-xs-6,
-// .col-xs-7,
-// .col-xs-8,
-// .col-xs-9 {
-//     position: relative;
-//     min-height: 1px;
-//     padding-right: 15px;
-//     /* padding-left: 15px; */
-// }
+
 @media (min-width: 1200px) {
     .book-feed-container {
         max-height: 1500px !important;
@@ -227,9 +208,8 @@
                 float: left !important;
                 max-width: 200px !important;
                 img {
-                    border: 1px solid lightgrey !important;
+                    border: 1px solid $color-secondary !important;
                     margin-right: 10px;
-                    // width:100%;
                 }
             }
         }

@@ -8,10 +8,8 @@ div.row {
     margin-bottom: 0;
 }
 .profile {
-    // background-color: #ecf0f1;
-    background-color: white;
+    background-color: $color-body-main;
     padding-top: 60px;
-    // margin-right: 20px;
     padding-right: 0;
     padding-left: 10px;
     min-height: 600px;
@@ -32,14 +30,11 @@ div.row {
     }
     .profile_left {
         padding-top: 60px !important;
-        // padding-left: 10px !important;
         height: 100vh;
-        // border-right: 1px solid lightgrey !important;
         .profile_picture {
             width: 150px;
             height: 150px;
-            // border-radius: 50%;
-            border: 5px solid white;
+            border: 5px solid $color-body-main;
         }
         .edit-profile {
             padding-left: 30px;
@@ -55,16 +50,15 @@ div.row {
                     line-height: 0.7;
                     padding: 10px 20px;
                     margin-bottom: 5px;
-                    color: grey;
+                    color: $color-tertiary;
                     a {
                         text-decoration: none;
                         display: block;
                         padding: 8px 0;
-                        color:silver !important;
+                        color: silver !important;
                     }
                     &:hover {
-                        // background: darken(#ecf0f1, 10);
-                        color:#00aa9a;
+                        color: $color-primary;
                     }
                 }
             }
@@ -85,16 +79,12 @@ div.row {
     .user_list_image {
         width: 30px;
         height: 30px;
-        // border-radius: 50%;
-        border: 1px solid grey;
-    }
-    .user_list_text {
-        // margin-left:10px;
+        border: 1px solid $color-tertiary;
     }
 }
 .footer_div {
-    border-top: 1px solid lightgrey !important;
-    background: white;
+    border-top: 1px solid $color-secondary !important;
+    background: $color-body-main;
     padding-top: 10px;
     min-height: 40px;
     margin-bottom: 0 !important;
@@ -102,20 +92,18 @@ div.row {
         color: #252525 !important;
     }
 }
-
 @media (min-width: 1200px) {
     .profile_left {
-        // padding-left: 20px !important;
         padding-right: 10px !important;
         .profileholder {
-            display:none;
+            display: none;
         }
         .logout {
-            display:none;
+            display: none;
         }
     }
     .profile_main {
-        background-color: white;
+        background-color: $color-body-main;
         min-height: 1500px !important;
         height: 100%;
         padding-top: 10px;
@@ -152,11 +140,4 @@ div.row {
         padding: 0 !important;
         margin: 0 !important;
     }
-    // .footer_div {
-    //     background: #03A678;
-    //     padding-top: 10px;
-    //     min-height: 40px;
-    //     padding-left:0 !important;
-    //     margin-left:0 !important;
-    // }
 }

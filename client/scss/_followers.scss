@@ -11,7 +11,7 @@
     .follower_user {
         padding: 10px;
         margin-top: 10px;
-        box-shadow: 1px 1px 1px 1px lightgrey;
+        box-shadow: 1px 1px 1px 1px $color-secondary;
         height: 260px;
         min-width: 200px;
         background: white;
@@ -19,7 +19,7 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 5px solid lightgrey;
+            border: 5px solid $color-secondary;
             // float: left;
         }
         .profile-meta {
@@ -52,9 +52,6 @@
         .followers {
             margin: 0 !important;
             font-weight: bold;
-            .left {
-                // margin-right: 20px;
-            }
             .badge {
                 padding: 1px 10px;
             }

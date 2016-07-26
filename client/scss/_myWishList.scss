@@ -5,15 +5,15 @@
         margin:0;
         margin-bottom: 20px;
         margin-right: 15px !important;
-        background: white;
+        background: $color-body-main;
     }
     .book_container {
         margin-bottom: 20px;
         max-width:200px;
         height: 340px;
         padding:10px;
-        box-shadow: 1px 1px 1px 1px lightgrey;
-        background: white;
+        box-shadow: 1px 1px 1px 1px $color-secondary;
+        background: $color-body-main;
         box-sizing: border-box;
         margin-right: 10px;
         .image-container img {
@@ -30,7 +30,7 @@
         clear:both !important;
         margin-top: 60px !important;
         button {
-            background: #00AA9A !important;
+            background: $color-primary !important;
         }
     }
 
@@ -41,10 +41,6 @@
             display: block;
             clear:both !important;
             margin-top: 60px !important;
-        }
-
-        .col-lg-3 {
-
         }
     }
 }
