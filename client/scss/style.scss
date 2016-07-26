@@ -20,10 +20,7 @@ html {
     margin: 0 !important;
     padding: 0 !important;
 }
-// .ng-scope {
-//     background: red;
-//
-// }
+
 body {
     margin: 0 !important;
     padding: 0 !important;
@@ -33,10 +30,10 @@ body {
     position: fixed;
     top: 0;
     padding-right: 20px !important;
-    background: white !important;
-    color: #00aa9a !important;
+    background: $color-body-main !important;
+    color: $color-primary !important;
     font-weight: bold;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid $color-secondary;
 }
 .glyphicon-menu-hamburger {
     // background-color: ;
@@ -60,7 +57,7 @@ img.nav-profile {
     margin-top: 2px;
     margin-left: 5px;
     margin-right: 5px;
-    color: #00aa9a;
+    color: $color-primary;
     cursor: pointer;
     padding: 0 10px;
     font-size: 1.3em;
@@ -70,34 +67,28 @@ img.nav-profile {
     padding-top: 10px;
 }
 hr {
-    color: white !important;
+    color: $color-body-main !important;
 }
 button,
 input {
     outline: none !important;
 }
-input {
-    // border: none !important;
 
-}
 .register_container {
-    background-color: white;
+    background-color: $color-body-main;
     padding: 20px 40px;
-    // box-shadow: 10px 10px 10px grey;
     margin-bottom: 100px;
     margin-top: 40px;
 }
 ui-view.main-view.ng-scope {
     padding: 0 !important;
     margin: 0 !important;
-    background: white;
+    background: $color-body-main;
 }
-/*image upload*/
 .upload_container {
     margin-top: 40px;
 }
 .image_upload {
-    // width:100px;
     padding: 20px 100px;
 }
 /*image upload*/
@@ -111,14 +102,11 @@ ui-view.main-view.ng-scope {
     width: 100%;
 }
 .homesplash {
-    // background-image: url('../../absurdity.png');
-    // background: #00aa9a;
     margin-top: 0 !important;
     min-height: 600px;
     height: 100vh;
     background-size: cover;
     background-repeat: repeat;
-    // color:#c0392b;
 }
 .image_upload {
     border-radius: 10px;
@@ -137,9 +125,6 @@ ui-view.main-view.ng-scope {
     transition: 0.75s;
     opacity: 0;
 }
-// .ng-leave-stagger {
-//     transition-delay: 0.1s;
-// }
 .ng-leave-active {
     opacity: 0;
 }
@@ -152,19 +137,19 @@ ui-view.main-view.ng-scope {
     z-index: 100;
     top: 0;
     left: 0;
-    background-color: white;
-    color:white;
+    background-color: $color-body-main;
+    color:$color-body-main;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-right: 1px solid lightgrey;
+    border-right: 1px solid $color-secondary;
 }
 
 .sidenav a {
     padding: 60px 0px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #00aa9a;
+    color: $color-primary;
     display: block;
     transition: 0.3s
 }
@@ -183,7 +168,6 @@ ui-view.main-view.ng-scope {
 
 #main {
     transition: margin-left .5s;
-    // padding: 16px;
 }
 
 @media screen and (max-height: 450px) {
