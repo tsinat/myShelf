@@ -1,7 +1,7 @@
 <div class="friendDetail_container">
     <div class="single_user">
-        <img  ng-hide='!singleUser.image' ng-src={{singleUser.image}} alt="" />
-        <img  ng-show='!singleUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
+        <img ng-hide='!singleUser.image' ng-src={{singleUser.image}} alt="" />
+        <img ng-show='!singleUser.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' alt="" />
         <div class="profile-meta">
             <div class="name-line">
                 <h4><b>{{singleUser.firstName}} {{singleUser.lastName}}</b></h4>
@@ -17,7 +17,15 @@
     <div ng-show='showIfNotUser(singleUser._id)' class="additional-info">
         <button ng-show="flg_unfollow" class=" btn  btn-success following" href="#" ng-click="unfollow(currentUser._id, singleUser._id)">following</button>
         <button ng-hide="flg_unfollow" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, singleUser._id)">follow</button>
-        <button class='btn  btn-success' type="button" name="button">Private Message</button>
+        <button class='btn  btn-success' type="button" name="button" ng-click='toggleModal()'>Private Message</button>
+        <modal-dialog show='modalShown' width='400px' height='60%'>
+            <div class="form-group label-floating">
+                <label class="control-label">Subject:</label>
+                <input type="text" class="form-control" ng-model='user.address.postalcode' required>
+            </div>
+            <textarea class="form-control" rows="10" ng-model='user.about'></textarea>
+            <div class="btn btn-raised btn-primary pull-right">Send</div>
+        </modal-dialog>
     </div>
     <br>
     <div class="interest">
@@ -40,12 +48,13 @@
                 <p ng-show='!book.author && book.authors[1]'><b>Author/s</b>: {{book.authors[0]}}</p>
             </div>
         </div>
-    </div><br>
+    </div>
+    <br>
     <div class="wish-list">
         <h4>Wish List</h4>
         <hr>
         <div class="single_book" ng-repeat='book in singleUser.wishList' ui-sref='profile.bookDetail({id: book.googleId})' style='cursor:pointer'>
-            <img  ng-src={{book.thumbnail}} alt="" />
+            <img ng-src={{book.thumbnail}} alt="" />
             <div class="">
                 <p><b>Title/s</b>: {{book.title}}</p>
                 <p><b>Author/s</b>: {{book.authors[0]}}</p>
