@@ -19,3 +19,13 @@ app.controller('loginCtrl', function($scope, Auth, $state, $location, $timeout) 
             })
     }
 });
+app.directive('scrollOnClick', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, $elm) {
+      $elm.on('click', function() {
+        $("body").animate({scrollTop: $elm.offset().top}, "slow");
+      });
+    }
+  }
+});

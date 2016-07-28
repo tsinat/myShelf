@@ -19,7 +19,7 @@
         box-sizing: border-box;
         margin-right: 10px;
         background: $color-body-main;
-        transition: .2s all ease-in-out;
+        transition: .2s all ease-in-out !important;
         .image-container img {
             max-width: 150px;
             max-height: 200px;
@@ -47,7 +47,7 @@
             padding:10px;
             border: none !important;
             margin-right: 10px;
-            transition: .2s all ease-in-out;
+            transition: .2s all ease-in-out !important;
             .image-container img {
                 max-width: 150px;
                 max-height: 200px;

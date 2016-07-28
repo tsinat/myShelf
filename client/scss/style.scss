@@ -17,15 +17,33 @@
 @import 'bookDetail';
 @import 'listBook';
 @import 'booksFeed';
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Condensed);
 html {
     margin: 0 !important;
     padding: 0 !important;
+    font-family: "Helvetica", "Arial", sans-serif !important;
 }
-
+h1 {
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: normal;
+}
+h2 {
+    font-family: 'Poiret One', cursive;
+    font-weight: Bold;
+}
+h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: normal;
+    font-size: 2.5em;
+}
 body {
     margin: 0 !important;
     padding: 0 !important;
     overflow-x: hidden;
+    font-family: "Helvetica", "Arial", sans-serif !important;
 }
 .navbar {
     position: fixed;
