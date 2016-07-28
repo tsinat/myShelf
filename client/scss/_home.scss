@@ -10,6 +10,9 @@
             font-weight: bold;
             font-size: 2em;
         }
+        h3 {
+            font-size: 2.5em !important;
+        }
         .logo {
             margin-top:20%;
         }
@@ -50,19 +53,17 @@
     h2 {
         color: $color-primary !important;
         font-weight: bold;
-    }
-    h1 {
-        font-size: 1.5em;
+        font-size: 2.5em;
     }
 }
 .intro {
     padding-top: 20px;
-    min-height: 460px;
+    min-height: 400px;
     background: $color-body-main;
     h2 {
         color: $color-primary !important;
         font-weight: bold;
-
+        font-size: 2.5em;
     }
     .how-it-works {
         padding: 30px;
@@ -102,7 +103,7 @@
 }
 .detail {
     padding-top: 20px;
-    min-height: 460px;
+    min-height: 400px;
     background: #ecf0f1;
     padding-bottom: 20px !important;
     h2 {
