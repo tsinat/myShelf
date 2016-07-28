@@ -42,8 +42,8 @@ app.service('Auth', function($http, $q) {
             });
     };
     this.getCordinate = address => {
-        var street = address.street.split(' ');
-        var city = address.city.split(' ');
+        let street = address.street.split(' ');
+        let city = address.city.split(' ');
         console.log('street', street);
         console.log('city:', city);
         return $http.get(`http://maps.google.com/maps/api/geocode/json?address=${street[0]}+${street[1]}+${street[2]},+${city[0]}+${city[1]},+${address.state}&sensor=false`);

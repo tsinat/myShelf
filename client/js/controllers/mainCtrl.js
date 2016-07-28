@@ -76,21 +76,21 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
     }
     User.getAll()
         .then(res => {
-            var temp = res.data;
+            let temp = res.data;
             // console.log('temp:', temp);
             $scope.users = temp.map(function(user) {
                 if (user.lat) {
                     // if ($scope.currentUser.address.city == user.address.city) {
 
-                    var R = 6371;
-                    var dLat = deg2rad($scope.currentUser.lat - user.lat); //
-                    var dLon = deg2rad($scope.currentUser.lng - user.lng);
-                    var a =
+                    let R = 6371;
+                    let dLat = deg2rad($scope.currentUser.lat - user.lat); //
+                    let dLon = deg2rad($scope.currentUser.lng - user.lng);
+                    let a =
                         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
                         Math.cos(deg2rad(user.lat)) * Math.cos(deg2rad($scope.currentUser.lat)) *
                         Math.sin(dLon / 2) * Math.sin(dLon / 2);
-                    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-                    var d = R * c; // Distance in km
+                    let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                    let d = R * c; // Distance in km
 
                     function deg2rad(deg) {
                         return deg * (Math.PI / 180)
@@ -150,7 +150,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
 
     $scope.checkDistance = user => {
         // console.log( (user.distance.split(' ')[0]))
-        var temp = user.distance.split(' ')[0];
+        let temp = user.distance.split(' ')[0];
         return parseInt(temp) < 50;
     }
 

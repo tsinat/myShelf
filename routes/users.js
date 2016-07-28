@@ -1,12 +1,12 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
-var multer = require('multer');
+const express = require('express');
+const router = express.Router();
+const multer = require('multer');
 
-var upload = multer({storage: multer.memoryStorage()});
+const upload = multer({storage: multer.memoryStorage()});
 
-var User = require('../models/user');
+const User = require('../models/user');
 
 router.post('/register', (req, res) => {
     console.log('req.body:', req.body);

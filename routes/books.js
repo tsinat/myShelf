@@ -1,11 +1,10 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
 
-var Book = require('../models/book');
-var User = require('../models/user');
+const express = require('express');
+const router = express.Router();
 
-
-
+let Book = require('../models/book');
+let User = require('../models/user');
 
 router.get('/', (req, res) => {
     Book.find({})

@@ -14,7 +14,6 @@ angular
         $scope.follow = (currentId, targetId) => {
             User.followUnfollow(currentId, targetId)
                 .then(res => {
-                    // console.log('response after following user', res);
                     $state.reload();
                 })
                 .catch(err => {
@@ -24,7 +23,6 @@ angular
         $scope.unfollow = (currentId, targetId) => {
             User.followUnfollow(currentId, targetId)
                 .then(res => {
-                    // console.log('response after following user', res);
                     $state.reload();
                 })
                 .catch(err => {

@@ -1,22 +1,22 @@
 'use strict';
 
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
-var moment = require('moment');
-var jwt = require('jsonwebtoken');
-var uuid = require('uuid');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const moment = require('moment');
+const jwt = require('jsonwebtoken');
+const uuid = require('uuid');
 
-var AWS = require('aws-sdk');
+const AWS = require('aws-sdk');
 
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-var s3 = new AWS.S3();
+let s3 = new AWS.S3();
 
-var bucketName = process.env.AWS_BUCKET;
-var urlBase = process.env.AWS_URL_BASE;
+let bucketName = process.env.AWS_BUCKET;
+let urlBase = process.env.AWS_URL_BASE;
 
-var userSchema = new mongoose.Schema({
+let userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true
@@ -90,7 +90,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.statics.auth = roleRequired => {
     return (req, res, next) => {
-        var token = req.cookies.accessToken;
+        let token = req.cookies.accessToken;
 
         jwt.verify(token, JWT_SECRET, (err, payload) => {
             if (err) return res.status(401).send({
@@ -116,7 +116,7 @@ userSchema.statics.auth = roleRequired => {
 };
 
 userSchema.statics.isLoggedIn = (req, res, next) => {
-    var token = req.cookies.accessToken;
+    let token = req.cookies.accessToken;
 
     jwt.verify(token, JWT_SECRET, (err, payload) => {
         if (err) return res.status(401).send({
@@ -149,7 +149,7 @@ userSchema.statics.register = (userObj, cb) => {
         bcrypt.hash(userObj.password, 12, (err, hash) => {
             if (err) return cb(err);
 
-            var user = new User({
+            let user = new User({
                 firstName: userObj.firstName,
                 lastName: userObj.lastName,
                 email: userObj.email,
@@ -182,14 +182,14 @@ userSchema.statics.authenticate = (userObj, cb) => {
                 error: 'Authentication failed. Invalid email or password'
             });
 
-            var token = dbUser.generateToken();
+            let token = dbUser.generateToken();
             cb(null, token, dbUser);
         });
     });
 };
 
 userSchema.methods.generateToken = function() {
-    var payload = {
+    let payload = {
         _id: this._id,
         exp: moment().add(1, 'day').unix()
     };
@@ -279,17 +279,17 @@ userSchema.statics.upload = (file, id, cb) => {
         });
     }
 
-    var filenameParts = file.originalname.split('.');
+    let filenameParts = file.originalname.split('.');
 
-    var ext;
+    let ext;
     if (filenameParts.length > 1) {
         ext = '.' + filenameParts.pop();
     } else {
         ext = '';
     }
 
-    var key = uuid() + `${ext}`;
-    var params = {
+    let key = uuid() + `${ext}`;
+    let params = {
         Bucket: bucketName,
         Key: key,
         ACL: 'public-read',
@@ -299,8 +299,8 @@ userSchema.statics.upload = (file, id, cb) => {
     s3.putObject(params, (err, result) => {
         if (err) return cb(err);
 
-        var imgUrl = `${urlBase}${bucketName}/${key}`;
-        var passedObj = {
+        let imgUrl = `${urlBase}${bucketName}/${key}`;
+        let passedObj = {
             image: imgUrl
         }
         User.findByIdAndUpdate(id, {
@@ -315,6 +315,6 @@ userSchema.statics.upload = (file, id, cb) => {
     });
 };
 
-var User = mongoose.model('User', userSchema);
+let User = mongoose.model('User', userSchema);
 
 module.exports = User;

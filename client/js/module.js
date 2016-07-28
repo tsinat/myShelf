@@ -127,7 +127,7 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$u
                     controller: 'bookDetailCtrl',
                     resolve: {
                         detailBook: function(Book, $state, $stateParams) {
-                            var googleId = $stateParams.googleId;
+                            let googleId = $stateParams.googleId;
                             return Book.getDetail(googleId)
                                 .then(res => {
                                     console.log('bookDetail:', res.data);
@@ -138,7 +138,7 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$u
                                 })
                         },
                         getDbDeatil: function(Book, $state, $stateParams) {
-                            var id = $stateParams.id;
+                            let id = $stateParams.id;
                             console.log('id:', id);
                             return Book.getDetailFromDb(id)
                                 .then(res => {
@@ -179,7 +179,7 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$u
                     controller: 'loggedDetailsCtrl',
                     resolve: {
                         loggedDetails: function(User, $q, $state, $stateParams) {
-                            var id = $stateParams.id;
+                            let id = $stateParams.id;
                             console.log('id', id);
                             return User.getOne(id)
                                 .then(res => {
@@ -208,7 +208,7 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$u
                     controller: 'loggedDetailsCtrl',
                     resolve: {
                         loggedDetails: function(User, $q, $state, $stateParams) {
-                            var id = $stateParams.id;
+                            let id = $stateParams.id;
                             return User.getOne(id)
                                 .then(res => {
                                     console.log('res:', res.data);
@@ -245,7 +245,7 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$u
                     controller: 'friendDetailCtrl',
                     resolve: {
                         friend: function(User, $q, $state, $stateParams) {
-                            var id = $stateParams.id
+                            let id = $stateParams.id
                             return User.getOne(id)
                                 .then(res => {
                                     console.log('res:', res.data);

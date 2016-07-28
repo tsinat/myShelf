@@ -9,8 +9,6 @@ let upload = multer({storage: multer.memoryStorage()});
 let User = require('../models/user');
 let Book = require('../models/book');
 
-//   /api/images
-
 router.put('/books/:id', upload.single('newFile'), (req, res) => {
     console.log('book cover:');
     Book.upload(req.file, req.params.id, (err, image) => {
@@ -26,6 +24,5 @@ router.put('/:id', upload.single('newFile'), (req, res) => {
     res.status(err? 400: 200).send(err || image);
   });
 });
-
 
 module.exports = router;
