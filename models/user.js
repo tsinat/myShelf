@@ -270,18 +270,6 @@ userSchema.statics.followUnfollow = (currentId, targetId, cb) => {
     });
 };
 
-// userSchema.statics.addWishBook = (userId, wishBook, cb) => {
-//     console.log('wishBook', wishBook);
-//     console.log('userId', userId);
-//     User.findById(userId, (err, dbUser) => {
-//         if(err || !dbUser) return cb(err);
-//
-//         dbUser.wishList.push(wishBook);
-//         dbUser.save((err, savedUser) => {
-//             cb(err, savedUser);
-//         });
-//     });
-// };
 //add image url to the database and upload the image file to aws s3
 userSchema.statics.upload = (file, id, cb) => {
 
@@ -324,10 +312,6 @@ userSchema.statics.upload = (file, id, cb) => {
                 cb(null, savedUser);
             });
         });
-        // Image.create({
-        //   url: imgUrl,
-        //   name: file.originalname
-        // }, cb);
     });
 };
 
