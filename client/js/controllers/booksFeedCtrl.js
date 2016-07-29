@@ -10,6 +10,7 @@ app.controller('booksFeedCtrl', function($scope, Book, $state, booksFeed) {
         Book.getBooksFeed()
             .then(res => {
                 $scope.booksFeed  = res.data;
+                // $scope.$apply;
             })
             .catch(err => {
                 console.log('error while getting book detail', err)

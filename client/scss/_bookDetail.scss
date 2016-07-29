@@ -67,24 +67,68 @@
             float: left;
         }
         .reaction-buttons {
-            background: $color-btn-delete;
+            margin-left:0!important;
             .readit {
                 background: $color-body-main;
-                border: 1px solid $color-primary;
+                border: 1px solid $color-tertiary;
+                color:$color-primary;
+                padding: 5px ;
                 span {
-                    background: grey;
+                    background: $color-tertiary;
                     color: $color-body-main;
+                }
+            }
+            .comments {
+                float: left !important;
+                padding: 5px 7px;
+                margin-top: 10px;
+                margin-right: 10px;
+                // font-size: 0.8px;
+            }
+            .like-btn {
+                margin-left:20px !important;
+                padding:0 !important;
+                width: 20px !important;
+                .selected {
+                    background: $color-primary !important;
+                    color:$color-body-main;
+                }
+                .notSelected {
+                    background: transparent !important;
+                }
+                .selected2 {
+                    background: $color-secondary !important;
+                }
+                .notSelected2 {
+                    background: transparent !important;
                 }
             }
             .likes {
                 float: right;
-                padding: 5px 7px;
-                margin-left: 0;
+                padding: 4px 7px;
                 border-radius: 50%;
                 background: transparent;
+                color:$color-tertiary;
                 &:hover {
                     background: $color-primary !important;
-                    color: $color-body-main;
+                    color:$color-body-main;
+                }
+                .fa {
+                    font-size: 1.5em;
+                }
+            }
+            .disliked {
+                float: right;
+                padding: 4px 7px;
+                border-radius: 50%;
+                background: transparent;
+                color:$color-tertiary;
+                &:hover {
+                    background: $color-tertiary !important;
+                    color:$color-body-main;
+                }
+                .fa {
+                    font-size: 1.5em;
                 }
             }
         }

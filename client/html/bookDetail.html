@@ -24,19 +24,24 @@
             <p class='description'><b>Description:</b> {{bookDetails.volumeInfo.description}}</p>
         </div>
         <div class="reaction-buttons" ng-init='test=true'>
-            <div class="col-xs-8">
-                <button type="button" class='btn btn-success readit active'>Readit <span class='badge'>{{book.readit}}</span></button>
-            </div>
-            <div class="col-xs-2">
-                <button ng-click='test=!test' class='comments btn btn-success likes'>
-                    <span><i class="fa fa-2x fa-commenting-o" aria-hidden="true" >{{book.comments.length || ''}}</i></span>
+            <div class="col-xs-6 col-lg-8" id='readit'>
+                <button type="button" class='btn btn-success readit active' ng-click='addReadIt(bookDetailFromDb._id)'>Recommend
+                    <span class='badge'>{{bookDetailFromDb.readit.length}}</span>
                 </button>
             </div>
-            <div class="col-xs-1">
-                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-up" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+            <div class="col-xs-2 comments" style='cursor:pointer'>
+                <a ng-show='bookDetailFromDb.comments.length < 2' ng-click='test=!test'>{{bookDetailFromDb.comments.length || ''}} comment</a>
+                <a ng-show='bookDetailFromDb.comments.length > 1' ng-click='test=!test'>{{bookDetailFromDb.comments.length || ''}} comments</a>
             </div>
-            <div class="col-xs-1">
-                <button type="button" class='btn btn-success likes'><i class="fa fa-2x fa-thumbs-o-down" aria-hidden="true"></i><span class='badge'>{{book.readit}}</span></button>
+            <div class="col-xs-1 like-btn">
+                <button ng-class="checkIfUpVoted(bookDetailFromDb) ? 'selected' : 'notSelected'" ng-click='addLike(bookDetailFromDb._id)' type="button" class='btn btn-success likes'>
+                    <i class="fa  fa-thumbs-o-up" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="col-xs-1 like-btn">
+                <button ng-class="checkIfDownVoted(bookDetailFromDb) ? 'selected2' : 'notSelected2'" ng-click='disLike(bookDetailFromDb._id)' type="button" class='btn btn-success disliked'>
+                    <i class="fa  fa-thumbs-o-down" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
         <div class="comments-container">

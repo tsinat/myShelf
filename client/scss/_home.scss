@@ -103,7 +103,7 @@
     }
 }
 .detail {
-    padding-top: 20px;
+    padding-top: 20px !important;
     min-height: 400px;
     background: $color-body-main;
     padding-bottom: 40px !important;
@@ -112,8 +112,11 @@
         font-weight: bold;
 
     }
-    h3 {
-        font-size: 1.5em;
+    .how-it-works {
+        padding: 30px;
+        h3 {
+            font-size: 1.5em;
+        }
     }
 
 }

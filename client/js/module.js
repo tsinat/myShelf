@@ -148,6 +148,16 @@ app.config(function($stateProvider, $urlRouterProvider, cfpLoadingBarProvider,$u
                                 .catch(err => {
                                     console.log('error while getting detail from db', err);
                                 })
+                        },
+                        booksFeed: function(Book, $state, $stateParams) {
+                            return Book.getBooksFeed()
+                                .then(res => {
+                                    console.log('booksFeed:', res.data);
+                                    return res.data;
+                                })
+                                .catch(err => {
+                                    console.log('error while getting book detail', err)
+                                })
                         }
                     }
                 }
