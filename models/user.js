@@ -315,6 +315,10 @@ userSchema.statics.upload = (file, id, cb) => {
     });
 };
 
+userSchema.statics.sendMessage = (messageObj, cb) => {
+    
+}
+
 let User = mongoose.model('User', userSchema);
 
 module.exports = User;

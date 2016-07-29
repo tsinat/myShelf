@@ -17,4 +17,12 @@ app.service('User', function($http, $q) {
     this.addWishBook = (wishBook, currentUserId) => {
         return $http.post(`/users/addWish/${currentUserId}`, wishBook);
     }
+    this.sendMessage = (sender, targetUser, message) => {
+        var messageObj = {
+            sender: sender,
+            targetUser: targetUser,
+            message: message
+        }
+        return $http.post(`/users/sendMessage`, messageObj);
+    }
 });

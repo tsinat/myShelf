@@ -39,6 +39,17 @@ var app = angular
         $scope.toggleModal = function() {
             $scope.modalShown = !$scope.modalShown;
         };
+        $scope.sendPrivateMessage = (targetUser, message) => {
+            console.log('will send private message', targetUser);
+            console.log('message:', message);
+            User.sendMessage($scope.currentUser, targetUser, message)
+                .then(res => {
+                    console.log('message after sending message');
+                })
+                .catch(err => {
+                    console.log('error while sending message', err);
+                })
+        }
     });
 app.directive('modalDialog', function() {
     return {
