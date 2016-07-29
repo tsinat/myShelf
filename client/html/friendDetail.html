@@ -19,12 +19,14 @@
         <button ng-hide="flg_unfollow" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, singleUser._id)">follow</button>
         <button class='btn  btn-success' type="button" name="button" ng-click='toggleModal()'>Private Message</button>
         <modal-dialog show='modalShown' width='400px' height='60%'>
-            <div class="form-group label-floating">
-                <label class="control-label">Subject:</label>
-                <input type="text" class="form-control" ng-model='user.address.postalcode' required>
+            <div class="form-group">
+                <div class="form-group label-floating">
+                    <label class="control-label">Subject:</label>
+                    <input type="text" class="form-control" ng-model='user.address.postalcode' required>
+                </div>
+                <textarea class="form-control" rows="10" ng-model='user.about'></textarea>
+                <div class="btn btn-raised btn-primary pull-right">Send</div>
             </div>
-            <textarea class="form-control" rows="10" ng-model='user.about'></textarea>
-            <div class="btn btn-raised btn-primary pull-right">Send</div>
         </modal-dialog>
     </div>
     <br>
