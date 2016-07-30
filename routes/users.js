@@ -80,6 +80,7 @@ router.put('/:currentUserId/followUnfollow/:targetUserId', User.auth(), (req, re
 });
 
 router.post('/sendMessage', (req, res) => {
+    console.log('messageObj:', req.body);
     User.sendMessage(req.body, (err) => {
         res.status(err ? 400: 200).send(err || {message: 'email send successfully'});
     })

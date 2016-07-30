@@ -19,8 +19,8 @@ app.service('User', function($http, $q) {
     }
     this.sendMessage = (sender, targetUser, message) => {
         var messageObj = {
-            sender: sender,
-            targetUser: targetUser,
+            sender: sender.email,
+            targetUser: targetUser.email,
             message: message
         }
         return $http.post(`/users/sendMessage`, messageObj);
