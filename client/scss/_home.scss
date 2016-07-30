@@ -2,7 +2,7 @@
     div.row {
         padding-left: 60px;
         margin: 0 auto !important;
-        padding-top: 60px !important;
+        padding-top: 20px !important;
         background-color: $color-primary;
         background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
         h1 {
@@ -14,18 +14,16 @@
             font-size: 2.5em !important;
         }
         .logo {
-            margin-top:20%;
+            margin-top: 20%;
         }
         .main-title {
-            padding-left:40px;
+            padding-left: 40px;
         }
         div.login_container {
-            padding-top: 20px !important;
             width: 90% !important;
             background-color: #ecf0f1;
             padding: 40px;
-            margin-left:20px;
-            margin-top: 60px;
+            margin: 60px auto 0;
             color: silver !important;
             input {
                 padding-left: 10px;
@@ -39,14 +37,14 @@
         }
         .scroll-down {
             color: $color-body-main;
-            bottom:40px;
+            bottom: 40px;
             margin-top: 60px;
             cursor: pointer;
         }
     }
 }
 .about {
-    padding-top: 20px;
+    padding: 20px;
     min-height: 260px;
     height: auto;
     line-height: 1.5rem;
@@ -56,9 +54,12 @@
         font-weight: bold;
         font-size: 2.5em;
     }
+    h3 {
+        font-size: 2em;
+    }
 }
 .intro {
-    padding-top: 20px;
+    padding: 20px;
     min-height: 400px;
     background: $color-body-main;
     h2 {
@@ -67,14 +68,13 @@
         font-size: 2.5em;
     }
     .how-it-works {
-        padding: 30px;
+        padding: 20px;
         h3 {
-            font-size: 1.5em;
+            font-size: 1.8em;
         }
     }
-
 }
-.imgContainer{
+.imgContainer {
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -83,64 +83,83 @@
     width: 300px;
     border-radius: 500px;
     border: 5px solid $color-primary;
-    transition: .1s all ease-in-out;
+    transition: 0.1s all ease-in-out;
     .about-image {
-        transition: .1s all ease-in-out;
+        transition: 0.1s all ease-in-out;
         height: 100%;
-        top: 0px;
-        left: 0px;
-        right:0px;
+        top: 0;
+        left: 0;
+        right: 0;
         margin: auto;
     }
-
-    &:hover{
-        transition: .1s all ease-in-out;
+    &:hover {
+        transition: 0.1s all ease-in-out;
         .about-image {
-            transition: .1s all ease-in-out;
+            transition: 0.1s all ease-in-out;
             height: 120%;
             top: 20px;
         }
     }
 }
 .detail {
-    padding-top: 20px !important;
+    padding: 20px !important;
     min-height: 400px;
     background: $color-body-main;
     padding-bottom: 40px !important;
     h2 {
         color: $color-primary !important;
         font-weight: bold;
-
     }
     .how-it-works {
-        padding: 30px;
+        padding: 20px;
         h3 {
-            font-size: 1.5em;
+            font-size: 1.8em;
         }
     }
-
 }
 .footer {
-    min-height:140px;
-    padding-top:20px;
+    min-height: 140px;
+    padding-top: 20px;
     height: auto !important;
     background: $color-primary !important;
-    color:$color-body-main;
-    margin:0 !important;
+    color: $color-body-main;
+    margin: 0 !important;
     p a {
         color: $color-body-main;
     }
 }
-@media (min-width: 767px){
-
-    h1 {
-        font-size: 3em !important;
-    }
-    .main-title {
-        padding-left:10px !important;
+.col-xs-12 {
+    padding-right: 0 !important;
+}
+@media (min-width: 767px) {
+    .header {
+        div.row {
+            padding-top: 60px !important;
+        }
+        h1 {
+            font-size: 3em !important;
+        }
+        .main-title {
+            padding-left: 10px !important;
+        }
     }
     .about {
         min-height: 300px;
+        text-align: center;
+        h3 {
+            font-size: 2.5em;
+        }
+    }
+    .intro {
+        .imgContainer {
+            float: right;
+        }
+    }
+    .detail {
+        padding: 30px;
+        .imgContainer {
+            float: left;
+        }
     }
     .footer {
         min-height: 80px;

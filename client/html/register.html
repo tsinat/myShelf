@@ -1,7 +1,7 @@
 <section class='register-container'>
     <div class=' '>
         <div class="row">
-            <div class="col-xs-10  col-xs-offset-1 col-lg-6 col-lg-offset-3 register">
+            <div class="col-xs-10  col-xs-offset-1 col-lg-6 col-lg-offset-3 register text-center">
                 <h1 class='text-center'>Register</h1>
                 <form class="form-horizontal" ng-submit='registerForm(user)'>
                     <fieldset>
@@ -45,7 +45,9 @@
                             <label class="control-label" for="">Confirm Password</label>
                             <input type="password" class="form-control" ng-model='user.password2'>
                         </div>
-                        <button class="btn btn-primary btn-raised btn-block" color='white'>Register</button>
+                        <div class="form-group label-floating">
+                            <button class="btn btn-primary btn-raised btn-block" color='white'>Register</button>
+                        </div>
                     </fieldset>
                 </form>
             </div>
