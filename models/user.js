@@ -5,6 +5,8 @@ const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const jwt = require('jsonwebtoken');
 const uuid = require('uuid');
+const helper = require('sendgrid').mail;
+
 
 const AWS = require('aws-sdk');
 
@@ -127,13 +129,13 @@ userSchema.statics.isLoggedIn = (req, res, next) => {
             .populate('wishLists')
             .select('-password')
             .exec((err, user) => {
-            if (err || !user) return res.status(401).send({
-                error: 'User not found'
-            });
-            req.user = user;
+                if (err || !user) return res.status(401).send({
+                    error: 'User not found'
+                });
+                req.user = user;
 
-            next();
-        });
+                next();
+            });
     });
 };
 
@@ -316,7 +318,30 @@ userSchema.statics.upload = (file, id, cb) => {
 };
 
 userSchema.statics.sendMessage = (messageObj, cb) => {
-    
+    let emailReceiver = messageObj.targetUser;
+    let emailSubject = messageObj.message.subject;
+    let emailContent = messageObj.message.content;
+
+    let from_email = new helper.Email(messageObj.sender);
+    let to_email = new helper.Email(emailReceiver);
+    let subject = emailSubject;
+    let content = new helper.Content("text/html", emailContent);
+    let mail = new helper.Mail(from_email, subject, to_email, content);
+
+    let sg = require('sendgrid').SendGrid(process.env.SENDGRID_JMS_API_KEY);
+    let requestBody = mail.toJSON();
+    let request = sg.emptyRequest();
+
+    request.method = 'POST';
+    request.path = '/v3/mail/send';
+    request.body = requestBody;
+    sg.API(request, (response) => {
+        console.log(response.statusCode);
+        console.log(response.body);
+        console.log(response.headers);
+    });
+
+    cb(null);
 }
 
 let User = mongoose.model('User', userSchema);
