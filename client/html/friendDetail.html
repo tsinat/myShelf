@@ -55,11 +55,14 @@
     <div class="wish-list">
         <h4>Wish List</h4>
         <hr>
-        <div class="single_book" ng-repeat='book in singleUser.wishList' ui-sref='profile.bookDetail({id: book.googleId})' style='cursor:pointer'>
-            <img ng-src={{book.thumbnail}} alt="" />
+        <div class="single_book" ng-repeat='book in singleUser.wishLists' ui-sref='profile.bookDetail({id: book.googleId})' style='cursor:pointer'>
+            <img ng-show='!book.thumbnail' ng-src={{book.cover}} alt="" />
+            <img ng-show='!book.cover && book.thumbnail' ng-src={{book.thumbnail}} alt="" />
             <div class="">
-                <p><b>Title/s</b>: {{book.title}}</p>
-                <p><b>Author/s</b>: {{book.authors[0]}}</p>
+                <p>Title: {{book.title}}</p>
+                <p ng-show='!book.authors'><b>Author/s</b> {{book.author}}</p>
+                <p ng-show='!book.author'><b>Author/s</b>: {{book.authors[0]}}</p>
+                <p ng-show='!book.author && book.authors[1]'><b>Author/s</b>: {{book.authors[0]}}</p>
             </div>
         </div>
     </div>
