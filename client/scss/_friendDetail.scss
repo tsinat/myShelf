@@ -97,7 +97,7 @@
         float: left;
         padding: 10px;
         box-shadow: 1px 1px 1px 1px $color-secondary;
-        margin-right: 20px;
+        margin-right: 10px;
         max-width: 150px;
         margin-bottom: 20px;
         height: 320px !important;
@@ -113,4 +113,12 @@
     .wish-list {
         clear: both;
     }
+}
+@media (min-width: 767px) {
+.friendDetail_container {
+    .single_book {
+        margin-right: 20px;
+    }
+}
+
 }
