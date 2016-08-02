@@ -9,7 +9,6 @@ app.controller('wishListCtrl', function($scope, Book, $state, $location) {
         if($scope.wish) {
             Book.search($scope.wish.search)
             .then(res => {
-                // console.log('search response', res.data);
                 $scope.books = res.data.items;
                 console.log('books', $scope.books);
             })
