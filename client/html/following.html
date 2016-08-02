@@ -1,7 +1,7 @@
 <div class='following-container '>
     <h2 class='text-center'>Following</h2>
     <hr>
-    <div class='col-xs-12 col-lg-4 following-container' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index'>
+    <div class='col-xs-12 col-lg-3 following-container' ng-repeat='user in currentDetails.following | filter:search | orderBy:sortOrder track by $index'>
         <div class="following_user text-center">
             <img ng-hide='!user.image' ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' />
             <img ng-show='!user.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' alt="" />
@@ -21,9 +21,12 @@
                 <br>
             </div>
             <div class="followers text-left">
-                <span class='left'>Followers <span class="badge">{{user.followers.length}}</span>
-                <br>
-                <span>Following <span class="badge">{{user.following.length}}</span>
+                <div class="col-xs-6 text-right">
+                    <span class='text-right'>Followers <span class="badge">{{user.followers.length}}</span></span>
+                </div>
+                <div class="col-xs-6 text-left">
+                    <span class=''>Following <span class="badge">{{user.following.length}}</span></span>
+                </div>
             </div>
         </div>
     </div>

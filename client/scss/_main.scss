@@ -60,12 +60,15 @@ div.row {
                     &:hover {
                         color: $color-primary;
                     }
-                }
-                .logout {
-                    font-size: 0.5em;
+                    .logout a {
+                        font-size: 0.5em !important;
+                    }
                 }
             }
         }
+    }
+    .sidenav a {
+    font-size: 16px;
     }
     .editProfile {
         padding: 0 1px;

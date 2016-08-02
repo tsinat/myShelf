@@ -1,7 +1,7 @@
 <div class='follower-container '>
     <h2 class='text-center'>Followers</h2>
     <hr>
-    <div class='col-xs-12 col-lg-4' ng-repeat='user in currentDetails.followers | filter:search | orderBy:sortOrder track by $index'>
+    <div class='col-xs-12 col-lg-3' ng-repeat='user in currentDetails.followers | filter:search | orderBy:sortOrder track by $index'>
         <div class="follower_user text-center">
             <img ng-hide='!user.image' ng-src={{user.image}} alt="" ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' />
             <img ng-show='!user.image' ng-src='https://lh3.googleusercontent.com/-O6osqAarBVc/AAAAAAAAAAI/AAAAAAAAAAA/72ZfpsMiU74/photo.jpg' ui-sref='profile.friendDetail({id: user._id})' style='cursor: pointer' alt="" />
@@ -18,10 +18,14 @@
                 <button ng-hide="checkIfFollowed(user._id)" class="btn  btn-success" href="#" ng-click="follow(currentUser._id, user._id)">follow</button>
                 <br>
             </div>
-            <div class="followers text-left">
-                <span class='left'>Followers <span class="badge">{{user.followers.length}}</span>
-                <br>
-                <span>Following <span class="badge">{{user.following.length}}</span>
+            <!-- <hr> -->
+            <div class="followers">
+                <div class="col-xs-6 text-right">
+                    <span class='text-right'>Followers <span class="badge">{{user.followers.length}}</span></span>
+                </div>
+                <div class="col-xs-6 text-left">
+                    <span class=''>Following <span class="badge">{{user.following.length}}</span></span>
+                </div>
             </div>
         </div>
     </div>
