@@ -11,7 +11,6 @@ app.controller('loginCtrl', function($scope, Auth, $state, $location, $timeout) 
                 $timeout(function() {
                     $state.go('profile');
                 }, 1000);
-                // $location.path('/profile/booksFeed');
 
             })
             .catch(res => {
