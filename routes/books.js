@@ -21,6 +21,7 @@ router.get('/:id', (req, res) => {
     Book.findById(req.params.id)
         .populate('owner')
         .populate('comments.by')
+        .populate('wishLists')
         .exec((err, book) => {
         if (err) {
             res.status(400).send(err);

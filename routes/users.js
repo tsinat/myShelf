@@ -54,7 +54,7 @@ router.get('/:id', User.auth(), (req, res) => {
         if (err) return res.status(400).send(err)
 
         res.send(user)
-    }).populate('books followers following');
+    }).populate('books followers following wishLists');
 });
 
 router.get('/', User.auth(), (req, res) => {
