@@ -26,12 +26,12 @@
             <p class='description'><b>Description:</b> {{book.description}}</p>
         </div>
         <div class="reaction-buttons" ng-init='test=true'>
-            <div class="col-xs-6 col-lg-8" id='readit'>
+            <div class="col-xs-6 col-lg-8 col-md-8" id='readit'>
                 <button type="button" class='btn btn-success readit active' ng-click='addReadIt(book._id)'>Recommend
                     <span class='badge'>{{book.readit.length}}</span>
                 </button>
             </div>
-            <div class="col-xs-2 comments" style='cursor:pointer'>
+            <div class="col-xs-3 col-md-2 comments" style='cursor:pointer'>
                 <a ng-show='book.comments.length < 2' ng-click='test=!test'>{{book.comments.length || ''}} comment</a>
                 <a ng-show='book.comments.length > 1' ng-click='test=!test'>{{book.comments.length || ''}} comments</a>
             </div>

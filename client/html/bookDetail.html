@@ -29,7 +29,7 @@
                     <span class='badge'>{{bookDetailFromDb.readit.length}}</span>
                 </button>
             </div>
-            <div class="col-xs-2 comments" style='cursor:pointer'>
+            <div class="col-xs-3 comments" style='cursor:pointer'>
                 <a ng-show='bookDetailFromDb.comments.length < 2' ng-click='test=!test'>{{bookDetailFromDb.comments.length || ''}} comment</a>
                 <a ng-show='bookDetailFromDb.comments.length > 1' ng-click='test=!test'>{{bookDetailFromDb.comments.length || ''}} comments</a>
             </div>
@@ -57,7 +57,7 @@
             </div>
             <form class='form-inline' ng-submit='addComment(comment, bookDetailFromDb._id)'>
                 <div class="form-container row">
-                    <div class="form-group col-xs-1">
+                    <div class="form-group col-xs-1 hidden-xs">
                         <img ng-src={{currentUser.image}} alt="" />
                     </div>
                     <div class="form-group col-xs-10">
