@@ -54,12 +54,12 @@
             /* A centered div above the overlay with a box shadow. */
             z-index: 10000;
             position: absolute;
-            width: 70% !important;
+            width: 100% !important;
             height: 30% !important;
             /* Default */
             /* Center the dialog */
-            top: 200px;
-            left: 60%;
+            top: 300px;
+            left: 200px;
             transform: translate(-50%, -50%);
             -webkit-transform: translate(-50%, -50%);
             -moz-transform: translate(-50%, -50%);
@@ -114,10 +114,33 @@
         clear: both;
     }
 }
+// @media (min-width: 400px) {
+//     .friendDetail_container {
+//         .ng-modal-dialog {
+//             position: absolute;
+//             width: 80% !important;
+//             height: 30% !important;
+//             /* Default */
+//             /* Center the dialog */
+//             top: 300px;
+//             left: 50% !important;
+//         }
+//     }
+// }
 @media (min-width: 767px) {
 .friendDetail_container {
     .single_book {
         margin-right: 20px;
+    }
+    .ng-modal-dialog {
+        position: absolute;
+        width: 50% ;
+        height: 30% !important;
+        /* Default */
+        /* Center the dialog */
+        top: 300px;
+        left: 50% !important;
+
     }
 }
 
