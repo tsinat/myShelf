@@ -40,7 +40,7 @@ app.controller('bookDetailCtrl', function($scope, Book, $state, detailBook, getD
     $scope.addLike = (bookId) => {
         Book.upVote(bookId, $scope.currentUser._id)
             .then(res => {
-                updateFeed();
+                $state.reload();
                 console.log('response from book like', res.data);
             })
             .catch(err => {
@@ -51,7 +51,8 @@ app.controller('bookDetailCtrl', function($scope, Book, $state, detailBook, getD
     $scope.disLike = (bookId) => {
         Book.downVote(bookId, $scope.currentUser._id)
             .then(res => {
-                updateFeed();
+                // updateFeed();
+                $state.reload();
                 console.log('response after downVote', res.data);
             })
             .catch(err => {
@@ -61,13 +62,14 @@ app.controller('bookDetailCtrl', function($scope, Book, $state, detailBook, getD
 
     $scope.addComment = (comment, bookId) => {
         console.log('comment:', comment)
+        console.log('bookid:', bookId)
         let newComment = {
             content: comment,
             by: $scope.currentUser._id
         }
         Book.addNewComment(newComment, bookId)
             .then(res => {
-                $state.reload();
+                updateFeed();
                 console.log('response after saving comment', res.data);
             })
             .catch(err => {

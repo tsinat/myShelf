@@ -96,18 +96,34 @@
     .single_book {
         float: left;
         padding: 10px;
-        box-shadow: 1px 1px 1px 1px $color-secondary;
         margin-right: 10px;
         max-width: 150px;
         margin-bottom: 20px;
-        height: 320px !important;
+        height: 360px !important;
         overflow: hidden;
-        border: 1px solid $color-secondary;
-        img {
-            width: 100%;
-            height: auto;
-            text-align: center;
-            margin: 0 auto;
+        .image-container {
+            padding:0;
+            margin:0;
+            img {
+                width: 100%;
+                height: auto;
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+        .text-container {
+            margin:0;
+            padding:0;
+            p {
+                width:100% !important;
+
+            }
+        }
+        hr {
+            background: red !important;
+            padding: 0 !important;
+            margin: 0 !important;
+
         }
     }
     .wish-list {

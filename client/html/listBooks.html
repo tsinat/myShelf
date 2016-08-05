@@ -2,16 +2,16 @@
     <div class="text-center">
         <h1 class='text-center'>Collection</h1>
         <hr>
-        <div style='cursor:pointer'  class="col-xs-6 col-lg-3" ng-repeat='book in books' ui-sref='profile.bookDetail({googleId: book.googleId, id:book._id})'>
+        <div style='cursor:pointer'  class="col-xs-6 col-sm-4 col-md-3 col-lg-3" ng-repeat='book in books' ui-sref='profile.bookDetail({googleId: book.googleId, id:book._id})'>
             <div class="book_container">
                 <div class="image-container text-center">
                     <img ng-show='!book.thumbnail' ng-src={{book.cover}} alt="" />
                     <img ng-show='!book.cover && book.thumbnail' ng-src={{book.thumbnail}} alt="" />
                 </div>
-                <p><b>Title:</b>{{book.title}}</p>
-                <p ng-hide='book.authors[0]'><b>Author:</b>{{book.author}}</p>
-                <p ng-show='book.authors[0]'><b>Author/s:</b>{{book.authors[0]}}</p>
-                <p ng-show='book.authors[1]'>{{book.authors[1]}}</p>
+                    <p><b>Title:</b>{{book.title}}</p>
+                    <p ng-hide='book.authors[0]'><b>Author:</b>{{book.author}}</p>
+                    <p ng-show='book.authors[0]'><b>Author/s:</b>{{book.authors[0]}}</p>
+                    <p ng-show='book.authors[1]'>{{book.authors[1]}}</p>
             </div>
         </div>
         <div class="text-center" ng-show='check()'>
