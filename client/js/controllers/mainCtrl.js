@@ -21,14 +21,17 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                 $state.go('home');
             });
     };
+
     $scope.showadd = false;
     $scope.showForm = () => {
         $scope.user = angular.copy($scope.currentUser);
         $scope.showadd = true;
     }
+
     $scope.hideForm = () => {
         $scope.showadd = false;
     }
+
     $scope.hide = false;
     $scope.checkWidth = (e) => {
         if ($window.innerWidth < 700) {
@@ -37,6 +40,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
             e.stopPropagation();
         }
     }
+
     $scope.editProfile = user => {
         if (user.password !== user.password2) {
             user.password = '';
@@ -52,6 +56,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                 console.log('error while updating profile', err);
             })
     }
+
     $scope.submit = () => {
         upload($scope.file, $scope.currentUser._id);
     };
@@ -74,6 +79,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                 console.log('err:', err);
             })
     }
+
     User.getAll()
         .then(res => {
             let temp = res.data;
@@ -120,6 +126,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
     $scope.showIfNotUser = (id) => {
         return !($scope.currentUser._id == id);
     };
+
     $scope.follow = (currentId, targetId) => {
         User.followUnfollow(currentId, targetId)
             .then(res => {
@@ -130,6 +137,7 @@ app.controller('mainCtrl', function($scope, Auth, User, $state, Upload, $locatio
                 console.log('error while following user', err);
             })
     };
+    
     $scope.unfollow = (currentId, targetId) => {
         User.followUnfollow(currentId, targetId)
             .then(res => {

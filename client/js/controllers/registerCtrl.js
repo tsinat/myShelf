@@ -3,7 +3,6 @@
 var app = angular.module('myApp');
 
 app.controller('registerCtrl', function($scope, Auth, $state, $location) {
-    console.log('registerCtrl');
 
     $scope.registerForm = user => {
         if (user.password !== user.password2) {
