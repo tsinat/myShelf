@@ -11,6 +11,7 @@ var app = angular
         $scope.showIfNotUser = (id) => {
             return !($scope.currentUser._id == id);
         };
+
         $scope.follow = (currentId, targetId) => {
             User.followUnfollow(currentId, targetId)
                 .then(res => {
@@ -20,6 +21,7 @@ var app = angular
                     console.log('error while following user', err);
                 })
         };
+
         $scope.unfollow = (currentId, targetId) => {
             User.followUnfollow(currentId, targetId)
                 .then(res => {
@@ -35,13 +37,13 @@ var app = angular
                 return userId == targetId;
             });
         }
+
         $scope.modalShown = false;
         $scope.toggleModal = function() {
             $scope.modalShown = !$scope.modalShown;
         };
+
         $scope.sendPrivateMessage = (targetUser, message) => {
-            console.log('will send private message', targetUser);
-            console.log('message:', message);
             User.sendMessage($scope.currentUser, targetUser, message)
                 .then(res => {
                     console.log('message after sending message');
@@ -51,6 +53,7 @@ var app = angular
                 })
         }
     });
+    
 app.directive('modalDialog', function() {
     return {
         restrict: 'E',
